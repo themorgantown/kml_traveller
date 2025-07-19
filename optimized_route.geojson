@@ -6,13 +6,823 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -74.3881559,
-          41.7142078
+          -74.52817879999999,
+          42.1567576
         ]
       },
       "properties": {
-        "name": "Hero's Hill",
+        "name": "1053 GALLERY",
         "location_index": 0,
+        "route_order": 7,
+        "marker-color": "#0080ff",
+        "marker-size": "medium",
+        "marker-symbol": "7"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.6204028,
+          42.4455622
+        ]
+      },
+      "properties": {
+        "name": "386 Taylor Road",
+        "location_index": 1,
+        "route_order": 5,
+        "marker-color": "#0080ff",
+        "marker-size": "medium",
+        "marker-symbol": "5"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9979912,
+          41.92848070000001
+        ]
+      },
+      "properties": {
+        "name": "68 PRINCE ST. GALLERY, KINGSTON, NY",
+        "location_index": 2,
+        "route_order": 109,
+        "marker-color": "#0080ff",
+        "marker-size": "medium",
+        "marker-symbol": "circle"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.7972158,
+          42.2540311
+        ]
+      },
+      "properties": {
+        "name": "ABRI MARS",
+        "location_index": 3,
+        "route_order": 53,
+        "marker-color": "#0080ff",
+        "marker-size": "medium",
+        "marker-symbol": "circle"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.2304942,
+          41.786794
+        ]
+      },
+      "properties": {
+        "name": "Accord Market",
+        "location_index": 4,
+        "route_order": 30,
+        "marker-color": "#0080ff",
+        "marker-size": "medium",
+        "marker-symbol": "circle"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.01178159999999,
+          41.4989614
+        ]
+      },
+      "properties": {
+        "name": "ADS Warehouse",
+        "location_index": 5,
+        "route_order": 143,
+        "marker-color": "#0080ff",
+        "marker-size": "medium",
+        "marker-symbol": "circle"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.54892559999999,
+          41.55888059999999
+        ]
+      },
+      "properties": {
+        "name": "Akin Free Library",
+        "location_index": 6,
+        "route_order": 124,
+        "marker-color": "#0080ff",
+        "marker-size": "medium",
+        "marker-symbol": "circle"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.2950603,
+          41.3991134
+        ]
+      },
+      "properties": {
+        "name": "All One One All (AOOA) Farm presents...\u2060",
+        "location_index": 7,
+        "route_order": 150,
+        "marker-color": "#0080ff",
+        "marker-size": "medium",
+        "marker-symbol": "circle"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.3923621,
+          41.7161059
+        ]
+      },
+      "properties": {
+        "name": "Alpana Bawa",
+        "location_index": 8,
+        "route_order": 23,
+        "marker-color": "#0080ff",
+        "marker-size": "medium",
+        "marker-symbol": "circle"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.0117808,
+          41.49948699999999
+        ]
+      },
+      "properties": {
+        "name": "Ann Street Gallery",
+        "location_index": 9,
+        "route_order": 142,
+        "marker-color": "#0080ff",
+        "marker-size": "medium",
+        "marker-symbol": "circle"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9110295,
+          42.0592832
+        ]
+      },
+      "properties": {
+        "name": "AR at Weird Specialty",
+        "location_index": 10,
+        "route_order": 116,
+        "marker-color": "#0080ff",
+        "marker-size": "medium",
+        "marker-symbol": "circle"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.1316835,
+          41.8058383
+        ]
+      },
+      "properties": {
+        "name": "Army Of Frogs Studio",
+        "location_index": 11,
+        "route_order": 88,
+        "marker-color": "#0080ff",
+        "marker-size": "medium",
+        "marker-symbol": "circle"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.15197119999999,
+          41.4573191
+        ]
+      },
+      "properties": {
+        "name": "Art at Bull Farm",
+        "location_index": 12,
+        "route_order": 149,
+        "marker-color": "#0080ff",
+        "marker-size": "medium",
+        "marker-symbol": "circle"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.3214555,
+          41.82424510000001
+        ]
+      },
+      "properties": {
+        "name": "Art Fort",
+        "location_index": 13,
+        "route_order": 19,
+        "marker-color": "#0080ff",
+        "marker-size": "medium",
+        "marker-symbol": "circle"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.6724407,
+          42.3311726
+        ]
+      },
+      "properties": {
+        "name": "Art Omi",
+        "location_index": 14,
+        "route_order": 45,
+        "marker-color": "#0080ff",
+        "marker-size": "medium",
+        "marker-symbol": "circle"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.77503209999999,
+          41.8605393
+        ]
+      },
+      "properties": {
+        "name": "Art Sales & Research",
+        "location_index": 15,
+        "route_order": 78,
+        "marker-color": "#0080ff",
+        "marker-size": "medium",
+        "marker-symbol": "circle"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.3205234,
+          41.4031699
+        ]
+      },
+      "properties": {
+        "name": "Art@GoshenGreenFarm",
+        "location_index": 16,
+        "route_order": 151,
+        "marker-color": "#0080ff",
+        "marker-size": "medium",
+        "marker-symbol": "circle"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9984351,
+          41.930674
+        ]
+      },
+      "properties": {
+        "name": "ArtPort Kingston",
+        "location_index": 17,
+        "route_order": 113,
+        "marker-color": "#0080ff",
+        "marker-size": "medium",
+        "marker-symbol": "circle"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.62095,
+          42.4065531
+        ]
+      },
+      "properties": {
+        "name": "Arts&Rec / OSMOS Station",
+        "location_index": 18,
+        "route_order": 6,
+        "marker-color": "#0080ff",
+        "marker-size": "medium",
+        "marker-symbol": "6"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.480841,
+          42.35567229999999
+        ]
+      },
+      "properties": {
+        "name": "Ashley Garrett & Brian Wood Studio",
+        "location_index": 19,
+        "route_order": 36,
+        "marker-color": "#0080ff",
+        "marker-size": "medium",
+        "marker-symbol": "circle"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.0186475,
+          41.9317384
+        ]
+      },
+      "properties": {
+        "name": "Assembly",
+        "location_index": 20,
+        "route_order": 99,
+        "marker-color": "#0080ff",
+        "marker-size": "medium",
+        "marker-symbol": "circle"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.8091438,
+          42.2604204
+        ]
+      },
+      "properties": {
+        "name": "Athens Cultural Center",
+        "location_index": 21,
+        "route_order": 54,
+        "marker-color": "#0080ff",
+        "marker-size": "medium",
+        "marker-symbol": "circle"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.0117009,
+          41.4970683
+        ]
+      },
+      "properties": {
+        "name": "Atlas Studios",
+        "location_index": 22,
+        "route_order": 144,
+        "marker-color": "#0080ff",
+        "marker-size": "medium",
+        "marker-symbol": "circle"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.93112099999999,
+          41.7051419
+        ]
+      },
+      "properties": {
+        "name": "BalletCollective",
+        "location_index": 23,
+        "route_order": 153,
+        "marker-color": "#0080ff",
+        "marker-size": "medium",
+        "marker-symbol": "circle"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.010503,
+          41.5003186
+        ]
+      },
+      "properties": {
+        "name": "Bank Art Gallery",
+        "location_index": 24,
+        "route_order": 141,
+        "marker-color": "#0080ff",
+        "marker-size": "medium",
+        "marker-symbol": "circle"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.8811394,
+          41.9921606
+        ]
+      },
+      "properties": {
+        "name": "Bard MFA",
+        "location_index": 25,
+        "route_order": 120,
+        "marker-color": "#0080ff",
+        "marker-size": "medium",
+        "marker-symbol": "circle"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9634657,
+          41.50225750000001
+        ]
+      },
+      "properties": {
+        "name": "BAU Gallery",
+        "location_index": 26,
+        "route_order": 133,
+        "marker-color": "#0080ff",
+        "marker-size": "medium",
+        "marker-symbol": "circle"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.0288329,
+          41.9376519
+        ]
+      },
+      "properties": {
+        "name": "BCMT GALLERY",
+        "location_index": 27,
+        "route_order": 92,
+        "marker-color": "#0080ff",
+        "marker-size": "medium",
+        "marker-symbol": "circle"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.8579097,
+          42.2182021
+        ]
+      },
+      "properties": {
+        "name": "Beattie Powers Place",
+        "location_index": 28,
+        "route_order": 55,
+        "marker-color": "#0080ff",
+        "marker-size": "medium",
+        "marker-symbol": "circle"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.7001915,
+          42.3941099
+        ]
+      },
+      "properties": {
+        "name": "Bill Arning Exhibitions",
+        "location_index": 29,
+        "route_order": 42,
+        "marker-color": "#0080ff",
+        "marker-size": "medium",
+        "marker-symbol": "circle"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.9798114,
+          41.9472312
+        ]
+      },
+      "properties": {
+        "name": "Bird Room",
+        "location_index": 30,
+        "route_order": 3,
+        "marker-color": "#0080ff",
+        "marker-size": "medium",
+        "marker-symbol": "3"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.3945121,
+          41.7174843
+        ]
+      },
+      "properties": {
+        "name": "Borscht Belt Museum",
+        "location_index": 31,
+        "route_order": 22,
+        "marker-color": "#0080ff",
+        "marker-size": "medium",
+        "marker-symbol": "circle"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9392886,
+          41.4122146
+        ]
+      },
+      "properties": {
+        "name": "Boscobel House and Gardens",
+        "location_index": 32,
+        "route_order": 130,
+        "marker-color": "#0080ff",
+        "marker-size": "medium",
+        "marker-symbol": "circle"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.8546667,
+          42.0895824
+        ]
+      },
+      "properties": {
+        "name": "B\u00fcro Koray Duman Architects",
+        "location_index": 33,
+        "route_order": 69,
+        "marker-color": "#0080ff",
+        "marker-size": "medium",
+        "marker-symbol": "circle"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.6419864,
+          41.2390955
+        ]
+      },
+      "properties": {
+        "name": "Caramoor Center for Music and the Arts",
+        "location_index": 34,
+        "route_order": 158,
+        "marker-color": "#0080ff",
+        "marker-size": "medium",
+        "marker-symbol": "circle"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.7836054,
+          42.2476121
+        ]
+      },
+      "properties": {
+        "name": "Carrie Haddad Gallery",
+        "location_index": 35,
+        "route_order": 49,
+        "marker-color": "#0080ff",
+        "marker-size": "medium",
+        "marker-symbol": "circle"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.8281277,
+          41.9009069
+        ]
+      },
+      "properties": {
+        "name": "Catskill Art Space",
+        "location_index": 36,
+        "route_order": 10,
+        "marker-color": "#0080ff",
+        "marker-size": "medium",
+        "marker-symbol": "circle"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.2174881,
+          42.2137913
+        ]
+      },
+      "properties": {
+        "name": "Catskill Mountain Shakespeare",
+        "location_index": 37,
+        "route_order": 33,
+        "marker-color": "#0080ff",
+        "marker-size": "medium",
+        "marker-symbol": "circle"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.6672698,
+          41.9150888
+        ]
+      },
+      "properties": {
+        "name": "Charlotte Woolf at Foxtrot Farm & Flowers",
+        "location_index": 38,
+        "route_order": 123,
+        "marker-color": "#0080ff",
+        "marker-size": "medium",
+        "marker-symbol": "circle"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.6814773,
+          41.988129
+        ]
+      },
+      "properties": {
+        "name": "ChaShaMa North (ChaNorth)",
+        "location_index": 39,
+        "route_order": 122,
+        "marker-color": "#0080ff",
+        "marker-size": "medium",
+        "marker-symbol": "circle"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.5765796,
+          42.377569
+        ]
+      },
+      "properties": {
+        "name": "Chatham Soccer at the Paper Mill",
+        "location_index": 40,
+        "route_order": 37,
+        "marker-color": "#0080ff",
+        "marker-size": "medium",
+        "marker-symbol": "circle"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.1203302,
+          41.8404456
+        ]
+      },
+      "properties": {
+        "name": "Color Wheels",
+        "location_index": 41,
+        "route_order": 91,
+        "marker-color": "#0080ff",
+        "marker-size": "medium",
+        "marker-symbol": "circle"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.0337778,
+          41.4354405
+        ]
+      },
+      "properties": {
+        "name": "Cornwall Chamber Public Art Program",
+        "location_index": 42,
+        "route_order": 146,
+        "marker-color": "#0080ff",
+        "marker-size": "medium",
+        "marker-symbol": "circle"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.00040320000001,
+          41.9290325
+        ]
+      },
+      "properties": {
+        "name": "CPW",
+        "location_index": 43,
+        "route_order": 110,
+        "marker-color": "#0080ff",
+        "marker-size": "medium",
+        "marker-symbol": "circle"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.994584,
+          41.927782
+        ]
+      },
+      "properties": {
+        "name": "CUT TEETH",
+        "location_index": 44,
+        "route_order": 108,
+        "marker-color": "#0080ff",
+        "marker-size": "medium",
+        "marker-symbol": "circle"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.061129,
+          41.6084142
+        ]
+      },
+      "properties": {
+        "name": "Delaware Valley Arts Alliance (DVAA)",
+        "location_index": 45,
         "route_order": 1,
         "marker-color": "#ff0000",
         "marker-size": "large",
@@ -24,13 +834,1417 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -74.0010323,
-          41.9285322
+          -73.9832325,
+          41.5007796
         ]
       },
       "properties": {
-        "name": "Wild Minded",
-        "location_index": 1,
+        "name": "Dia Art Foundation",
+        "location_index": 46,
+        "route_order": 136,
+        "marker-color": "#0080ff",
+        "marker-size": "medium",
+        "marker-symbol": "circle"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.976064,
+          41.5082041
+        ]
+      },
+      "properties": {
+        "name": "Distortion Society",
+        "location_index": 47,
+        "route_order": 135,
+        "marker-color": "#0080ff",
+        "marker-size": "medium",
+        "marker-symbol": "circle"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.09569139999999,
+          42.3725828
+        ]
+      },
+      "properties": {
+        "name": "Ed. Varie",
+        "location_index": 48,
+        "route_order": 34,
+        "marker-color": "#0080ff",
+        "marker-size": "medium",
+        "marker-symbol": "circle"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9180009,
+          41.0932588
+        ]
+      },
+      "properties": {
+        "name": "Edward Hopper House Museum & Study Center",
+        "location_index": 49,
+        "route_order": 163,
+        "marker-color": "#0080ff",
+        "marker-size": "medium",
+        "marker-symbol": "circle"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.8663943,
+          42.2180466
+        ]
+      },
+      "properties": {
+        "name": "Foreland",
+        "location_index": 50,
+        "route_order": 56,
+        "marker-color": "#0080ff",
+        "marker-size": "medium",
+        "marker-symbol": "circle"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.919275,
+          41.1141837
+        ]
+      },
+      "properties": {
+        "name": "Friends of River Hook",
+        "location_index": 51,
+        "route_order": 165,
+        "marker-color": "#0080ff",
+        "marker-size": "medium",
+        "marker-symbol": "circle"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.8678644,
+          42.2220911
+        ]
+      },
+      "properties": {
+        "name": "Gallery 495",
+        "location_index": 52,
+        "route_order": 58,
+        "marker-color": "#0080ff",
+        "marker-size": "medium",
+        "marker-symbol": "circle"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9895671,
+          41.2075935
+        ]
+      },
+      "properties": {
+        "name": "GARNER Arts Center",
+        "location_index": 53,
+        "route_order": 166,
+        "marker-color": "#0080ff",
+        "marker-size": "medium",
+        "marker-symbol": "circle"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.94730330000002,
+          41.3826284
+        ]
+      },
+      "properties": {
+        "name": "Garrison Art Center",
+        "location_index": 54,
+        "route_order": 129,
+        "marker-color": "#0080ff",
+        "marker-size": "medium",
+        "marker-symbol": "circle"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.8728603,
+          42.1191783
+        ]
+      },
+      "properties": {
+        "name": "Gatherwild Ranch",
+        "location_index": 55,
+        "route_order": 68,
+        "marker-color": "#0080ff",
+        "marker-size": "medium",
+        "marker-symbol": "circle"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.0887123,
+          41.78056489999999
+        ]
+      },
+      "properties": {
+        "name": "Glasshouse Project",
+        "location_index": 56,
+        "route_order": 81,
+        "marker-color": "#0080ff",
+        "marker-size": "medium",
+        "marker-symbol": "circle"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.77353769999999,
+          42.2471312
+        ]
+      },
+      "properties": {
+        "name": "Good Black Art",
+        "location_index": 57,
+        "route_order": 48,
+        "marker-color": "#0080ff",
+        "marker-size": "medium",
+        "marker-symbol": "circle"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.38619299999999,
+          41.6664189
+        ]
+      },
+      "properties": {
+        "name": "Good Naked Gallery",
+        "location_index": 58,
+        "route_order": 152,
+        "marker-color": "#0080ff",
+        "marker-size": "medium",
+        "marker-symbol": "circle"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.7849186,
+          42.1895563
+        ]
+      },
+      "properties": {
+        "name": "Hawk + Hive",
+        "location_index": 59,
+        "route_order": 9,
+        "marker-color": "#0080ff",
+        "marker-size": "medium",
+        "marker-symbol": "9"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.0264452,
+          41.9359729
+        ]
+      },
+      "properties": {
+        "name": "Headstone Gallery",
+        "location_index": 60,
+        "route_order": 93,
+        "marker-color": "#0080ff",
+        "marker-size": "medium",
+        "marker-symbol": "circle"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.3878213,
+          41.7145275
+        ]
+      },
+      "properties": {
+        "name": "Hero's Hill",
+        "location_index": 61,
+        "route_order": 24,
+        "marker-color": "#0080ff",
+        "marker-size": "medium",
+        "marker-symbol": "circle"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9141649,
+          42.0202878
+        ]
+      },
+      "properties": {
+        "name": "Hessel Museum of Art, Bard College",
+        "location_index": 62,
+        "route_order": 118,
+        "marker-color": "#0080ff",
+        "marker-size": "medium",
+        "marker-symbol": "circle"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9648893,
+          41.5017642
+        ]
+      },
+      "properties": {
+        "name": "Howland Cultural Center",
+        "location_index": 63,
+        "route_order": 132,
+        "marker-color": "#0080ff",
+        "marker-size": "medium",
+        "marker-symbol": "circle"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.7904384,
+          42.2520825
+        ]
+      },
+      "properties": {
+        "name": "Hudson Hall",
+        "location_index": 64,
+        "route_order": 52,
+        "marker-color": "#0080ff",
+        "marker-size": "medium",
+        "marker-symbol": "circle"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.270519,
+          41.7786069
+        ]
+      },
+      "properties": {
+        "name": "Hudson Hangar x Gray Nivas Collective at Whimsy Flowers Farm",
+        "location_index": 65,
+        "route_order": 28,
+        "marker-color": "#0080ff",
+        "marker-size": "medium",
+        "marker-symbol": "circle"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.2098922,
+          41.8039689
+        ]
+      },
+      "properties": {
+        "name": "Hudson Valley Seed Company",
+        "location_index": 66,
+        "route_order": 89,
+        "marker-color": "#0080ff",
+        "marker-size": "medium",
+        "marker-symbol": "circle"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.2274703,
+          41.8001525
+        ]
+      },
+      "properties": {
+        "name": "INNESS",
+        "location_index": 67,
+        "route_order": 31,
+        "marker-color": "#0080ff",
+        "marker-size": "medium",
+        "marker-symbol": "circle"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.7396868,
+          42.1489899
+        ]
+      },
+      "properties": {
+        "name": "Interlude Artist Residency",
+        "location_index": 68,
+        "route_order": 71,
+        "marker-color": "#0080ff",
+        "marker-size": "medium",
+        "marker-symbol": "circle"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.7898293,
+          42.2542575
+        ]
+      },
+      "properties": {
+        "name": "INTERVENTIONS 5",
+        "location_index": 69,
+        "route_order": 51,
+        "marker-color": "#0080ff",
+        "marker-size": "medium",
+        "marker-symbol": "circle"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.7012785,
+          42.3929542
+        ]
+      },
+      "properties": {
+        "name": "Jack Shainman Gallery / The School",
+        "location_index": 70,
+        "route_order": 43,
+        "marker-color": "#0080ff",
+        "marker-size": "medium",
+        "marker-symbol": "circle"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.5430094,
+          42.31567039999999
+        ]
+      },
+      "properties": {
+        "name": "Jack Shear Collection at the Ellsworth Kelly Studio",
+        "location_index": 71,
+        "route_order": 74,
+        "marker-color": "#0080ff",
+        "marker-size": "medium",
+        "marker-symbol": "circle"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.0195485,
+          41.934178
+        ]
+      },
+      "properties": {
+        "name": "Jasper Richmus",
+        "location_index": 72,
+        "route_order": 100,
+        "marker-color": "#0080ff",
+        "marker-size": "medium",
+        "marker-symbol": "circle"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9160631,
+          42.0586657
+        ]
+      },
+      "properties": {
+        "name": "Kaatsbaan Cultural Park",
+        "location_index": 73,
+        "route_order": 117,
+        "marker-color": "#0080ff",
+        "marker-size": "medium",
+        "marker-symbol": "circle"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.0847606,
+          41.753962
+        ]
+      },
+      "properties": {
+        "name": "Kayrock Editions",
+        "location_index": 74,
+        "route_order": 82,
+        "marker-color": "#0080ff",
+        "marker-size": "medium",
+        "marker-symbol": "circle"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9569489,
+          41.2524097
+        ]
+      },
+      "properties": {
+        "name": "KinoSaito",
+        "location_index": 75,
+        "route_order": 167,
+        "marker-color": "#0080ff",
+        "marker-size": "medium",
+        "marker-symbol": "circle"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.96515099999999,
+          41.5060072
+        ]
+      },
+      "properties": {
+        "name": "Kube Art Center - Ethan Cohen Gallery",
+        "location_index": 76,
+        "route_order": 134,
+        "marker-color": "#0080ff",
+        "marker-size": "medium",
+        "marker-symbol": "circle"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.0186475,
+          41.9317384
+        ]
+      },
+      "properties": {
+        "name": "UAW Headquarters",
+        "location_index": 77,
+        "route_order": 98,
+        "marker-color": "#0080ff",
+        "marker-size": "medium",
+        "marker-symbol": "circle"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.8592044,
+          41.4790967
+        ]
+      },
+      "properties": {
+        "name": "Ligenza Moore Gallery, Cold Spring, NY",
+        "location_index": 78,
+        "route_order": 125,
+        "marker-color": "#0080ff",
+        "marker-size": "medium",
+        "marker-symbol": "circle"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.8653147,
+          42.2193379
+        ]
+      },
+      "properties": {
+        "name": "Loose Parts",
+        "location_index": 79,
+        "route_order": 60,
+        "marker-color": "#0080ff",
+        "marker-size": "medium",
+        "marker-symbol": "circle"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.2259801,
+          41.7825953
+        ]
+      },
+      "properties": {
+        "name": "Lynn & Lorraine",
+        "location_index": 80,
+        "route_order": 29,
+        "marker-color": "#0080ff",
+        "marker-size": "medium",
+        "marker-symbol": "circle"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9142791,
+          41.42906989999999
+        ]
+      },
+      "properties": {
+        "name": "Magazzino Italian Art Museum",
+        "location_index": 81,
+        "route_order": 126,
+        "marker-color": "#0080ff",
+        "marker-size": "medium",
+        "marker-symbol": "circle"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.248172,
+          41.8287744
+        ]
+      },
+      "properties": {
+        "name": "Magenta art projects",
+        "location_index": 82,
+        "route_order": 32,
+        "marker-color": "#0080ff",
+        "marker-size": "medium",
+        "marker-symbol": "circle"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.6484147,
+          42.1486808
+        ]
+      },
+      "properties": {
+        "name": "Make Your Own Art",
+        "location_index": 83,
+        "route_order": 8,
+        "marker-color": "#0080ff",
+        "marker-size": "medium",
+        "marker-symbol": "8"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9535935,
+          41.3489443
+        ]
+      },
+      "properties": {
+        "name": "Manitoga / The Russel Wright Design Center",
+        "location_index": 84,
+        "route_order": 128,
+        "marker-color": "#0080ff",
+        "marker-size": "medium",
+        "marker-symbol": "circle"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.8732283,
+          42.2182324
+        ]
+      },
+      "properties": {
+        "name": "Marie's at the Catskill Octagon House",
+        "location_index": 85,
+        "route_order": 57,
+        "marker-color": "#0080ff",
+        "marker-size": "medium",
+        "marker-symbol": "circle"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.8812785,
+          42.13270809999999
+        ]
+      },
+      "properties": {
+        "name": "MARY MACGILL",
+        "location_index": 86,
+        "route_order": 66,
+        "marker-color": "#0080ff",
+        "marker-size": "medium",
+        "marker-symbol": "circle"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.3933047,
+          41.7165159
+        ]
+      },
+      "properties": {
+        "name": "Material Projects Space",
+        "location_index": 87,
+        "route_order": 21,
+        "marker-color": "#0080ff",
+        "marker-size": "medium",
+        "marker-symbol": "circle"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.69227149999999,
+          41.7855849
+        ]
+      },
+      "properties": {
+        "name": "Millbrook Arts & Open Studios",
+        "location_index": 88,
+        "route_order": 77,
+        "marker-color": "#0080ff",
+        "marker-size": "medium",
+        "marker-symbol": "circle"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.88148489999999,
+          42.1240969
+        ]
+      },
+      "properties": {
+        "name": "Mother-in-law\u2019s hosting Field Projects and Elijah Wheat Showroom",
+        "location_index": 89,
+        "route_order": 67,
+        "marker-color": "#0080ff",
+        "marker-size": "medium",
+        "marker-symbol": "circle"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.0279094,
+          41.8075847
+        ]
+      },
+      "properties": {
+        "name": "N/A Project Space",
+        "location_index": 90,
+        "route_order": 80,
+        "marker-color": "#0080ff",
+        "marker-size": "medium",
+        "marker-symbol": "circle"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9942676,
+          41.9275356
+        ]
+      },
+      "properties": {
+        "name": "NAMAI STUDIO",
+        "location_index": 91,
+        "route_order": 107,
+        "marker-color": "#0080ff",
+        "marker-size": "medium",
+        "marker-symbol": "circle"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.0186475,
+          41.9317384
+        ]
+      },
+      "properties": {
+        "name": "Noise for Now",
+        "location_index": 92,
+        "route_order": 97,
+        "marker-color": "#0080ff",
+        "marker-size": "medium",
+        "marker-symbol": "circle"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.140102,
+          41.85251239999999
+        ]
+      },
+      "properties": {
+        "name": "North River Electric House",
+        "location_index": 93,
+        "route_order": 90,
+        "marker-color": "#0080ff",
+        "marker-size": "medium",
+        "marker-symbol": "circle"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.8293185,
+          42.2171577
+        ]
+      },
+      "properties": {
+        "name": "OLANA",
+        "location_index": 94,
+        "route_order": 64,
+        "marker-color": "#0080ff",
+        "marker-size": "medium",
+        "marker-symbol": "circle"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.00086809999999,
+          41.9111807
+        ]
+      },
+      "properties": {
+        "name": "One Mile Gallery",
+        "location_index": 95,
+        "route_order": 103,
+        "marker-color": "#0080ff",
+        "marker-size": "medium",
+        "marker-symbol": "circle"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.8615873,
+          41.0784027
+        ]
+      },
+      "properties": {
+        "name": "Peep Space",
+        "location_index": 96,
+        "route_order": 161,
+        "marker-color": "#0080ff",
+        "marker-size": "medium",
+        "marker-symbol": "circle"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9180284,
+          41.0934771
+        ]
+      },
+      "properties": {
+        "name": "Perry Lawson Fine Art",
+        "location_index": 97,
+        "route_order": 164,
+        "marker-color": "#0080ff",
+        "marker-size": "medium",
+        "marker-symbol": "circle"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.018046,
+          41.932303
+        ]
+      },
+      "properties": {
+        "name": "Pinkwater Gallery at Kingston Social",
+        "location_index": 98,
+        "route_order": 101,
+        "marker-color": "#0080ff",
+        "marker-size": "medium",
+        "marker-symbol": "circle"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.784486,
+          42.249609
+        ]
+      },
+      "properties": {
+        "name": "Private Public Gallery",
+        "location_index": 99,
+        "route_order": 50,
+        "marker-color": "#0080ff",
+        "marker-size": "medium",
+        "marker-symbol": "circle"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.6062713,
+          42.374989
+        ]
+      },
+      "properties": {
+        "name": "PS21: Center for Contemporary Performance",
+        "location_index": 100,
+        "route_order": 39,
+        "marker-color": "#0080ff",
+        "marker-size": "medium",
+        "marker-symbol": "circle"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.91793299999999,
+          41.7015379
+        ]
+      },
+      "properties": {
+        "name": "PUF Community Printmaking Studio at the Poughkeepsie Underwear Factory and The Poughkeepsie Trolley Barn",
+        "location_index": 101,
+        "route_order": 154,
+        "marker-color": "#0080ff",
+        "marker-size": "medium",
+        "marker-symbol": "circle"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.30388959999999,
+          41.8304641
+        ]
+      },
+      "properties": {
+        "name": "RAVENWOOD",
+        "location_index": 102,
+        "route_order": 18,
+        "marker-color": "#0080ff",
+        "marker-size": "medium",
+        "marker-symbol": "circle"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.2662014,
+          42.0174417
+        ]
+      },
+      "properties": {
+        "name": "River Valley Arts Collective",
+        "location_index": 103,
+        "route_order": 16,
+        "marker-color": "#0080ff",
+        "marker-size": "medium",
+        "marker-symbol": "circle"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.083635,
+          41.7477537
+        ]
+      },
+      "properties": {
+        "name": "Roost Arts Hudson Valley",
+        "location_index": 104,
+        "route_order": 83,
+        "marker-color": "#0080ff",
+        "marker-size": "medium",
+        "marker-symbol": "circle"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.866586,
+          42.2215135
+        ]
+      },
+      "properties": {
+        "name": "RUTHANN",
+        "location_index": 105,
+        "route_order": 59,
+        "marker-color": "#0080ff",
+        "marker-size": "medium",
+        "marker-symbol": "circle"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.6744301,
+          42.1401105
+        ]
+      },
+      "properties": {
+        "name": "Say Collie",
+        "location_index": 106,
+        "route_order": 72,
+        "marker-color": "#0080ff",
+        "marker-size": "medium",
+        "marker-symbol": "circle"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.698253,
+          42.3948641
+        ]
+      },
+      "properties": {
+        "name": "SEPTEMBER",
+        "location_index": 107,
+        "route_order": 41,
+        "marker-color": "#0080ff",
+        "marker-size": "medium",
+        "marker-symbol": "circle"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.000518,
+          42.2834937
+        ]
+      },
+      "properties": {
+        "name": "Shadow Walls",
+        "location_index": 108,
+        "route_order": 35,
+        "marker-color": "#0080ff",
+        "marker-size": "medium",
+        "marker-symbol": "circle"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9773177,
+          41.50886209999999
+        ]
+      },
+      "properties": {
+        "name": "Shigeko Kubota Video Art Foundation",
+        "location_index": 109,
+        "route_order": 139,
+        "marker-color": "#0080ff",
+        "marker-size": "medium",
+        "marker-symbol": "circle"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.8971114,
+          42.1343499
+        ]
+      },
+      "properties": {
+        "name": "Sky High Farm",
+        "location_index": 110,
+        "route_order": 65,
+        "marker-color": "#0080ff",
+        "marker-size": "medium",
+        "marker-symbol": "circle"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.87206619999999,
+          41.088083
+        ]
+      },
+      "properties": {
+        "name": "Sleepy Hollow Mermaid Festival",
+        "location_index": 111,
+        "route_order": 160,
+        "marker-color": "#0080ff",
+        "marker-size": "medium",
+        "marker-symbol": "circle"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9848624,
+          41.50583
+        ]
+      },
+      "properties": {
+        "name": "Soon is Now",
+        "location_index": 112,
+        "route_order": 138,
+        "marker-color": "#0080ff",
+        "marker-size": "medium",
+        "marker-symbol": "circle"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.5102148,
+          42.3197394
+        ]
+      },
+      "properties": {
+        "name": "Spencertown Academy Arts Center",
+        "location_index": 113,
+        "route_order": 75,
+        "marker-color": "#0080ff",
+        "marker-size": "medium",
+        "marker-symbol": "circle"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.39353799999999,
+          41.718083
+        ]
+      },
+      "properties": {
+        "name": "Sqrypt Atelier: Inn Way Art-Coop",
+        "location_index": 114,
+        "route_order": 20,
+        "marker-color": "#0080ff",
+        "marker-size": "medium",
+        "marker-symbol": "circle"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.39391100000002,
+          41.7164104
+        ]
+      },
+      "properties": {
+        "name": "steven harvey fine art projects",
+        "location_index": 115,
+        "route_order": 25,
+        "marker-color": "#0080ff",
+        "marker-size": "medium",
+        "marker-symbol": "circle"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.2743581,
+          41.7533839
+        ]
+      },
+      "properties": {
+        "name": "Stony Kill Studios",
+        "location_index": 116,
+        "route_order": 27,
+        "marker-color": "#0080ff",
+        "marker-size": "medium",
+        "marker-symbol": "circle"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.0592952,
+          41.4249587
+        ]
+      },
+      "properties": {
+        "name": "Storm King Art Center",
+        "location_index": 117,
+        "route_order": 148,
+        "marker-color": "#0080ff",
+        "marker-size": "medium",
+        "marker-symbol": "circle"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.011307,
+          41.494446
+        ]
+      },
+      "properties": {
+        "name": "STRONGROOM",
+        "location_index": 118,
+        "route_order": 145,
+        "marker-color": "#0080ff",
+        "marker-size": "medium",
+        "marker-symbol": "circle"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9563944,
+          41.4192908
+        ]
+      },
+      "properties": {
+        "name": "Studio Tashtego",
+        "location_index": 119,
+        "route_order": 131,
+        "marker-color": "#0080ff",
+        "marker-size": "medium",
+        "marker-symbol": "circle"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.226997,
+          41.996151
+        ]
+      },
+      "properties": {
+        "name": "Stuhl Werner Studio",
+        "location_index": 120,
+        "route_order": 17,
+        "marker-color": "#0080ff",
+        "marker-size": "medium",
+        "marker-symbol": "circle"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.8038649,
+          42.1615585
+        ]
+      },
+      "properties": {
+        "name": "Sunfair",
+        "location_index": 121,
+        "route_order": 70,
+        "marker-color": "#0080ff",
+        "marker-size": "medium",
+        "marker-symbol": "circle"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.8322467,
+          41.9432295
+        ]
+      },
+      "properties": {
+        "name": "T' Space | Steven Myron Holl Foundation",
+        "location_index": 122,
+        "route_order": 121,
+        "marker-color": "#0080ff",
+        "marker-size": "medium",
+        "marker-symbol": "circle"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.32178929999999,
+          41.7668468
+        ]
+      },
+      "properties": {
+        "name": "The Barn on Berme",
+        "location_index": 123,
+        "route_order": 26,
+        "marker-color": "#0080ff",
+        "marker-size": "medium",
+        "marker-symbol": "circle"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.0583465,
+          41.7667347
+        ]
+      },
+      "properties": {
+        "name": "The Callicoon Depot",
+        "location_index": 124,
         "route_order": 2,
         "marker-color": "#0080ff",
         "marker-size": "medium",
@@ -40,23 +2254,797 @@
     {
       "type": "Feature",
       "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.6936235,
+          42.2390501
+        ]
+      },
+      "properties": {
+        "name": "THE CAMPUS",
+        "location_index": 125,
+        "route_order": 73,
+        "marker-color": "#0080ff",
+        "marker-size": "medium",
+        "marker-symbol": "circle"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.7718946,
+          41.2923411
+        ]
+      },
+      "properties": {
+        "name": "The Capa Space",
+        "location_index": 126,
+        "route_order": 168,
+        "marker-color": "#0080ff",
+        "marker-size": "medium",
+        "marker-symbol": "circle"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.85491429999999,
+          42.3229325
+        ]
+      },
+      "properties": {
+        "name": "The Catskills Barn",
+        "location_index": 127,
+        "route_order": 4,
+        "marker-color": "#0080ff",
+        "marker-size": "medium",
+        "marker-symbol": "4"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.92956620000001,
+          41.84925519999999
+        ]
+      },
+      "properties": {
+        "name": "The Church in Staatsburg",
+        "location_index": 128,
+        "route_order": 79,
+        "marker-color": "#0080ff",
+        "marker-size": "medium",
+        "marker-symbol": "circle"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.0892786,
+          41.7463066
+        ]
+      },
+      "properties": {
+        "name": "The Cronin Gallery",
+        "location_index": 129,
+        "route_order": 87,
+        "marker-color": "#0080ff",
+        "marker-size": "medium",
+        "marker-symbol": "circle"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9871291,
+          41.916709
+        ]
+      },
+      "properties": {
+        "name": "The Department of Things",
+        "location_index": 130,
+        "route_order": 104,
+        "marker-color": "#0080ff",
+        "marker-size": "medium",
+        "marker-symbol": "circle"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.0807244,
+          41.7416184
+        ]
+      },
+      "properties": {
+        "name": "The Dorsky Museum",
+        "location_index": 131,
+        "route_order": 85,
+        "marker-color": "#0080ff",
+        "marker-size": "medium",
+        "marker-symbol": "circle"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.895719,
+          41.6868243
+        ]
+      },
+      "properties": {
+        "name": "The Frances Lehman Loeb Art Center",
+        "location_index": 132,
+        "route_order": 156,
+        "marker-color": "#0080ff",
+        "marker-size": "medium",
+        "marker-symbol": "circle"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.8654932,
+          42.2200304
+        ]
+      },
+      "properties": {
+        "name": "The Gallery at Citiot",
+        "location_index": 133,
+        "route_order": 61,
+        "marker-color": "#0080ff",
+        "marker-size": "medium",
+        "marker-symbol": "circle"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.6133531,
+          41.2631556
+        ]
+      },
+      "properties": {
+        "name": "The Gallery at Yellow Studio",
+        "location_index": 134,
+        "route_order": 157,
+        "marker-color": "#0080ff",
+        "marker-size": "medium",
+        "marker-symbol": "circle"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.6004123,
+          42.3679794
+        ]
+      },
+      "properties": {
+        "name": "The Green Lodge",
+        "location_index": 135,
+        "route_order": 38,
+        "marker-color": "#0080ff",
+        "marker-size": "medium",
+        "marker-symbol": "circle"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.76869719999999,
+          42.3108739
+        ]
+      },
+      "properties": {
+        "name": "The Hudson Eye",
+        "location_index": 136,
+        "route_order": 47,
+        "marker-color": "#0080ff",
+        "marker-size": "medium",
+        "marker-symbol": "circle"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9984419,
+          41.9348439
+        ]
+      },
+      "properties": {
+        "name": "The Lace Mill",
+        "location_index": 137,
+        "route_order": 114,
+        "marker-color": "#0080ff",
+        "marker-size": "medium",
+        "marker-symbol": "circle"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.08018109999999,
+          41.9726764
+        ]
+      },
+      "properties": {
+        "name": "The Lockwood Gallery",
+        "location_index": 138,
+        "route_order": 95,
+        "marker-color": "#0080ff",
+        "marker-size": "medium",
+        "marker-symbol": "circle"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9857859,
+          41.9200909
+        ]
+      },
+      "properties": {
+        "name": "The Lovebugs",
+        "location_index": 139,
+        "route_order": 106,
+        "marker-color": "#0080ff",
+        "marker-size": "medium",
+        "marker-symbol": "circle"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.6903912,
+          42.32010940000001
+        ]
+      },
+      "properties": {
+        "name": "The Macedonia Institute",
+        "location_index": 140,
+        "route_order": 46,
+        "marker-color": "#0080ff",
+        "marker-size": "medium",
+        "marker-symbol": "circle"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.8377292,
+          41.0930895
+        ]
+      },
+      "properties": {
+        "name": "The Pocantico Center of the Rockefeller Brothers Fund",
+        "location_index": 141,
+        "route_order": 159,
+        "marker-color": "#0080ff",
+        "marker-size": "medium",
+        "marker-symbol": "circle"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.97751459999999,
+          41.9052855
+        ]
+      },
+      "properties": {
+        "name": "The Post Office",
+        "location_index": 142,
+        "route_order": 105,
+        "marker-color": "#0080ff",
+        "marker-size": "medium",
+        "marker-symbol": "circle"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.2073625,
+          42.0767674
+        ]
+      },
+      "properties": {
+        "name": "The Source",
+        "location_index": 143,
+        "route_order": 15,
+        "marker-color": "#0080ff",
+        "marker-size": "medium",
+        "marker-symbol": "circle"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.86152450000002,
+          42.2257624
+        ]
+      },
+      "properties": {
+        "name": "Thomas Cole National Historic Site",
+        "location_index": 144,
+        "route_order": 62,
+        "marker-color": "#0080ff",
+        "marker-size": "medium",
+        "marker-symbol": "circle"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.0095441,
+          41.9280824
+        ]
+      },
+      "properties": {
+        "name": "TRANSART",
+        "location_index": 145,
+        "route_order": 102,
+        "marker-color": "#0080ff",
+        "marker-size": "medium",
+        "marker-symbol": "circle"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.1865416,
+          42.0321797
+        ]
+      },
+      "properties": {
+        "name": "Tree At My Window Collective",
+        "location_index": 146,
+        "route_order": 14,
+        "marker-color": "#0080ff",
+        "marker-size": "medium",
+        "marker-symbol": "circle"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.0058975,
+          41.5119515
+        ]
+      },
+      "properties": {
+        "name": "UAP in collaboration with Elijah Wheat Showroom",
+        "location_index": 147,
+        "route_order": 140,
+        "marker-color": "#0080ff",
+        "marker-size": "medium",
+        "marker-symbol": "circle"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.06037359999999,
+          41.739968
+        ]
+      },
+      "properties": {
+        "name": "Unison Arts",
+        "location_index": 148,
+        "route_order": 84,
+        "marker-color": "#0080ff",
+        "marker-size": "medium",
+        "marker-symbol": "circle"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.0186475,
+          41.9317384
+        ]
+      },
+      "properties": {
+        "name": "upbringing",
+        "location_index": 149,
+        "route_order": 96,
+        "marker-color": "#0080ff",
+        "marker-size": "medium",
+        "marker-symbol": "circle"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.0203441,
+          41.9352864
+        ]
+      },
+      "properties": {
+        "name": "UTOPIA",
+        "location_index": 150,
+        "route_order": 94,
+        "marker-color": "#0080ff",
+        "marker-size": "medium",
+        "marker-symbol": "circle"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.8766658,
+          41.9955737
+        ]
+      },
+      "properties": {
+        "name": "VERSE Work/Shop",
+        "location_index": 151,
+        "route_order": 119,
+        "marker-color": "#0080ff",
+        "marker-size": "medium",
+        "marker-symbol": "circle"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.5605922,
+          41.8058335
+        ]
+      },
+      "properties": {
+        "name": "Wassaic Project",
+        "location_index": 152,
+        "route_order": 76,
+        "marker-color": "#0080ff",
+        "marker-size": "medium",
+        "marker-symbol": "circle"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9110295,
+          42.0592832
+        ]
+      },
+      "properties": {
+        "name": "Weird Specialty Studio",
+        "location_index": 153,
+        "route_order": 115,
+        "marker-color": "#0080ff",
+        "marker-size": "medium",
+        "marker-symbol": "circle"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.00103229999999,
+          41.9285322
+        ]
+      },
+      "properties": {
+        "name": "Wild Minded",
+        "location_index": 154,
+        "route_order": 112,
+        "marker-color": "#0080ff",
+        "marker-size": "medium",
+        "marker-symbol": "circle"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.11942359999999,
+          42.0408035
+        ]
+      },
+      "properties": {
+        "name": "Woodstock Artists Association & Museum",
+        "location_index": 155,
+        "route_order": 12,
+        "marker-color": "#0080ff",
+        "marker-size": "medium",
+        "marker-symbol": "circle"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.1195686,
+          42.0406894
+        ]
+      },
+      "properties": {
+        "name": "Woodstock byrdcliffe guild",
+        "location_index": 156,
+        "route_order": 13,
+        "marker-color": "#0080ff",
+        "marker-size": "medium",
+        "marker-symbol": "circle"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.09404359999999,
+          42.0403575
+        ]
+      },
+      "properties": {
+        "name": "Woodstock School of Art",
+        "location_index": 157,
+        "route_order": 11,
+        "marker-color": "#0080ff",
+        "marker-size": "medium",
+        "marker-symbol": "circle"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.6724407,
+          42.3311726
+        ]
+      },
+      "properties": {
+        "name": "Art Omi",
+        "location_index": 158,
+        "route_order": 44,
+        "marker-color": "#0080ff",
+        "marker-size": "medium",
+        "marker-symbol": "circle"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.00040320000001,
+          41.9290325
+        ]
+      },
+      "properties": {
+        "name": "CPW",
+        "location_index": 159,
+        "route_order": 111,
+        "marker-color": "#0080ff",
+        "marker-size": "medium",
+        "marker-symbol": "circle"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9832325,
+          41.5007796
+        ]
+      },
+      "properties": {
+        "name": "Dia Art Foundation",
+        "location_index": 160,
+        "route_order": 137,
+        "marker-color": "#0080ff",
+        "marker-size": "medium",
+        "marker-symbol": "circle"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9180009,
+          41.0932588
+        ]
+      },
+      "properties": {
+        "name": "Edward Hopper House Museum & Study Center",
+        "location_index": 161,
+        "route_order": 162,
+        "marker-color": "#0080ff",
+        "marker-size": "medium",
+        "marker-symbol": "circle"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9142791,
+          41.42906989999999
+        ]
+      },
+      "properties": {
+        "name": "Magazzino Italian Art Museum",
+        "location_index": 162,
+        "route_order": 127,
+        "marker-color": "#0080ff",
+        "marker-size": "medium",
+        "marker-symbol": "circle"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.6062713,
+          42.374989
+        ]
+      },
+      "properties": {
+        "name": "PS21: Center for Contemporary Performance",
+        "location_index": 163,
+        "route_order": 40,
+        "marker-color": "#0080ff",
+        "marker-size": "medium",
+        "marker-symbol": "circle"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.0592952,
+          41.4249587
+        ]
+      },
+      "properties": {
+        "name": "Storm King Art Center",
+        "location_index": 164,
+        "route_order": 147,
+        "marker-color": "#0080ff",
+        "marker-size": "medium",
+        "marker-symbol": "circle"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.0807244,
+          41.7416184
+        ]
+      },
+      "properties": {
+        "name": "The Dorsky Museum",
+        "location_index": 165,
+        "route_order": 86,
+        "marker-color": "#0080ff",
+        "marker-size": "medium",
+        "marker-symbol": "circle"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.895719,
+          41.6868243
+        ]
+      },
+      "properties": {
+        "name": "The Frances Lehman Loeb Art Center",
+        "location_index": 166,
+        "route_order": 155,
+        "marker-color": "#0080ff",
+        "marker-size": "medium",
+        "marker-symbol": "circle"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.86152450000002,
+          42.2257624
+        ]
+      },
+      "properties": {
+        "name": "Thomas Cole National Historic Site",
+        "location_index": 167,
+        "route_order": 63,
+        "marker-color": "#0080ff",
+        "marker-size": "medium",
+        "marker-symbol": "circle"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
         "type": "LineString",
         "coordinates": [
           [
-            -74.3881559,
-            41.7142078
+            -75.061129,
+            41.6084142
           ],
           [
-            -74.0010323,
-            41.9285322
+            -75.0583465,
+            41.7667347
           ]
         ]
       },
       "properties": {
-        "from": "Hero's Hill",
-        "to": "Wild Minded",
-        "from_index": 0,
-        "to_index": 1,
+        "from": "Delaware Valley Arts Alliance (DVAA)",
+        "to": "The Callicoon Depot",
+        "from_index": 45,
+        "to_index": 124,
         "segment": 1,
         "stroke": "#ff0000",
         "stroke-width": 3,
@@ -69,21 +3057,4337 @@
         "type": "LineString",
         "coordinates": [
           [
-            -74.0010323,
+            -75.0583465,
+            41.7667347
+          ],
+          [
+            -74.9798114,
+            41.9472312
+          ]
+        ]
+      },
+      "properties": {
+        "from": "The Callicoon Depot",
+        "to": "Bird Room",
+        "from_index": 124,
+        "to_index": 30,
+        "segment": 2,
+        "stroke": "#ff0000",
+        "stroke-width": 3,
+        "stroke-opacity": 0.8
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -74.9798114,
+            41.9472312
+          ],
+          [
+            -74.85491429999999,
+            42.3229325
+          ]
+        ]
+      },
+      "properties": {
+        "from": "Bird Room",
+        "to": "The Catskills Barn",
+        "from_index": 30,
+        "to_index": 127,
+        "segment": 3,
+        "stroke": "#ff0000",
+        "stroke-width": 3,
+        "stroke-opacity": 0.8
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -74.85491429999999,
+            42.3229325
+          ],
+          [
+            -74.6204028,
+            42.4455622
+          ]
+        ]
+      },
+      "properties": {
+        "from": "The Catskills Barn",
+        "to": "386 Taylor Road",
+        "from_index": 127,
+        "to_index": 1,
+        "segment": 4,
+        "stroke": "#ff0000",
+        "stroke-width": 3,
+        "stroke-opacity": 0.8
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -74.6204028,
+            42.4455622
+          ],
+          [
+            -74.62095,
+            42.4065531
+          ]
+        ]
+      },
+      "properties": {
+        "from": "386 Taylor Road",
+        "to": "Arts&Rec / OSMOS Station",
+        "from_index": 1,
+        "to_index": 18,
+        "segment": 5,
+        "stroke": "#ff0000",
+        "stroke-width": 3,
+        "stroke-opacity": 0.8
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -74.62095,
+            42.4065531
+          ],
+          [
+            -74.52817879999999,
+            42.1567576
+          ]
+        ]
+      },
+      "properties": {
+        "from": "Arts&Rec / OSMOS Station",
+        "to": "1053 GALLERY",
+        "from_index": 18,
+        "to_index": 0,
+        "segment": 6,
+        "stroke": "#ff0000",
+        "stroke-width": 3,
+        "stroke-opacity": 0.8
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -74.52817879999999,
+            42.1567576
+          ],
+          [
+            -74.6484147,
+            42.1486808
+          ]
+        ]
+      },
+      "properties": {
+        "from": "1053 GALLERY",
+        "to": "Make Your Own Art",
+        "from_index": 0,
+        "to_index": 83,
+        "segment": 7,
+        "stroke": "#ff0000",
+        "stroke-width": 3,
+        "stroke-opacity": 0.8
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -74.6484147,
+            42.1486808
+          ],
+          [
+            -74.7849186,
+            42.1895563
+          ]
+        ]
+      },
+      "properties": {
+        "from": "Make Your Own Art",
+        "to": "Hawk + Hive",
+        "from_index": 83,
+        "to_index": 59,
+        "segment": 8,
+        "stroke": "#ff0000",
+        "stroke-width": 3,
+        "stroke-opacity": 0.8
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -74.7849186,
+            42.1895563
+          ],
+          [
+            -74.8281277,
+            41.9009069
+          ]
+        ]
+      },
+      "properties": {
+        "from": "Hawk + Hive",
+        "to": "Catskill Art Space",
+        "from_index": 59,
+        "to_index": 36,
+        "segment": 9,
+        "stroke": "#ff0000",
+        "stroke-width": 3,
+        "stroke-opacity": 0.8
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -74.8281277,
+            41.9009069
+          ],
+          [
+            -74.09404359999999,
+            42.0403575
+          ]
+        ]
+      },
+      "properties": {
+        "from": "Catskill Art Space",
+        "to": "Woodstock School of Art",
+        "from_index": 36,
+        "to_index": 157,
+        "segment": 10,
+        "stroke": "#ff0000",
+        "stroke-width": 3,
+        "stroke-opacity": 0.8
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -74.09404359999999,
+            42.0403575
+          ],
+          [
+            -74.11942359999999,
+            42.0408035
+          ]
+        ]
+      },
+      "properties": {
+        "from": "Woodstock School of Art",
+        "to": "Woodstock Artists Association & Museum",
+        "from_index": 157,
+        "to_index": 155,
+        "segment": 11,
+        "stroke": "#ff0000",
+        "stroke-width": 3,
+        "stroke-opacity": 0.8
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -74.11942359999999,
+            42.0408035
+          ],
+          [
+            -74.1195686,
+            42.0406894
+          ]
+        ]
+      },
+      "properties": {
+        "from": "Woodstock Artists Association & Museum",
+        "to": "Woodstock byrdcliffe guild",
+        "from_index": 155,
+        "to_index": 156,
+        "segment": 12,
+        "stroke": "#ff0000",
+        "stroke-width": 3,
+        "stroke-opacity": 0.8
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -74.1195686,
+            42.0406894
+          ],
+          [
+            -74.1865416,
+            42.0321797
+          ]
+        ]
+      },
+      "properties": {
+        "from": "Woodstock byrdcliffe guild",
+        "to": "Tree At My Window Collective",
+        "from_index": 156,
+        "to_index": 146,
+        "segment": 13,
+        "stroke": "#ff0000",
+        "stroke-width": 3,
+        "stroke-opacity": 0.8
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -74.1865416,
+            42.0321797
+          ],
+          [
+            -74.2073625,
+            42.0767674
+          ]
+        ]
+      },
+      "properties": {
+        "from": "Tree At My Window Collective",
+        "to": "The Source",
+        "from_index": 146,
+        "to_index": 143,
+        "segment": 14,
+        "stroke": "#ff0000",
+        "stroke-width": 3,
+        "stroke-opacity": 0.8
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -74.2073625,
+            42.0767674
+          ],
+          [
+            -74.2662014,
+            42.0174417
+          ]
+        ]
+      },
+      "properties": {
+        "from": "The Source",
+        "to": "River Valley Arts Collective",
+        "from_index": 143,
+        "to_index": 103,
+        "segment": 15,
+        "stroke": "#ff0000",
+        "stroke-width": 3,
+        "stroke-opacity": 0.8
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -74.2662014,
+            42.0174417
+          ],
+          [
+            -74.226997,
+            41.996151
+          ]
+        ]
+      },
+      "properties": {
+        "from": "River Valley Arts Collective",
+        "to": "Stuhl Werner Studio",
+        "from_index": 103,
+        "to_index": 120,
+        "segment": 16,
+        "stroke": "#ff0000",
+        "stroke-width": 3,
+        "stroke-opacity": 0.8
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -74.226997,
+            41.996151
+          ],
+          [
+            -74.30388959999999,
+            41.8304641
+          ]
+        ]
+      },
+      "properties": {
+        "from": "Stuhl Werner Studio",
+        "to": "RAVENWOOD",
+        "from_index": 120,
+        "to_index": 102,
+        "segment": 17,
+        "stroke": "#ff0000",
+        "stroke-width": 3,
+        "stroke-opacity": 0.8
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -74.30388959999999,
+            41.8304641
+          ],
+          [
+            -74.3214555,
+            41.82424510000001
+          ]
+        ]
+      },
+      "properties": {
+        "from": "RAVENWOOD",
+        "to": "Art Fort",
+        "from_index": 102,
+        "to_index": 13,
+        "segment": 18,
+        "stroke": "#ff0000",
+        "stroke-width": 3,
+        "stroke-opacity": 0.8
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -74.3214555,
+            41.82424510000001
+          ],
+          [
+            -74.39353799999999,
+            41.718083
+          ]
+        ]
+      },
+      "properties": {
+        "from": "Art Fort",
+        "to": "Sqrypt Atelier: Inn Way Art-Coop",
+        "from_index": 13,
+        "to_index": 114,
+        "segment": 19,
+        "stroke": "#ff0000",
+        "stroke-width": 3,
+        "stroke-opacity": 0.8
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -74.39353799999999,
+            41.718083
+          ],
+          [
+            -74.3933047,
+            41.7165159
+          ]
+        ]
+      },
+      "properties": {
+        "from": "Sqrypt Atelier: Inn Way Art-Coop",
+        "to": "Material Projects Space",
+        "from_index": 114,
+        "to_index": 87,
+        "segment": 20,
+        "stroke": "#ff0000",
+        "stroke-width": 3,
+        "stroke-opacity": 0.8
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -74.3933047,
+            41.7165159
+          ],
+          [
+            -74.3945121,
+            41.7174843
+          ]
+        ]
+      },
+      "properties": {
+        "from": "Material Projects Space",
+        "to": "Borscht Belt Museum",
+        "from_index": 87,
+        "to_index": 31,
+        "segment": 21,
+        "stroke": "#ff0000",
+        "stroke-width": 3,
+        "stroke-opacity": 0.8
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -74.3945121,
+            41.7174843
+          ],
+          [
+            -74.3923621,
+            41.7161059
+          ]
+        ]
+      },
+      "properties": {
+        "from": "Borscht Belt Museum",
+        "to": "Alpana Bawa",
+        "from_index": 31,
+        "to_index": 8,
+        "segment": 22,
+        "stroke": "#ff0000",
+        "stroke-width": 3,
+        "stroke-opacity": 0.8
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -74.3923621,
+            41.7161059
+          ],
+          [
+            -74.3878213,
+            41.7145275
+          ]
+        ]
+      },
+      "properties": {
+        "from": "Alpana Bawa",
+        "to": "Hero's Hill",
+        "from_index": 8,
+        "to_index": 61,
+        "segment": 23,
+        "stroke": "#ff0000",
+        "stroke-width": 3,
+        "stroke-opacity": 0.8
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -74.3878213,
+            41.7145275
+          ],
+          [
+            -74.39391100000002,
+            41.7164104
+          ]
+        ]
+      },
+      "properties": {
+        "from": "Hero's Hill",
+        "to": "steven harvey fine art projects",
+        "from_index": 61,
+        "to_index": 115,
+        "segment": 24,
+        "stroke": "#ff0000",
+        "stroke-width": 3,
+        "stroke-opacity": 0.8
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -74.39391100000002,
+            41.7164104
+          ],
+          [
+            -74.32178929999999,
+            41.7668468
+          ]
+        ]
+      },
+      "properties": {
+        "from": "steven harvey fine art projects",
+        "to": "The Barn on Berme",
+        "from_index": 115,
+        "to_index": 123,
+        "segment": 25,
+        "stroke": "#ff0000",
+        "stroke-width": 3,
+        "stroke-opacity": 0.8
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -74.32178929999999,
+            41.7668468
+          ],
+          [
+            -74.2743581,
+            41.7533839
+          ]
+        ]
+      },
+      "properties": {
+        "from": "The Barn on Berme",
+        "to": "Stony Kill Studios",
+        "from_index": 123,
+        "to_index": 116,
+        "segment": 26,
+        "stroke": "#ff0000",
+        "stroke-width": 3,
+        "stroke-opacity": 0.8
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -74.2743581,
+            41.7533839
+          ],
+          [
+            -74.270519,
+            41.7786069
+          ]
+        ]
+      },
+      "properties": {
+        "from": "Stony Kill Studios",
+        "to": "Hudson Hangar x Gray Nivas Collective at Whimsy Flowers Farm",
+        "from_index": 116,
+        "to_index": 65,
+        "segment": 27,
+        "stroke": "#ff0000",
+        "stroke-width": 3,
+        "stroke-opacity": 0.8
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -74.270519,
+            41.7786069
+          ],
+          [
+            -74.2259801,
+            41.7825953
+          ]
+        ]
+      },
+      "properties": {
+        "from": "Hudson Hangar x Gray Nivas Collective at Whimsy Flowers Farm",
+        "to": "Lynn & Lorraine",
+        "from_index": 65,
+        "to_index": 80,
+        "segment": 28,
+        "stroke": "#ff0000",
+        "stroke-width": 3,
+        "stroke-opacity": 0.8
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -74.2259801,
+            41.7825953
+          ],
+          [
+            -74.2304942,
+            41.786794
+          ]
+        ]
+      },
+      "properties": {
+        "from": "Lynn & Lorraine",
+        "to": "Accord Market",
+        "from_index": 80,
+        "to_index": 4,
+        "segment": 29,
+        "stroke": "#ff0000",
+        "stroke-width": 3,
+        "stroke-opacity": 0.8
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -74.2304942,
+            41.786794
+          ],
+          [
+            -74.2274703,
+            41.8001525
+          ]
+        ]
+      },
+      "properties": {
+        "from": "Accord Market",
+        "to": "INNESS",
+        "from_index": 4,
+        "to_index": 67,
+        "segment": 30,
+        "stroke": "#ff0000",
+        "stroke-width": 3,
+        "stroke-opacity": 0.8
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -74.2274703,
+            41.8001525
+          ],
+          [
+            -74.248172,
+            41.8287744
+          ]
+        ]
+      },
+      "properties": {
+        "from": "INNESS",
+        "to": "Magenta art projects",
+        "from_index": 67,
+        "to_index": 82,
+        "segment": 31,
+        "stroke": "#ff0000",
+        "stroke-width": 3,
+        "stroke-opacity": 0.8
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -74.248172,
+            41.8287744
+          ],
+          [
+            -74.2174881,
+            42.2137913
+          ]
+        ]
+      },
+      "properties": {
+        "from": "Magenta art projects",
+        "to": "Catskill Mountain Shakespeare",
+        "from_index": 82,
+        "to_index": 37,
+        "segment": 32,
+        "stroke": "#ff0000",
+        "stroke-width": 3,
+        "stroke-opacity": 0.8
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -74.2174881,
+            42.2137913
+          ],
+          [
+            -74.09569139999999,
+            42.3725828
+          ]
+        ]
+      },
+      "properties": {
+        "from": "Catskill Mountain Shakespeare",
+        "to": "Ed. Varie",
+        "from_index": 37,
+        "to_index": 48,
+        "segment": 33,
+        "stroke": "#ff0000",
+        "stroke-width": 3,
+        "stroke-opacity": 0.8
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -74.09569139999999,
+            42.3725828
+          ],
+          [
+            -74.000518,
+            42.2834937
+          ]
+        ]
+      },
+      "properties": {
+        "from": "Ed. Varie",
+        "to": "Shadow Walls",
+        "from_index": 48,
+        "to_index": 108,
+        "segment": 34,
+        "stroke": "#ff0000",
+        "stroke-width": 3,
+        "stroke-opacity": 0.8
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -74.000518,
+            42.2834937
+          ],
+          [
+            -73.480841,
+            42.35567229999999
+          ]
+        ]
+      },
+      "properties": {
+        "from": "Shadow Walls",
+        "to": "Ashley Garrett & Brian Wood Studio",
+        "from_index": 108,
+        "to_index": 19,
+        "segment": 35,
+        "stroke": "#ff0000",
+        "stroke-width": 3,
+        "stroke-opacity": 0.8
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -73.480841,
+            42.35567229999999
+          ],
+          [
+            -73.5765796,
+            42.377569
+          ]
+        ]
+      },
+      "properties": {
+        "from": "Ashley Garrett & Brian Wood Studio",
+        "to": "Chatham Soccer at the Paper Mill",
+        "from_index": 19,
+        "to_index": 40,
+        "segment": 36,
+        "stroke": "#ff0000",
+        "stroke-width": 3,
+        "stroke-opacity": 0.8
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -73.5765796,
+            42.377569
+          ],
+          [
+            -73.6004123,
+            42.3679794
+          ]
+        ]
+      },
+      "properties": {
+        "from": "Chatham Soccer at the Paper Mill",
+        "to": "The Green Lodge",
+        "from_index": 40,
+        "to_index": 135,
+        "segment": 37,
+        "stroke": "#ff0000",
+        "stroke-width": 3,
+        "stroke-opacity": 0.8
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -73.6004123,
+            42.3679794
+          ],
+          [
+            -73.6062713,
+            42.374989
+          ]
+        ]
+      },
+      "properties": {
+        "from": "The Green Lodge",
+        "to": "PS21: Center for Contemporary Performance",
+        "from_index": 135,
+        "to_index": 100,
+        "segment": 38,
+        "stroke": "#ff0000",
+        "stroke-width": 3,
+        "stroke-opacity": 0.8
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -73.6062713,
+            42.374989
+          ],
+          [
+            -73.6062713,
+            42.374989
+          ]
+        ]
+      },
+      "properties": {
+        "from": "PS21: Center for Contemporary Performance",
+        "to": "PS21: Center for Contemporary Performance",
+        "from_index": 100,
+        "to_index": 163,
+        "segment": 39,
+        "stroke": "#ff0000",
+        "stroke-width": 3,
+        "stroke-opacity": 0.8
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -73.6062713,
+            42.374989
+          ],
+          [
+            -73.698253,
+            42.3948641
+          ]
+        ]
+      },
+      "properties": {
+        "from": "PS21: Center for Contemporary Performance",
+        "to": "SEPTEMBER",
+        "from_index": 163,
+        "to_index": 107,
+        "segment": 40,
+        "stroke": "#ff0000",
+        "stroke-width": 3,
+        "stroke-opacity": 0.8
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -73.698253,
+            42.3948641
+          ],
+          [
+            -73.7001915,
+            42.3941099
+          ]
+        ]
+      },
+      "properties": {
+        "from": "SEPTEMBER",
+        "to": "Bill Arning Exhibitions",
+        "from_index": 107,
+        "to_index": 29,
+        "segment": 41,
+        "stroke": "#ff0000",
+        "stroke-width": 3,
+        "stroke-opacity": 0.8
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -73.7001915,
+            42.3941099
+          ],
+          [
+            -73.7012785,
+            42.3929542
+          ]
+        ]
+      },
+      "properties": {
+        "from": "Bill Arning Exhibitions",
+        "to": "Jack Shainman Gallery / The School",
+        "from_index": 29,
+        "to_index": 70,
+        "segment": 42,
+        "stroke": "#ff0000",
+        "stroke-width": 3,
+        "stroke-opacity": 0.8
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -73.7012785,
+            42.3929542
+          ],
+          [
+            -73.6724407,
+            42.3311726
+          ]
+        ]
+      },
+      "properties": {
+        "from": "Jack Shainman Gallery / The School",
+        "to": "Art Omi",
+        "from_index": 70,
+        "to_index": 158,
+        "segment": 43,
+        "stroke": "#ff0000",
+        "stroke-width": 3,
+        "stroke-opacity": 0.8
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -73.6724407,
+            42.3311726
+          ],
+          [
+            -73.6724407,
+            42.3311726
+          ]
+        ]
+      },
+      "properties": {
+        "from": "Art Omi",
+        "to": "Art Omi",
+        "from_index": 158,
+        "to_index": 14,
+        "segment": 44,
+        "stroke": "#ff0000",
+        "stroke-width": 3,
+        "stroke-opacity": 0.8
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -73.6724407,
+            42.3311726
+          ],
+          [
+            -73.6903912,
+            42.32010940000001
+          ]
+        ]
+      },
+      "properties": {
+        "from": "Art Omi",
+        "to": "The Macedonia Institute",
+        "from_index": 14,
+        "to_index": 140,
+        "segment": 45,
+        "stroke": "#ff0000",
+        "stroke-width": 3,
+        "stroke-opacity": 0.8
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -73.6903912,
+            42.32010940000001
+          ],
+          [
+            -73.76869719999999,
+            42.3108739
+          ]
+        ]
+      },
+      "properties": {
+        "from": "The Macedonia Institute",
+        "to": "The Hudson Eye",
+        "from_index": 140,
+        "to_index": 136,
+        "segment": 46,
+        "stroke": "#ff0000",
+        "stroke-width": 3,
+        "stroke-opacity": 0.8
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -73.76869719999999,
+            42.3108739
+          ],
+          [
+            -73.77353769999999,
+            42.2471312
+          ]
+        ]
+      },
+      "properties": {
+        "from": "The Hudson Eye",
+        "to": "Good Black Art",
+        "from_index": 136,
+        "to_index": 57,
+        "segment": 47,
+        "stroke": "#ff0000",
+        "stroke-width": 3,
+        "stroke-opacity": 0.8
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -73.77353769999999,
+            42.2471312
+          ],
+          [
+            -73.7836054,
+            42.2476121
+          ]
+        ]
+      },
+      "properties": {
+        "from": "Good Black Art",
+        "to": "Carrie Haddad Gallery",
+        "from_index": 57,
+        "to_index": 35,
+        "segment": 48,
+        "stroke": "#ff0000",
+        "stroke-width": 3,
+        "stroke-opacity": 0.8
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -73.7836054,
+            42.2476121
+          ],
+          [
+            -73.784486,
+            42.249609
+          ]
+        ]
+      },
+      "properties": {
+        "from": "Carrie Haddad Gallery",
+        "to": "Private Public Gallery",
+        "from_index": 35,
+        "to_index": 99,
+        "segment": 49,
+        "stroke": "#ff0000",
+        "stroke-width": 3,
+        "stroke-opacity": 0.8
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -73.784486,
+            42.249609
+          ],
+          [
+            -73.7898293,
+            42.2542575
+          ]
+        ]
+      },
+      "properties": {
+        "from": "Private Public Gallery",
+        "to": "INTERVENTIONS 5",
+        "from_index": 99,
+        "to_index": 69,
+        "segment": 50,
+        "stroke": "#ff0000",
+        "stroke-width": 3,
+        "stroke-opacity": 0.8
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -73.7898293,
+            42.2542575
+          ],
+          [
+            -73.7904384,
+            42.2520825
+          ]
+        ]
+      },
+      "properties": {
+        "from": "INTERVENTIONS 5",
+        "to": "Hudson Hall",
+        "from_index": 69,
+        "to_index": 64,
+        "segment": 51,
+        "stroke": "#ff0000",
+        "stroke-width": 3,
+        "stroke-opacity": 0.8
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -73.7904384,
+            42.2520825
+          ],
+          [
+            -73.7972158,
+            42.2540311
+          ]
+        ]
+      },
+      "properties": {
+        "from": "Hudson Hall",
+        "to": "ABRI MARS",
+        "from_index": 64,
+        "to_index": 3,
+        "segment": 52,
+        "stroke": "#ff0000",
+        "stroke-width": 3,
+        "stroke-opacity": 0.8
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -73.7972158,
+            42.2540311
+          ],
+          [
+            -73.8091438,
+            42.2604204
+          ]
+        ]
+      },
+      "properties": {
+        "from": "ABRI MARS",
+        "to": "Athens Cultural Center",
+        "from_index": 3,
+        "to_index": 21,
+        "segment": 53,
+        "stroke": "#ff0000",
+        "stroke-width": 3,
+        "stroke-opacity": 0.8
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -73.8091438,
+            42.2604204
+          ],
+          [
+            -73.8579097,
+            42.2182021
+          ]
+        ]
+      },
+      "properties": {
+        "from": "Athens Cultural Center",
+        "to": "Beattie Powers Place",
+        "from_index": 21,
+        "to_index": 28,
+        "segment": 54,
+        "stroke": "#ff0000",
+        "stroke-width": 3,
+        "stroke-opacity": 0.8
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -73.8579097,
+            42.2182021
+          ],
+          [
+            -73.8663943,
+            42.2180466
+          ]
+        ]
+      },
+      "properties": {
+        "from": "Beattie Powers Place",
+        "to": "Foreland",
+        "from_index": 28,
+        "to_index": 50,
+        "segment": 55,
+        "stroke": "#ff0000",
+        "stroke-width": 3,
+        "stroke-opacity": 0.8
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -73.8663943,
+            42.2180466
+          ],
+          [
+            -73.8732283,
+            42.2182324
+          ]
+        ]
+      },
+      "properties": {
+        "from": "Foreland",
+        "to": "Marie's at the Catskill Octagon House",
+        "from_index": 50,
+        "to_index": 85,
+        "segment": 56,
+        "stroke": "#ff0000",
+        "stroke-width": 3,
+        "stroke-opacity": 0.8
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -73.8732283,
+            42.2182324
+          ],
+          [
+            -73.8678644,
+            42.2220911
+          ]
+        ]
+      },
+      "properties": {
+        "from": "Marie's at the Catskill Octagon House",
+        "to": "Gallery 495",
+        "from_index": 85,
+        "to_index": 52,
+        "segment": 57,
+        "stroke": "#ff0000",
+        "stroke-width": 3,
+        "stroke-opacity": 0.8
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -73.8678644,
+            42.2220911
+          ],
+          [
+            -73.866586,
+            42.2215135
+          ]
+        ]
+      },
+      "properties": {
+        "from": "Gallery 495",
+        "to": "RUTHANN",
+        "from_index": 52,
+        "to_index": 105,
+        "segment": 58,
+        "stroke": "#ff0000",
+        "stroke-width": 3,
+        "stroke-opacity": 0.8
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -73.866586,
+            42.2215135
+          ],
+          [
+            -73.8653147,
+            42.2193379
+          ]
+        ]
+      },
+      "properties": {
+        "from": "RUTHANN",
+        "to": "Loose Parts",
+        "from_index": 105,
+        "to_index": 79,
+        "segment": 59,
+        "stroke": "#ff0000",
+        "stroke-width": 3,
+        "stroke-opacity": 0.8
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -73.8653147,
+            42.2193379
+          ],
+          [
+            -73.8654932,
+            42.2200304
+          ]
+        ]
+      },
+      "properties": {
+        "from": "Loose Parts",
+        "to": "The Gallery at Citiot",
+        "from_index": 79,
+        "to_index": 133,
+        "segment": 60,
+        "stroke": "#ff0000",
+        "stroke-width": 3,
+        "stroke-opacity": 0.8
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -73.8654932,
+            42.2200304
+          ],
+          [
+            -73.86152450000002,
+            42.2257624
+          ]
+        ]
+      },
+      "properties": {
+        "from": "The Gallery at Citiot",
+        "to": "Thomas Cole National Historic Site",
+        "from_index": 133,
+        "to_index": 144,
+        "segment": 61,
+        "stroke": "#ff0000",
+        "stroke-width": 3,
+        "stroke-opacity": 0.8
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -73.86152450000002,
+            42.2257624
+          ],
+          [
+            -73.86152450000002,
+            42.2257624
+          ]
+        ]
+      },
+      "properties": {
+        "from": "Thomas Cole National Historic Site",
+        "to": "Thomas Cole National Historic Site",
+        "from_index": 144,
+        "to_index": 167,
+        "segment": 62,
+        "stroke": "#ff0000",
+        "stroke-width": 3,
+        "stroke-opacity": 0.8
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -73.86152450000002,
+            42.2257624
+          ],
+          [
+            -73.8293185,
+            42.2171577
+          ]
+        ]
+      },
+      "properties": {
+        "from": "Thomas Cole National Historic Site",
+        "to": "OLANA",
+        "from_index": 167,
+        "to_index": 94,
+        "segment": 63,
+        "stroke": "#ff0000",
+        "stroke-width": 3,
+        "stroke-opacity": 0.8
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -73.8293185,
+            42.2171577
+          ],
+          [
+            -73.8971114,
+            42.1343499
+          ]
+        ]
+      },
+      "properties": {
+        "from": "OLANA",
+        "to": "Sky High Farm",
+        "from_index": 94,
+        "to_index": 110,
+        "segment": 64,
+        "stroke": "#ff0000",
+        "stroke-width": 3,
+        "stroke-opacity": 0.8
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -73.8971114,
+            42.1343499
+          ],
+          [
+            -73.8812785,
+            42.13270809999999
+          ]
+        ]
+      },
+      "properties": {
+        "from": "Sky High Farm",
+        "to": "MARY MACGILL",
+        "from_index": 110,
+        "to_index": 86,
+        "segment": 65,
+        "stroke": "#ff0000",
+        "stroke-width": 3,
+        "stroke-opacity": 0.8
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -73.8812785,
+            42.13270809999999
+          ],
+          [
+            -73.88148489999999,
+            42.1240969
+          ]
+        ]
+      },
+      "properties": {
+        "from": "MARY MACGILL",
+        "to": "Mother-in-law\u2019s hosting Field Projects and Elijah Wheat Showroom",
+        "from_index": 86,
+        "to_index": 89,
+        "segment": 66,
+        "stroke": "#ff0000",
+        "stroke-width": 3,
+        "stroke-opacity": 0.8
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -73.88148489999999,
+            42.1240969
+          ],
+          [
+            -73.8728603,
+            42.1191783
+          ]
+        ]
+      },
+      "properties": {
+        "from": "Mother-in-law\u2019s hosting Field Projects and Elijah Wheat Showroom",
+        "to": "Gatherwild Ranch",
+        "from_index": 89,
+        "to_index": 55,
+        "segment": 67,
+        "stroke": "#ff0000",
+        "stroke-width": 3,
+        "stroke-opacity": 0.8
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -73.8728603,
+            42.1191783
+          ],
+          [
+            -73.8546667,
+            42.0895824
+          ]
+        ]
+      },
+      "properties": {
+        "from": "Gatherwild Ranch",
+        "to": "B\u00fcro Koray Duman Architects",
+        "from_index": 55,
+        "to_index": 33,
+        "segment": 68,
+        "stroke": "#ff0000",
+        "stroke-width": 3,
+        "stroke-opacity": 0.8
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -73.8546667,
+            42.0895824
+          ],
+          [
+            -73.8038649,
+            42.1615585
+          ]
+        ]
+      },
+      "properties": {
+        "from": "B\u00fcro Koray Duman Architects",
+        "to": "Sunfair",
+        "from_index": 33,
+        "to_index": 121,
+        "segment": 69,
+        "stroke": "#ff0000",
+        "stroke-width": 3,
+        "stroke-opacity": 0.8
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -73.8038649,
+            42.1615585
+          ],
+          [
+            -73.7396868,
+            42.1489899
+          ]
+        ]
+      },
+      "properties": {
+        "from": "Sunfair",
+        "to": "Interlude Artist Residency",
+        "from_index": 121,
+        "to_index": 68,
+        "segment": 70,
+        "stroke": "#ff0000",
+        "stroke-width": 3,
+        "stroke-opacity": 0.8
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -73.7396868,
+            42.1489899
+          ],
+          [
+            -73.6744301,
+            42.1401105
+          ]
+        ]
+      },
+      "properties": {
+        "from": "Interlude Artist Residency",
+        "to": "Say Collie",
+        "from_index": 68,
+        "to_index": 106,
+        "segment": 71,
+        "stroke": "#ff0000",
+        "stroke-width": 3,
+        "stroke-opacity": 0.8
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -73.6744301,
+            42.1401105
+          ],
+          [
+            -73.6936235,
+            42.2390501
+          ]
+        ]
+      },
+      "properties": {
+        "from": "Say Collie",
+        "to": "THE CAMPUS",
+        "from_index": 106,
+        "to_index": 125,
+        "segment": 72,
+        "stroke": "#ff0000",
+        "stroke-width": 3,
+        "stroke-opacity": 0.8
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -73.6936235,
+            42.2390501
+          ],
+          [
+            -73.5430094,
+            42.31567039999999
+          ]
+        ]
+      },
+      "properties": {
+        "from": "THE CAMPUS",
+        "to": "Jack Shear Collection at the Ellsworth Kelly Studio",
+        "from_index": 125,
+        "to_index": 71,
+        "segment": 73,
+        "stroke": "#ff0000",
+        "stroke-width": 3,
+        "stroke-opacity": 0.8
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -73.5430094,
+            42.31567039999999
+          ],
+          [
+            -73.5102148,
+            42.3197394
+          ]
+        ]
+      },
+      "properties": {
+        "from": "Jack Shear Collection at the Ellsworth Kelly Studio",
+        "to": "Spencertown Academy Arts Center",
+        "from_index": 71,
+        "to_index": 113,
+        "segment": 74,
+        "stroke": "#ff0000",
+        "stroke-width": 3,
+        "stroke-opacity": 0.8
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -73.5102148,
+            42.3197394
+          ],
+          [
+            -73.5605922,
+            41.8058335
+          ]
+        ]
+      },
+      "properties": {
+        "from": "Spencertown Academy Arts Center",
+        "to": "Wassaic Project",
+        "from_index": 113,
+        "to_index": 152,
+        "segment": 75,
+        "stroke": "#ff0000",
+        "stroke-width": 3,
+        "stroke-opacity": 0.8
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -73.5605922,
+            41.8058335
+          ],
+          [
+            -73.69227149999999,
+            41.7855849
+          ]
+        ]
+      },
+      "properties": {
+        "from": "Wassaic Project",
+        "to": "Millbrook Arts & Open Studios",
+        "from_index": 152,
+        "to_index": 88,
+        "segment": 76,
+        "stroke": "#ff0000",
+        "stroke-width": 3,
+        "stroke-opacity": 0.8
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -73.69227149999999,
+            41.7855849
+          ],
+          [
+            -73.77503209999999,
+            41.8605393
+          ]
+        ]
+      },
+      "properties": {
+        "from": "Millbrook Arts & Open Studios",
+        "to": "Art Sales & Research",
+        "from_index": 88,
+        "to_index": 15,
+        "segment": 77,
+        "stroke": "#ff0000",
+        "stroke-width": 3,
+        "stroke-opacity": 0.8
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -73.77503209999999,
+            41.8605393
+          ],
+          [
+            -73.92956620000001,
+            41.84925519999999
+          ]
+        ]
+      },
+      "properties": {
+        "from": "Art Sales & Research",
+        "to": "The Church in Staatsburg",
+        "from_index": 15,
+        "to_index": 128,
+        "segment": 78,
+        "stroke": "#ff0000",
+        "stroke-width": 3,
+        "stroke-opacity": 0.8
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -73.92956620000001,
+            41.84925519999999
+          ],
+          [
+            -74.0279094,
+            41.8075847
+          ]
+        ]
+      },
+      "properties": {
+        "from": "The Church in Staatsburg",
+        "to": "N/A Project Space",
+        "from_index": 128,
+        "to_index": 90,
+        "segment": 79,
+        "stroke": "#ff0000",
+        "stroke-width": 3,
+        "stroke-opacity": 0.8
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -74.0279094,
+            41.8075847
+          ],
+          [
+            -74.0887123,
+            41.78056489999999
+          ]
+        ]
+      },
+      "properties": {
+        "from": "N/A Project Space",
+        "to": "Glasshouse Project",
+        "from_index": 90,
+        "to_index": 56,
+        "segment": 80,
+        "stroke": "#ff0000",
+        "stroke-width": 3,
+        "stroke-opacity": 0.8
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -74.0887123,
+            41.78056489999999
+          ],
+          [
+            -74.0847606,
+            41.753962
+          ]
+        ]
+      },
+      "properties": {
+        "from": "Glasshouse Project",
+        "to": "Kayrock Editions",
+        "from_index": 56,
+        "to_index": 74,
+        "segment": 81,
+        "stroke": "#ff0000",
+        "stroke-width": 3,
+        "stroke-opacity": 0.8
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -74.0847606,
+            41.753962
+          ],
+          [
+            -74.083635,
+            41.7477537
+          ]
+        ]
+      },
+      "properties": {
+        "from": "Kayrock Editions",
+        "to": "Roost Arts Hudson Valley",
+        "from_index": 74,
+        "to_index": 104,
+        "segment": 82,
+        "stroke": "#ff0000",
+        "stroke-width": 3,
+        "stroke-opacity": 0.8
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -74.083635,
+            41.7477537
+          ],
+          [
+            -74.06037359999999,
+            41.739968
+          ]
+        ]
+      },
+      "properties": {
+        "from": "Roost Arts Hudson Valley",
+        "to": "Unison Arts",
+        "from_index": 104,
+        "to_index": 148,
+        "segment": 83,
+        "stroke": "#ff0000",
+        "stroke-width": 3,
+        "stroke-opacity": 0.8
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -74.06037359999999,
+            41.739968
+          ],
+          [
+            -74.0807244,
+            41.7416184
+          ]
+        ]
+      },
+      "properties": {
+        "from": "Unison Arts",
+        "to": "The Dorsky Museum",
+        "from_index": 148,
+        "to_index": 131,
+        "segment": 84,
+        "stroke": "#ff0000",
+        "stroke-width": 3,
+        "stroke-opacity": 0.8
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -74.0807244,
+            41.7416184
+          ],
+          [
+            -74.0807244,
+            41.7416184
+          ]
+        ]
+      },
+      "properties": {
+        "from": "The Dorsky Museum",
+        "to": "The Dorsky Museum",
+        "from_index": 131,
+        "to_index": 165,
+        "segment": 85,
+        "stroke": "#ff0000",
+        "stroke-width": 3,
+        "stroke-opacity": 0.8
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -74.0807244,
+            41.7416184
+          ],
+          [
+            -74.0892786,
+            41.7463066
+          ]
+        ]
+      },
+      "properties": {
+        "from": "The Dorsky Museum",
+        "to": "The Cronin Gallery",
+        "from_index": 165,
+        "to_index": 129,
+        "segment": 86,
+        "stroke": "#ff0000",
+        "stroke-width": 3,
+        "stroke-opacity": 0.8
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -74.0892786,
+            41.7463066
+          ],
+          [
+            -74.1316835,
+            41.8058383
+          ]
+        ]
+      },
+      "properties": {
+        "from": "The Cronin Gallery",
+        "to": "Army Of Frogs Studio",
+        "from_index": 129,
+        "to_index": 11,
+        "segment": 87,
+        "stroke": "#ff0000",
+        "stroke-width": 3,
+        "stroke-opacity": 0.8
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -74.1316835,
+            41.8058383
+          ],
+          [
+            -74.2098922,
+            41.8039689
+          ]
+        ]
+      },
+      "properties": {
+        "from": "Army Of Frogs Studio",
+        "to": "Hudson Valley Seed Company",
+        "from_index": 11,
+        "to_index": 66,
+        "segment": 88,
+        "stroke": "#ff0000",
+        "stroke-width": 3,
+        "stroke-opacity": 0.8
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -74.2098922,
+            41.8039689
+          ],
+          [
+            -74.140102,
+            41.85251239999999
+          ]
+        ]
+      },
+      "properties": {
+        "from": "Hudson Valley Seed Company",
+        "to": "North River Electric House",
+        "from_index": 66,
+        "to_index": 93,
+        "segment": 89,
+        "stroke": "#ff0000",
+        "stroke-width": 3,
+        "stroke-opacity": 0.8
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -74.140102,
+            41.85251239999999
+          ],
+          [
+            -74.1203302,
+            41.8404456
+          ]
+        ]
+      },
+      "properties": {
+        "from": "North River Electric House",
+        "to": "Color Wheels",
+        "from_index": 93,
+        "to_index": 41,
+        "segment": 90,
+        "stroke": "#ff0000",
+        "stroke-width": 3,
+        "stroke-opacity": 0.8
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -74.1203302,
+            41.8404456
+          ],
+          [
+            -74.0288329,
+            41.9376519
+          ]
+        ]
+      },
+      "properties": {
+        "from": "Color Wheels",
+        "to": "BCMT GALLERY",
+        "from_index": 41,
+        "to_index": 27,
+        "segment": 91,
+        "stroke": "#ff0000",
+        "stroke-width": 3,
+        "stroke-opacity": 0.8
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -74.0288329,
+            41.9376519
+          ],
+          [
+            -74.0264452,
+            41.9359729
+          ]
+        ]
+      },
+      "properties": {
+        "from": "BCMT GALLERY",
+        "to": "Headstone Gallery",
+        "from_index": 27,
+        "to_index": 60,
+        "segment": 92,
+        "stroke": "#ff0000",
+        "stroke-width": 3,
+        "stroke-opacity": 0.8
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -74.0264452,
+            41.9359729
+          ],
+          [
+            -74.0203441,
+            41.9352864
+          ]
+        ]
+      },
+      "properties": {
+        "from": "Headstone Gallery",
+        "to": "UTOPIA",
+        "from_index": 60,
+        "to_index": 150,
+        "segment": 93,
+        "stroke": "#ff0000",
+        "stroke-width": 3,
+        "stroke-opacity": 0.8
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -74.0203441,
+            41.9352864
+          ],
+          [
+            -74.08018109999999,
+            41.9726764
+          ]
+        ]
+      },
+      "properties": {
+        "from": "UTOPIA",
+        "to": "The Lockwood Gallery",
+        "from_index": 150,
+        "to_index": 138,
+        "segment": 94,
+        "stroke": "#ff0000",
+        "stroke-width": 3,
+        "stroke-opacity": 0.8
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -74.08018109999999,
+            41.9726764
+          ],
+          [
+            -74.0186475,
+            41.9317384
+          ]
+        ]
+      },
+      "properties": {
+        "from": "The Lockwood Gallery",
+        "to": "upbringing",
+        "from_index": 138,
+        "to_index": 149,
+        "segment": 95,
+        "stroke": "#ff0000",
+        "stroke-width": 3,
+        "stroke-opacity": 0.8
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -74.0186475,
+            41.9317384
+          ],
+          [
+            -74.0186475,
+            41.9317384
+          ]
+        ]
+      },
+      "properties": {
+        "from": "upbringing",
+        "to": "Noise for Now",
+        "from_index": 149,
+        "to_index": 92,
+        "segment": 96,
+        "stroke": "#ff0000",
+        "stroke-width": 3,
+        "stroke-opacity": 0.8
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -74.0186475,
+            41.9317384
+          ],
+          [
+            -74.0186475,
+            41.9317384
+          ]
+        ]
+      },
+      "properties": {
+        "from": "Noise for Now",
+        "to": "UAW Headquarters",
+        "from_index": 92,
+        "to_index": 77,
+        "segment": 97,
+        "stroke": "#ff0000",
+        "stroke-width": 3,
+        "stroke-opacity": 0.8
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -74.0186475,
+            41.9317384
+          ],
+          [
+            -74.0186475,
+            41.9317384
+          ]
+        ]
+      },
+      "properties": {
+        "from": "UAW Headquarters",
+        "to": "Assembly",
+        "from_index": 77,
+        "to_index": 20,
+        "segment": 98,
+        "stroke": "#ff0000",
+        "stroke-width": 3,
+        "stroke-opacity": 0.8
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -74.0186475,
+            41.9317384
+          ],
+          [
+            -74.0195485,
+            41.934178
+          ]
+        ]
+      },
+      "properties": {
+        "from": "Assembly",
+        "to": "Jasper Richmus",
+        "from_index": 20,
+        "to_index": 72,
+        "segment": 99,
+        "stroke": "#ff0000",
+        "stroke-width": 3,
+        "stroke-opacity": 0.8
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -74.0195485,
+            41.934178
+          ],
+          [
+            -74.018046,
+            41.932303
+          ]
+        ]
+      },
+      "properties": {
+        "from": "Jasper Richmus",
+        "to": "Pinkwater Gallery at Kingston Social",
+        "from_index": 72,
+        "to_index": 98,
+        "segment": 100,
+        "stroke": "#ff0000",
+        "stroke-width": 3,
+        "stroke-opacity": 0.8
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -74.018046,
+            41.932303
+          ],
+          [
+            -74.0095441,
+            41.9280824
+          ]
+        ]
+      },
+      "properties": {
+        "from": "Pinkwater Gallery at Kingston Social",
+        "to": "TRANSART",
+        "from_index": 98,
+        "to_index": 145,
+        "segment": 101,
+        "stroke": "#ff0000",
+        "stroke-width": 3,
+        "stroke-opacity": 0.8
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -74.0095441,
+            41.9280824
+          ],
+          [
+            -74.00086809999999,
+            41.9111807
+          ]
+        ]
+      },
+      "properties": {
+        "from": "TRANSART",
+        "to": "One Mile Gallery",
+        "from_index": 145,
+        "to_index": 95,
+        "segment": 102,
+        "stroke": "#ff0000",
+        "stroke-width": 3,
+        "stroke-opacity": 0.8
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -74.00086809999999,
+            41.9111807
+          ],
+          [
+            -73.9871291,
+            41.916709
+          ]
+        ]
+      },
+      "properties": {
+        "from": "One Mile Gallery",
+        "to": "The Department of Things",
+        "from_index": 95,
+        "to_index": 130,
+        "segment": 103,
+        "stroke": "#ff0000",
+        "stroke-width": 3,
+        "stroke-opacity": 0.8
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -73.9871291,
+            41.916709
+          ],
+          [
+            -73.97751459999999,
+            41.9052855
+          ]
+        ]
+      },
+      "properties": {
+        "from": "The Department of Things",
+        "to": "The Post Office",
+        "from_index": 130,
+        "to_index": 142,
+        "segment": 104,
+        "stroke": "#ff0000",
+        "stroke-width": 3,
+        "stroke-opacity": 0.8
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -73.97751459999999,
+            41.9052855
+          ],
+          [
+            -73.9857859,
+            41.9200909
+          ]
+        ]
+      },
+      "properties": {
+        "from": "The Post Office",
+        "to": "The Lovebugs",
+        "from_index": 142,
+        "to_index": 139,
+        "segment": 105,
+        "stroke": "#ff0000",
+        "stroke-width": 3,
+        "stroke-opacity": 0.8
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -73.9857859,
+            41.9200909
+          ],
+          [
+            -73.9942676,
+            41.9275356
+          ]
+        ]
+      },
+      "properties": {
+        "from": "The Lovebugs",
+        "to": "NAMAI STUDIO",
+        "from_index": 139,
+        "to_index": 91,
+        "segment": 106,
+        "stroke": "#ff0000",
+        "stroke-width": 3,
+        "stroke-opacity": 0.8
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -73.9942676,
+            41.9275356
+          ],
+          [
+            -73.994584,
+            41.927782
+          ]
+        ]
+      },
+      "properties": {
+        "from": "NAMAI STUDIO",
+        "to": "CUT TEETH",
+        "from_index": 91,
+        "to_index": 44,
+        "segment": 107,
+        "stroke": "#ff0000",
+        "stroke-width": 3,
+        "stroke-opacity": 0.8
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -73.994584,
+            41.927782
+          ],
+          [
+            -73.9979912,
+            41.92848070000001
+          ]
+        ]
+      },
+      "properties": {
+        "from": "CUT TEETH",
+        "to": "68 PRINCE ST. GALLERY, KINGSTON, NY",
+        "from_index": 44,
+        "to_index": 2,
+        "segment": 108,
+        "stroke": "#ff0000",
+        "stroke-width": 3,
+        "stroke-opacity": 0.8
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -73.9979912,
+            41.92848070000001
+          ],
+          [
+            -74.00040320000001,
+            41.9290325
+          ]
+        ]
+      },
+      "properties": {
+        "from": "68 PRINCE ST. GALLERY, KINGSTON, NY",
+        "to": "CPW",
+        "from_index": 2,
+        "to_index": 43,
+        "segment": 109,
+        "stroke": "#ff0000",
+        "stroke-width": 3,
+        "stroke-opacity": 0.8
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -74.00040320000001,
+            41.9290325
+          ],
+          [
+            -74.00040320000001,
+            41.9290325
+          ]
+        ]
+      },
+      "properties": {
+        "from": "CPW",
+        "to": "CPW",
+        "from_index": 43,
+        "to_index": 159,
+        "segment": 110,
+        "stroke": "#ff0000",
+        "stroke-width": 3,
+        "stroke-opacity": 0.8
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -74.00040320000001,
+            41.9290325
+          ],
+          [
+            -74.00103229999999,
+            41.9285322
+          ]
+        ]
+      },
+      "properties": {
+        "from": "CPW",
+        "to": "Wild Minded",
+        "from_index": 159,
+        "to_index": 154,
+        "segment": 111,
+        "stroke": "#ff0000",
+        "stroke-width": 3,
+        "stroke-opacity": 0.8
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -74.00103229999999,
             41.9285322
           ],
           [
-            -74.3881559,
-            41.7142078
+            -73.9984351,
+            41.930674
           ]
         ]
       },
       "properties": {
         "from": "Wild Minded",
-        "to": "Hero's Hill",
-        "from_index": 1,
-        "to_index": 0,
-        "segment": 2,
+        "to": "ArtPort Kingston",
+        "from_index": 154,
+        "to_index": 17,
+        "segment": 112,
+        "stroke": "#ff0000",
+        "stroke-width": 3,
+        "stroke-opacity": 0.8
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -73.9984351,
+            41.930674
+          ],
+          [
+            -73.9984419,
+            41.9348439
+          ]
+        ]
+      },
+      "properties": {
+        "from": "ArtPort Kingston",
+        "to": "The Lace Mill",
+        "from_index": 17,
+        "to_index": 137,
+        "segment": 113,
+        "stroke": "#ff0000",
+        "stroke-width": 3,
+        "stroke-opacity": 0.8
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -73.9984419,
+            41.9348439
+          ],
+          [
+            -73.9110295,
+            42.0592832
+          ]
+        ]
+      },
+      "properties": {
+        "from": "The Lace Mill",
+        "to": "Weird Specialty Studio",
+        "from_index": 137,
+        "to_index": 153,
+        "segment": 114,
+        "stroke": "#ff0000",
+        "stroke-width": 3,
+        "stroke-opacity": 0.8
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -73.9110295,
+            42.0592832
+          ],
+          [
+            -73.9110295,
+            42.0592832
+          ]
+        ]
+      },
+      "properties": {
+        "from": "Weird Specialty Studio",
+        "to": "AR at Weird Specialty",
+        "from_index": 153,
+        "to_index": 10,
+        "segment": 115,
+        "stroke": "#ff0000",
+        "stroke-width": 3,
+        "stroke-opacity": 0.8
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -73.9110295,
+            42.0592832
+          ],
+          [
+            -73.9160631,
+            42.0586657
+          ]
+        ]
+      },
+      "properties": {
+        "from": "AR at Weird Specialty",
+        "to": "Kaatsbaan Cultural Park",
+        "from_index": 10,
+        "to_index": 73,
+        "segment": 116,
+        "stroke": "#ff0000",
+        "stroke-width": 3,
+        "stroke-opacity": 0.8
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -73.9160631,
+            42.0586657
+          ],
+          [
+            -73.9141649,
+            42.0202878
+          ]
+        ]
+      },
+      "properties": {
+        "from": "Kaatsbaan Cultural Park",
+        "to": "Hessel Museum of Art, Bard College",
+        "from_index": 73,
+        "to_index": 62,
+        "segment": 117,
+        "stroke": "#ff0000",
+        "stroke-width": 3,
+        "stroke-opacity": 0.8
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -73.9141649,
+            42.0202878
+          ],
+          [
+            -73.8766658,
+            41.9955737
+          ]
+        ]
+      },
+      "properties": {
+        "from": "Hessel Museum of Art, Bard College",
+        "to": "VERSE Work/Shop",
+        "from_index": 62,
+        "to_index": 151,
+        "segment": 118,
+        "stroke": "#ff0000",
+        "stroke-width": 3,
+        "stroke-opacity": 0.8
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -73.8766658,
+            41.9955737
+          ],
+          [
+            -73.8811394,
+            41.9921606
+          ]
+        ]
+      },
+      "properties": {
+        "from": "VERSE Work/Shop",
+        "to": "Bard MFA",
+        "from_index": 151,
+        "to_index": 25,
+        "segment": 119,
+        "stroke": "#ff0000",
+        "stroke-width": 3,
+        "stroke-opacity": 0.8
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -73.8811394,
+            41.9921606
+          ],
+          [
+            -73.8322467,
+            41.9432295
+          ]
+        ]
+      },
+      "properties": {
+        "from": "Bard MFA",
+        "to": "T' Space | Steven Myron Holl Foundation",
+        "from_index": 25,
+        "to_index": 122,
+        "segment": 120,
+        "stroke": "#ff0000",
+        "stroke-width": 3,
+        "stroke-opacity": 0.8
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -73.8322467,
+            41.9432295
+          ],
+          [
+            -73.6814773,
+            41.988129
+          ]
+        ]
+      },
+      "properties": {
+        "from": "T' Space | Steven Myron Holl Foundation",
+        "to": "ChaShaMa North (ChaNorth)",
+        "from_index": 122,
+        "to_index": 39,
+        "segment": 121,
+        "stroke": "#ff0000",
+        "stroke-width": 3,
+        "stroke-opacity": 0.8
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -73.6814773,
+            41.988129
+          ],
+          [
+            -73.6672698,
+            41.9150888
+          ]
+        ]
+      },
+      "properties": {
+        "from": "ChaShaMa North (ChaNorth)",
+        "to": "Charlotte Woolf at Foxtrot Farm & Flowers",
+        "from_index": 39,
+        "to_index": 38,
+        "segment": 122,
+        "stroke": "#ff0000",
+        "stroke-width": 3,
+        "stroke-opacity": 0.8
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -73.6672698,
+            41.9150888
+          ],
+          [
+            -73.54892559999999,
+            41.55888059999999
+          ]
+        ]
+      },
+      "properties": {
+        "from": "Charlotte Woolf at Foxtrot Farm & Flowers",
+        "to": "Akin Free Library",
+        "from_index": 38,
+        "to_index": 6,
+        "segment": 123,
+        "stroke": "#ff0000",
+        "stroke-width": 3,
+        "stroke-opacity": 0.8
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -73.54892559999999,
+            41.55888059999999
+          ],
+          [
+            -73.8592044,
+            41.4790967
+          ]
+        ]
+      },
+      "properties": {
+        "from": "Akin Free Library",
+        "to": "Ligenza Moore Gallery, Cold Spring, NY",
+        "from_index": 6,
+        "to_index": 78,
+        "segment": 124,
+        "stroke": "#ff0000",
+        "stroke-width": 3,
+        "stroke-opacity": 0.8
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -73.8592044,
+            41.4790967
+          ],
+          [
+            -73.9142791,
+            41.42906989999999
+          ]
+        ]
+      },
+      "properties": {
+        "from": "Ligenza Moore Gallery, Cold Spring, NY",
+        "to": "Magazzino Italian Art Museum",
+        "from_index": 78,
+        "to_index": 81,
+        "segment": 125,
+        "stroke": "#ff0000",
+        "stroke-width": 3,
+        "stroke-opacity": 0.8
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -73.9142791,
+            41.42906989999999
+          ],
+          [
+            -73.9142791,
+            41.42906989999999
+          ]
+        ]
+      },
+      "properties": {
+        "from": "Magazzino Italian Art Museum",
+        "to": "Magazzino Italian Art Museum",
+        "from_index": 81,
+        "to_index": 162,
+        "segment": 126,
+        "stroke": "#ff0000",
+        "stroke-width": 3,
+        "stroke-opacity": 0.8
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -73.9142791,
+            41.42906989999999
+          ],
+          [
+            -73.9535935,
+            41.3489443
+          ]
+        ]
+      },
+      "properties": {
+        "from": "Magazzino Italian Art Museum",
+        "to": "Manitoga / The Russel Wright Design Center",
+        "from_index": 162,
+        "to_index": 84,
+        "segment": 127,
+        "stroke": "#ff0000",
+        "stroke-width": 3,
+        "stroke-opacity": 0.8
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -73.9535935,
+            41.3489443
+          ],
+          [
+            -73.94730330000002,
+            41.3826284
+          ]
+        ]
+      },
+      "properties": {
+        "from": "Manitoga / The Russel Wright Design Center",
+        "to": "Garrison Art Center",
+        "from_index": 84,
+        "to_index": 54,
+        "segment": 128,
+        "stroke": "#ff0000",
+        "stroke-width": 3,
+        "stroke-opacity": 0.8
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -73.94730330000002,
+            41.3826284
+          ],
+          [
+            -73.9392886,
+            41.4122146
+          ]
+        ]
+      },
+      "properties": {
+        "from": "Garrison Art Center",
+        "to": "Boscobel House and Gardens",
+        "from_index": 54,
+        "to_index": 32,
+        "segment": 129,
+        "stroke": "#ff0000",
+        "stroke-width": 3,
+        "stroke-opacity": 0.8
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -73.9392886,
+            41.4122146
+          ],
+          [
+            -73.9563944,
+            41.4192908
+          ]
+        ]
+      },
+      "properties": {
+        "from": "Boscobel House and Gardens",
+        "to": "Studio Tashtego",
+        "from_index": 32,
+        "to_index": 119,
+        "segment": 130,
+        "stroke": "#ff0000",
+        "stroke-width": 3,
+        "stroke-opacity": 0.8
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -73.9563944,
+            41.4192908
+          ],
+          [
+            -73.9648893,
+            41.5017642
+          ]
+        ]
+      },
+      "properties": {
+        "from": "Studio Tashtego",
+        "to": "Howland Cultural Center",
+        "from_index": 119,
+        "to_index": 63,
+        "segment": 131,
+        "stroke": "#ff0000",
+        "stroke-width": 3,
+        "stroke-opacity": 0.8
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -73.9648893,
+            41.5017642
+          ],
+          [
+            -73.9634657,
+            41.50225750000001
+          ]
+        ]
+      },
+      "properties": {
+        "from": "Howland Cultural Center",
+        "to": "BAU Gallery",
+        "from_index": 63,
+        "to_index": 26,
+        "segment": 132,
+        "stroke": "#ff0000",
+        "stroke-width": 3,
+        "stroke-opacity": 0.8
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -73.9634657,
+            41.50225750000001
+          ],
+          [
+            -73.96515099999999,
+            41.5060072
+          ]
+        ]
+      },
+      "properties": {
+        "from": "BAU Gallery",
+        "to": "Kube Art Center - Ethan Cohen Gallery",
+        "from_index": 26,
+        "to_index": 76,
+        "segment": 133,
+        "stroke": "#ff0000",
+        "stroke-width": 3,
+        "stroke-opacity": 0.8
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -73.96515099999999,
+            41.5060072
+          ],
+          [
+            -73.976064,
+            41.5082041
+          ]
+        ]
+      },
+      "properties": {
+        "from": "Kube Art Center - Ethan Cohen Gallery",
+        "to": "Distortion Society",
+        "from_index": 76,
+        "to_index": 47,
+        "segment": 134,
+        "stroke": "#ff0000",
+        "stroke-width": 3,
+        "stroke-opacity": 0.8
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -73.976064,
+            41.5082041
+          ],
+          [
+            -73.9832325,
+            41.5007796
+          ]
+        ]
+      },
+      "properties": {
+        "from": "Distortion Society",
+        "to": "Dia Art Foundation",
+        "from_index": 47,
+        "to_index": 46,
+        "segment": 135,
+        "stroke": "#ff0000",
+        "stroke-width": 3,
+        "stroke-opacity": 0.8
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -73.9832325,
+            41.5007796
+          ],
+          [
+            -73.9832325,
+            41.5007796
+          ]
+        ]
+      },
+      "properties": {
+        "from": "Dia Art Foundation",
+        "to": "Dia Art Foundation",
+        "from_index": 46,
+        "to_index": 160,
+        "segment": 136,
+        "stroke": "#ff0000",
+        "stroke-width": 3,
+        "stroke-opacity": 0.8
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -73.9832325,
+            41.5007796
+          ],
+          [
+            -73.9848624,
+            41.50583
+          ]
+        ]
+      },
+      "properties": {
+        "from": "Dia Art Foundation",
+        "to": "Soon is Now",
+        "from_index": 160,
+        "to_index": 112,
+        "segment": 137,
+        "stroke": "#ff0000",
+        "stroke-width": 3,
+        "stroke-opacity": 0.8
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -73.9848624,
+            41.50583
+          ],
+          [
+            -73.9773177,
+            41.50886209999999
+          ]
+        ]
+      },
+      "properties": {
+        "from": "Soon is Now",
+        "to": "Shigeko Kubota Video Art Foundation",
+        "from_index": 112,
+        "to_index": 109,
+        "segment": 138,
+        "stroke": "#ff0000",
+        "stroke-width": 3,
+        "stroke-opacity": 0.8
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -73.9773177,
+            41.50886209999999
+          ],
+          [
+            -74.0058975,
+            41.5119515
+          ]
+        ]
+      },
+      "properties": {
+        "from": "Shigeko Kubota Video Art Foundation",
+        "to": "UAP in collaboration with Elijah Wheat Showroom",
+        "from_index": 109,
+        "to_index": 147,
+        "segment": 139,
+        "stroke": "#ff0000",
+        "stroke-width": 3,
+        "stroke-opacity": 0.8
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -74.0058975,
+            41.5119515
+          ],
+          [
+            -74.010503,
+            41.5003186
+          ]
+        ]
+      },
+      "properties": {
+        "from": "UAP in collaboration with Elijah Wheat Showroom",
+        "to": "Bank Art Gallery",
+        "from_index": 147,
+        "to_index": 24,
+        "segment": 140,
+        "stroke": "#ff0000",
+        "stroke-width": 3,
+        "stroke-opacity": 0.8
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -74.010503,
+            41.5003186
+          ],
+          [
+            -74.0117808,
+            41.49948699999999
+          ]
+        ]
+      },
+      "properties": {
+        "from": "Bank Art Gallery",
+        "to": "Ann Street Gallery",
+        "from_index": 24,
+        "to_index": 9,
+        "segment": 141,
+        "stroke": "#ff0000",
+        "stroke-width": 3,
+        "stroke-opacity": 0.8
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -74.0117808,
+            41.49948699999999
+          ],
+          [
+            -74.01178159999999,
+            41.4989614
+          ]
+        ]
+      },
+      "properties": {
+        "from": "Ann Street Gallery",
+        "to": "ADS Warehouse",
+        "from_index": 9,
+        "to_index": 5,
+        "segment": 142,
+        "stroke": "#ff0000",
+        "stroke-width": 3,
+        "stroke-opacity": 0.8
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -74.01178159999999,
+            41.4989614
+          ],
+          [
+            -74.0117009,
+            41.4970683
+          ]
+        ]
+      },
+      "properties": {
+        "from": "ADS Warehouse",
+        "to": "Atlas Studios",
+        "from_index": 5,
+        "to_index": 22,
+        "segment": 143,
+        "stroke": "#ff0000",
+        "stroke-width": 3,
+        "stroke-opacity": 0.8
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -74.0117009,
+            41.4970683
+          ],
+          [
+            -74.011307,
+            41.494446
+          ]
+        ]
+      },
+      "properties": {
+        "from": "Atlas Studios",
+        "to": "STRONGROOM",
+        "from_index": 22,
+        "to_index": 118,
+        "segment": 144,
+        "stroke": "#ff0000",
+        "stroke-width": 3,
+        "stroke-opacity": 0.8
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -74.011307,
+            41.494446
+          ],
+          [
+            -74.0337778,
+            41.4354405
+          ]
+        ]
+      },
+      "properties": {
+        "from": "STRONGROOM",
+        "to": "Cornwall Chamber Public Art Program",
+        "from_index": 118,
+        "to_index": 42,
+        "segment": 145,
+        "stroke": "#ff0000",
+        "stroke-width": 3,
+        "stroke-opacity": 0.8
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -74.0337778,
+            41.4354405
+          ],
+          [
+            -74.0592952,
+            41.4249587
+          ]
+        ]
+      },
+      "properties": {
+        "from": "Cornwall Chamber Public Art Program",
+        "to": "Storm King Art Center",
+        "from_index": 42,
+        "to_index": 164,
+        "segment": 146,
+        "stroke": "#ff0000",
+        "stroke-width": 3,
+        "stroke-opacity": 0.8
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -74.0592952,
+            41.4249587
+          ],
+          [
+            -74.0592952,
+            41.4249587
+          ]
+        ]
+      },
+      "properties": {
+        "from": "Storm King Art Center",
+        "to": "Storm King Art Center",
+        "from_index": 164,
+        "to_index": 117,
+        "segment": 147,
+        "stroke": "#ff0000",
+        "stroke-width": 3,
+        "stroke-opacity": 0.8
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -74.0592952,
+            41.4249587
+          ],
+          [
+            -74.15197119999999,
+            41.4573191
+          ]
+        ]
+      },
+      "properties": {
+        "from": "Storm King Art Center",
+        "to": "Art at Bull Farm",
+        "from_index": 117,
+        "to_index": 12,
+        "segment": 148,
+        "stroke": "#ff0000",
+        "stroke-width": 3,
+        "stroke-opacity": 0.8
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -74.15197119999999,
+            41.4573191
+          ],
+          [
+            -74.2950603,
+            41.3991134
+          ]
+        ]
+      },
+      "properties": {
+        "from": "Art at Bull Farm",
+        "to": "All One One All (AOOA) Farm presents...\u2060",
+        "from_index": 12,
+        "to_index": 7,
+        "segment": 149,
+        "stroke": "#ff0000",
+        "stroke-width": 3,
+        "stroke-opacity": 0.8
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -74.2950603,
+            41.3991134
+          ],
+          [
+            -74.3205234,
+            41.4031699
+          ]
+        ]
+      },
+      "properties": {
+        "from": "All One One All (AOOA) Farm presents...\u2060",
+        "to": "Art@GoshenGreenFarm",
+        "from_index": 7,
+        "to_index": 16,
+        "segment": 150,
+        "stroke": "#ff0000",
+        "stroke-width": 3,
+        "stroke-opacity": 0.8
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -74.3205234,
+            41.4031699
+          ],
+          [
+            -74.38619299999999,
+            41.6664189
+          ]
+        ]
+      },
+      "properties": {
+        "from": "Art@GoshenGreenFarm",
+        "to": "Good Naked Gallery",
+        "from_index": 16,
+        "to_index": 58,
+        "segment": 151,
+        "stroke": "#ff0000",
+        "stroke-width": 3,
+        "stroke-opacity": 0.8
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -74.38619299999999,
+            41.6664189
+          ],
+          [
+            -73.93112099999999,
+            41.7051419
+          ]
+        ]
+      },
+      "properties": {
+        "from": "Good Naked Gallery",
+        "to": "BalletCollective",
+        "from_index": 58,
+        "to_index": 23,
+        "segment": 152,
+        "stroke": "#ff0000",
+        "stroke-width": 3,
+        "stroke-opacity": 0.8
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -73.93112099999999,
+            41.7051419
+          ],
+          [
+            -73.91793299999999,
+            41.7015379
+          ]
+        ]
+      },
+      "properties": {
+        "from": "BalletCollective",
+        "to": "PUF Community Printmaking Studio at the Poughkeepsie Underwear Factory and The Poughkeepsie Trolley Barn",
+        "from_index": 23,
+        "to_index": 101,
+        "segment": 153,
+        "stroke": "#ff0000",
+        "stroke-width": 3,
+        "stroke-opacity": 0.8
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -73.91793299999999,
+            41.7015379
+          ],
+          [
+            -73.895719,
+            41.6868243
+          ]
+        ]
+      },
+      "properties": {
+        "from": "PUF Community Printmaking Studio at the Poughkeepsie Underwear Factory and The Poughkeepsie Trolley Barn",
+        "to": "The Frances Lehman Loeb Art Center",
+        "from_index": 101,
+        "to_index": 166,
+        "segment": 154,
+        "stroke": "#ff0000",
+        "stroke-width": 3,
+        "stroke-opacity": 0.8
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -73.895719,
+            41.6868243
+          ],
+          [
+            -73.895719,
+            41.6868243
+          ]
+        ]
+      },
+      "properties": {
+        "from": "The Frances Lehman Loeb Art Center",
+        "to": "The Frances Lehman Loeb Art Center",
+        "from_index": 166,
+        "to_index": 132,
+        "segment": 155,
+        "stroke": "#ff0000",
+        "stroke-width": 3,
+        "stroke-opacity": 0.8
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -73.895719,
+            41.6868243
+          ],
+          [
+            -73.6133531,
+            41.2631556
+          ]
+        ]
+      },
+      "properties": {
+        "from": "The Frances Lehman Loeb Art Center",
+        "to": "The Gallery at Yellow Studio",
+        "from_index": 132,
+        "to_index": 134,
+        "segment": 156,
+        "stroke": "#ff0000",
+        "stroke-width": 3,
+        "stroke-opacity": 0.8
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -73.6133531,
+            41.2631556
+          ],
+          [
+            -73.6419864,
+            41.2390955
+          ]
+        ]
+      },
+      "properties": {
+        "from": "The Gallery at Yellow Studio",
+        "to": "Caramoor Center for Music and the Arts",
+        "from_index": 134,
+        "to_index": 34,
+        "segment": 157,
+        "stroke": "#ff0000",
+        "stroke-width": 3,
+        "stroke-opacity": 0.8
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -73.6419864,
+            41.2390955
+          ],
+          [
+            -73.8377292,
+            41.0930895
+          ]
+        ]
+      },
+      "properties": {
+        "from": "Caramoor Center for Music and the Arts",
+        "to": "The Pocantico Center of the Rockefeller Brothers Fund",
+        "from_index": 34,
+        "to_index": 141,
+        "segment": 158,
+        "stroke": "#ff0000",
+        "stroke-width": 3,
+        "stroke-opacity": 0.8
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -73.8377292,
+            41.0930895
+          ],
+          [
+            -73.87206619999999,
+            41.088083
+          ]
+        ]
+      },
+      "properties": {
+        "from": "The Pocantico Center of the Rockefeller Brothers Fund",
+        "to": "Sleepy Hollow Mermaid Festival",
+        "from_index": 141,
+        "to_index": 111,
+        "segment": 159,
+        "stroke": "#ff0000",
+        "stroke-width": 3,
+        "stroke-opacity": 0.8
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -73.87206619999999,
+            41.088083
+          ],
+          [
+            -73.8615873,
+            41.0784027
+          ]
+        ]
+      },
+      "properties": {
+        "from": "Sleepy Hollow Mermaid Festival",
+        "to": "Peep Space",
+        "from_index": 111,
+        "to_index": 96,
+        "segment": 160,
+        "stroke": "#ff0000",
+        "stroke-width": 3,
+        "stroke-opacity": 0.8
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -73.8615873,
+            41.0784027
+          ],
+          [
+            -73.9180009,
+            41.0932588
+          ]
+        ]
+      },
+      "properties": {
+        "from": "Peep Space",
+        "to": "Edward Hopper House Museum & Study Center",
+        "from_index": 96,
+        "to_index": 161,
+        "segment": 161,
+        "stroke": "#ff0000",
+        "stroke-width": 3,
+        "stroke-opacity": 0.8
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -73.9180009,
+            41.0932588
+          ],
+          [
+            -73.9180009,
+            41.0932588
+          ]
+        ]
+      },
+      "properties": {
+        "from": "Edward Hopper House Museum & Study Center",
+        "to": "Edward Hopper House Museum & Study Center",
+        "from_index": 161,
+        "to_index": 49,
+        "segment": 162,
+        "stroke": "#ff0000",
+        "stroke-width": 3,
+        "stroke-opacity": 0.8
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -73.9180009,
+            41.0932588
+          ],
+          [
+            -73.9180284,
+            41.0934771
+          ]
+        ]
+      },
+      "properties": {
+        "from": "Edward Hopper House Museum & Study Center",
+        "to": "Perry Lawson Fine Art",
+        "from_index": 49,
+        "to_index": 97,
+        "segment": 163,
+        "stroke": "#ff0000",
+        "stroke-width": 3,
+        "stroke-opacity": 0.8
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -73.9180284,
+            41.0934771
+          ],
+          [
+            -73.919275,
+            41.1141837
+          ]
+        ]
+      },
+      "properties": {
+        "from": "Perry Lawson Fine Art",
+        "to": "Friends of River Hook",
+        "from_index": 97,
+        "to_index": 51,
+        "segment": 164,
+        "stroke": "#ff0000",
+        "stroke-width": 3,
+        "stroke-opacity": 0.8
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -73.919275,
+            41.1141837
+          ],
+          [
+            -73.9895671,
+            41.2075935
+          ]
+        ]
+      },
+      "properties": {
+        "from": "Friends of River Hook",
+        "to": "GARNER Arts Center",
+        "from_index": 51,
+        "to_index": 53,
+        "segment": 165,
+        "stroke": "#ff0000",
+        "stroke-width": 3,
+        "stroke-opacity": 0.8
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -73.9895671,
+            41.2075935
+          ],
+          [
+            -73.9569489,
+            41.2524097
+          ]
+        ]
+      },
+      "properties": {
+        "from": "GARNER Arts Center",
+        "to": "KinoSaito",
+        "from_index": 53,
+        "to_index": 75,
+        "segment": 166,
+        "stroke": "#ff0000",
+        "stroke-width": 3,
+        "stroke-opacity": 0.8
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -73.9569489,
+            41.2524097
+          ],
+          [
+            -73.7718946,
+            41.2923411
+          ]
+        ]
+      },
+      "properties": {
+        "from": "KinoSaito",
+        "to": "The Capa Space",
+        "from_index": 75,
+        "to_index": 126,
+        "segment": 167,
+        "stroke": "#ff0000",
+        "stroke-width": 3,
+        "stroke-opacity": 0.8
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -73.7718946,
+            41.2923411
+          ],
+          [
+            -75.061129,
+            41.6084142
+          ]
+        ]
+      },
+      "properties": {
+        "from": "The Capa Space",
+        "to": "Delaware Valley Arts Alliance (DVAA)",
+        "from_index": 126,
+        "to_index": 45,
+        "segment": 168,
         "stroke": "#ff0000",
         "stroke-width": 3,
         "stroke-opacity": 0.8
