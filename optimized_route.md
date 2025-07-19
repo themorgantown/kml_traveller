@@ -1,7 +1,7 @@
 ✓ Solution found in 60.0 seconds!
 📊 Route Statistics:
-  - Total distance: 378.54 km
-  - Average distance per segment: 54.08 km
+  - Total distance: 378.54 km / 235.12mi
+  - Average distance per segment: 54.08 km / 33.60 mi
   - Starting from optimal edge location (index 0)
   - Estimated travel time: 7.6 hours
 ✓ Clustering optimization completed!
