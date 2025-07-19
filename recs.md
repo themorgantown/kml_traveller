@@ -76,7 +76,7 @@
 - **How**: Use `concurrent.futures` for batch processing:
   ```python
   from concurrent.futures import ThreadPoolExecutor
-  
+
   with ThreadPoolExecutor(max_workers=10) as executor:
       futures = {executor.submit(process_batch, batch) for batch in batches}
       results = [f.result() for f in futures]

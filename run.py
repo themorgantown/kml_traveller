@@ -12,26 +12,18 @@ GOOGLE_MAPS_API_KEY = os.getenv('GOOGLE_MAPS_API_KEY')
 if not GOOGLE_MAPS_API_KEY:
     raise ValueError("GOOGLE_MAPS_API_KEY not found in environment variables. Please check your .env file.")
 
+import zipfile
+import xml.etree.ElementTree as ET
 import googlemaps
 from ortools.constraint_solver import routing_enums_pb2
 from ortools.constraint_solver import pywrapcp
+import json
+import shutil
+import pickle
+import hashlib
 import time
-
-# Import shared utilities
-from route_utils import (
-    haversine_distance,
-    calculate_centroid,
-    find_optimal_start_location,
-    should_skip_distance_calculation,
-    cluster_locations,
-    extract_addresses_from_kmz,
-    APICache,
-    save_geojson,
-    save_kml,
-    process_coordinate_string,
-    validate_coordinates,
-    calculate_route_statistics
-)
+import math
+from datetime import datetime, timedelta
 
 # === Geographic Utility Functions ===
 def haversine_distance(lat1, lon1, lat2, lon2):
@@ -93,7 +85,7 @@ def should_skip_distance_calculation(loc1, loc2, max_reasonable_distance=200000.
 	geo_distance = haversine_distance(loc1[0], loc1[1], loc2[0], loc2[1])
 	return geo_distance > max_reasonable_distance
 
-def cluster_locations(locations, max_cluster_size=25):
+def cluster_locations(locations, max_cluster_size=15):
 	"""
 	Simple geographic clustering for large datasets to reduce TSP complexity
 	Groups nearby locations together to solve smaller sub-problems
@@ -507,6 +499,35 @@ def create_distance_matrix(locations, gmaps, cache):
 	
 	return matrix
 
+def nearest_neighbor_tsp(matrix, start_idx=0):
+    """
+    Simple nearest neighbor TSP heuristic for fallback when OR-Tools times out
+    """
+    n = len(matrix)
+    if n <= 1:
+        return list(range(n))
+    
+    unvisited = set(range(n))
+    route = [start_idx]
+    unvisited.remove(start_idx)
+    current = start_idx
+    
+    print(f"Using nearest neighbor heuristic starting from index {start_idx}")
+    
+    while unvisited:
+        nearest = min(unvisited, key=lambda x: matrix[current][x])
+        route.append(nearest)
+        unvisited.remove(nearest)
+        current = nearest
+    
+    route.append(start_idx)  # Return to start
+    
+    # Calculate total distance
+    total_distance = sum(matrix[route[i]][route[i+1]] for i in range(len(route)-1))
+    print(f"Nearest neighbor solution: {total_distance/1000:.2f} km")
+    
+    return route
+
 # === Step 4: Solve TSP with Optimal Starting Point ===
 def solve_tsp(matrix, locations):
     tsp_size = len(matrix)
@@ -538,27 +559,34 @@ def solve_tsp(matrix, locations):
     # Search parameters - use sophisticated strategy based on problem size
     search_parameters = pywrapcp.DefaultRoutingSearchParameters()
     
-    if tsp_size <= 15:
-        # Small problems: Use exact algorithm
+    if tsp_size <= 10:
+        # Small problems: Use exact algorithm with short timeout
         search_parameters.first_solution_strategy = (
             routing_enums_pb2.FirstSolutionStrategy.PATH_CHEAPEST_ARC)
         search_parameters.local_search_metaheuristic = (
             routing_enums_pb2.LocalSearchMetaheuristic.GUIDED_LOCAL_SEARCH)
-        time_limit = 60  # 1 minute
-    elif tsp_size <= 50:
+        time_limit = 30  # 30 seconds
+    elif tsp_size <= 20:
         # Medium problems: Balance quality and speed
         search_parameters.first_solution_strategy = (
             routing_enums_pb2.FirstSolutionStrategy.PATH_CHEAPEST_ARC)
         search_parameters.local_search_metaheuristic = (
             routing_enums_pb2.LocalSearchMetaheuristic.SIMULATED_ANNEALING)
-        time_limit = 300  # 5 minutes
-    else:
-        # Large problems: Focus on speed with good quality
+        time_limit = 60  # 1 minute
+    elif tsp_size <= 35:
+        # Larger problems: Focus on speed
         search_parameters.first_solution_strategy = (
             routing_enums_pb2.FirstSolutionStrategy.SAVINGS)
         search_parameters.local_search_metaheuristic = (
             routing_enums_pb2.LocalSearchMetaheuristic.TABU_SEARCH)
-        time_limit = 600  # 10 minutes
+        time_limit = 90  # 1.5 minutes
+    else:
+        # Very large problems: Quick heuristic solution only
+        search_parameters.first_solution_strategy = (
+            routing_enums_pb2.FirstSolutionStrategy.SAVINGS)
+        search_parameters.local_search_metaheuristic = (
+            routing_enums_pb2.LocalSearchMetaheuristic.AUTOMATIC)
+        time_limit = 60  # 1 minute max
     
     search_parameters.time_limit.seconds = time_limit
     print(f"TSP solver strategy: {search_parameters.first_solution_strategy}")
@@ -600,14 +628,11 @@ def solve_tsp(matrix, locations):
         
         return route
     else:
-        print("❌ No solution found! Using simple sequential order from optimal start.")
-        # Create a simple route starting from optimal location
-        route = list(range(optimal_start, tsp_size)) + list(range(0, optimal_start))
-        if route:
-            route.append(route[0])  # Return to start
-        return route
+        print(f"❌ No solution found within {time_limit} seconds! Using greedy fallback...")
+        # Use nearest neighbor heuristic as fallback
+        return nearest_neighbor_tsp(matrix, optimal_start)
 
-def solve_tsp_with_clustering(matrix, locations, max_cluster_size=50):
+def solve_tsp_with_clustering(matrix, locations, max_cluster_size=30):
 	"""
 	Solve TSP with optional clustering for large datasets
 	For datasets larger than max_cluster_size, use clustering to reduce complexity
@@ -620,8 +645,8 @@ def solve_tsp_with_clustering(matrix, locations, max_cluster_size=50):
 	
 	print(f"Large dataset detected ({n} locations). Using clustering optimization...")
 	
-	# Cluster the locations
-	clusters = cluster_locations(locations, max_cluster_size // 2)
+	# Cluster the locations with smaller cluster sizes for better performance
+	clusters = cluster_locations(locations, min(15, max_cluster_size // 4))
 	
 	if len(clusters) == 1:
 		# Clustering didn't help, solve directly
@@ -636,17 +661,17 @@ def solve_tsp_with_clustering(matrix, locations, max_cluster_size=50):
 		
 		# Create sub-matrix for this cluster
 		cluster_matrix = [[matrix[cluster[a]][cluster[b]] for b in range(len(cluster))] for a in range(len(cluster))]
-		cluster_locations = [locations[idx] for idx in cluster]
+		cluster_coords = [locations[idx] for idx in cluster]
 		
 		# Solve TSP for this cluster
-		cluster_route = solve_tsp(cluster_matrix, cluster_locations)
+		cluster_route = solve_tsp(cluster_matrix, cluster_coords)
 		
 		# Convert back to original indices
 		original_route = [cluster[idx] for idx in cluster_route if idx < len(cluster)]
 		cluster_routes.append(original_route)
 		
 		# Calculate cluster center (centroid of the cluster)
-		cluster_center_idx = find_optimal_start_location(cluster_locations)
+		cluster_center_idx = find_optimal_start_location(cluster_coords)
 		cluster_centers.append(cluster[cluster_center_idx])
 	
 	# Solve TSP between cluster centers
