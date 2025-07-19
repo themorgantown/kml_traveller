@@ -1,0 +1,5 @@
+openrouteservice
+googlemaps>=4.10.0
+ortools>=9.8.0
+openrouteservice>=2.3.3
+python-dotenv>=1.0.0

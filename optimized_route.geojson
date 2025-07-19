@@ -1,0 +1,93 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.3881559,
+          41.7142078
+        ]
+      },
+      "properties": {
+        "name": "Hero's Hill",
+        "location_index": 0,
+        "route_order": 1,
+        "marker-color": "#ff0000",
+        "marker-size": "large",
+        "marker-symbol": "1"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.0010323,
+          41.9285322
+        ]
+      },
+      "properties": {
+        "name": "Wild Minded",
+        "location_index": 1,
+        "route_order": 2,
+        "marker-color": "#0080ff",
+        "marker-size": "medium",
+        "marker-symbol": "2"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -74.3881559,
+            41.7142078
+          ],
+          [
+            -74.0010323,
+            41.9285322
+          ]
+        ]
+      },
+      "properties": {
+        "from": "Hero's Hill",
+        "to": "Wild Minded",
+        "from_index": 0,
+        "to_index": 1,
+        "segment": 1,
+        "stroke": "#ff0000",
+        "stroke-width": 3,
+        "stroke-opacity": 0.8
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -74.0010323,
+            41.9285322
+          ],
+          [
+            -74.3881559,
+            41.7142078
+          ]
+        ]
+      },
+      "properties": {
+        "from": "Wild Minded",
+        "to": "Hero's Hill",
+        "from_index": 1,
+        "to_index": 0,
+        "segment": 2,
+        "stroke": "#ff0000",
+        "stroke-width": 3,
+        "stroke-opacity": 0.8
+      }
+    }
+  ]
+}
