@@ -15,17 +15,14 @@ A powerful Python tool that extracts locations from KML/KMZ files and finds the 
 - **Multiple Output Formats**: Generates both GeoJSON and KML files
 - **Dual API Support**: Google Maps API and OpenRouteService
 
-## Two Versions Available
 
-### 1. `run.py` - Advanced Optimization Version (Recommended)
+
+ `run.py` - Advanced Optimization Version 
 - **API**: Google Maps (requires API key)
 - **Optimizations**: Comprehensive cost-saving features
 - **Best for**: Large datasets, production use, cost-conscious applications
 
-### 2. `run_ors.py` - Simple OpenRouteService Version
-- **API**: OpenRouteService (requires API key)
-- **Optimizations**: Basic route optimization
-- **Best for**: Small datasets, testing, alternative to Google Maps
+
 
 ## Installation
 
