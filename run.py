@@ -15,6 +15,7 @@ if not GOOGLE_MAPS_API_KEY:
 import sys
 import zipfile
 import xml.etree.ElementTree as ET
+from xml.sax.saxutils import escape
 import googlemaps
 from ortools.constraint_solver import routing_enums_pb2
 from ortools.constraint_solver import pywrapcp
@@ -818,11 +819,12 @@ def save_kml(locations, route, location_names=None, output_file="optimized_route
 		if route_idx < len(locations):
 			lat, lon = locations[route_idx]
 			location_name = location_names[route_idx] if location_names and route_idx < len(location_names) else f"Location_{route_idx+1}"
+			location_name_xml = escape(location_name)
 			
 			style_id = "startPoint" if i == 0 else "routePoint"
 			
 			kml_content.append('      <Placemark>')
-			kml_content.append(f'        <name>{i + 1}. {location_name}</name>')
+			kml_content.append(f'        <name>{i + 1}. {location_name_xml}</name>')
 			kml_content.append(f'        <description>Stop {i + 1} of {len(route)} in optimized route</description>')
 			kml_content.append(f'        <styleUrl>#{style_id}</styleUrl>')
 			kml_content.append('        <Point>')

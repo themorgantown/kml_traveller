@@ -73,18 +73,56 @@ pip install -r requirements.txt
 
 ## Usage
 
-### Basic Usage
-1. Place your KML or KMZ file in the same directory as the script
-2. Rename it to `file.kmz` or edit the filename in the script
-3. Run the optimization:
+Inputs and outputs are organized by year under `inputs/<year>/` and `outputs/<year>/`.
+
+### 1. One-time setup
 
 ```bash
-# For advanced optimization (recommended)
-python run.py
-
-# For OpenRouteService version
-python run_ors.py
+python3 -m venv .venv
+.venv/bin/python -m pip install -r requirements.txt
+cp .env.example .env          # then add your GOOGLE_MAPS_API_KEY
 ```
+
+### 2. Run the optimizer
+
+`run.py` takes two optional arguments: the input KMZ and the output base path
+(no extension — it writes `<base>.kml` and `<base>.geojson`). Missing output
+folders are created automatically.
+
+```bash
+# usage: python run.py [input.kmz] [output_base]
+
+# 2026
+.venv/bin/python run.py inputs/2026/upstate_art_weekend_2026_full.kmz outputs/2026/optimized_route_2026
+
+# 2025
+.venv/bin/python run.py inputs/2025/file.kmz outputs/2025/optimized_route
+```
+
+With no arguments it falls back to `file.kmz` → `optimized_route.*` in the
+current directory. Geocoding and distance results are cached in `cache/`, so
+re-runs are near-free.
+
+### 3. Import into Google Maps (My Maps)
+
+The optimizer writes a `.kml` and `.geojson`. To import into
+[Google My Maps](https://www.google.com/maps/d/), use a **KMZ** — it is a
+zipped KML and is ~10x smaller, which keeps it under My Maps' import size
+limit. Convert the route KML to KMZ:
+
+```bash
+.venv/bin/python -c "import zipfile; zipfile.ZipFile('outputs/2026/optimized_route_2026.kmz','w',zipfile.ZIP_DEFLATED).write('outputs/2026/optimized_route_2026.kml','doc.kml')"
+```
+
+Then in My Maps: **Create a new map → Import → upload the `.kmz`**.
+
+### Preparing input from a venue list
+
+The yearly input KMZ is built from a raw venue list. The 2026 pipeline
+(`inputs/2026/`) shows the steps: a scraped text list (`2026.txt`) → parsed to
+`Name,Address` CSV → enriched with coordinates pulled from the source map
+(`upstate_art_weekend_2026_full.csv`) → imported into Google My Maps and
+exported as `upstate_art_weekend_2026_full.kmz`, which is then fed to `run.py`.
 
 ## Security & Best Practices
 
@@ -98,17 +136,21 @@ python run_ors.py
 ### File Structure
 ```
 project/
-├── run.py                    # Advanced optimization version
-├── run_ors.py               # OpenRouteService version
-├── .env                     # Your API keys (DO NOT COMMIT)
-├── .env.example             # Template for environment variables
-├── requirements.txt         # Python dependencies
-├── file.kmz                 # Your input KML/KMZ file
-├── cache/                   # Auto-created cache directory
-│   ├── geocode_cache.pkl    # Cached geocoding results
-│   └── distance_cache.pkl   # Cached distance calculations
-├── optimized_route.geojson  # Output: Web mapping format
-└── optimized_route.kml      # Output: Google Earth format
+├── run.py                    # Route optimizer (Google Maps API)
+├── route_utils.py            # Shared helpers
+├── .env                      # Your API keys (DO NOT COMMIT)
+├── .env.example              # Template for environment variables
+├── requirements.txt          # Python dependencies
+├── inputs/                   # Source data, by year
+│   ├── 2025/file.kmz
+│   └── 2026/                 # venue list → CSV → KMZ pipeline + final KMZ
+├── outputs/                  # Optimized routes, by year
+│   ├── 2025/optimized_route.{kml,geojson,md}
+│   └── 2026/optimized_route_2026.{kml,geojson,kmz}
+├── cache/                    # Auto-created API cache
+│   ├── geocode_cache.pkl     # Cached geocoding results
+│   └── distance_cache.pkl    # Cached distance calculations
+└── kmz_extracted/            # Scratch dir (gitignored; regenerated each run)
 ```
 
 ## How It Works

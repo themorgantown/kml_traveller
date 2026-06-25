@@ -56,7 +56,7 @@
         </Point>
       </Placemark>
       <Placemark>
-        <name>4. Lyndhurst Mansion & Gardens</name>
+        <name>4. Lyndhurst Mansion &amp; Gardens</name>
         <description>Stop 4 of 166 in optimized route</description>
         <styleUrl>#routePoint</styleUrl>
         <Point>
@@ -64,7 +64,7 @@
         </Point>
       </Placemark>
       <Placemark>
-        <name>5. Edward Hopper House Museum & Study Center</name>
+        <name>5. Edward Hopper House Museum &amp; Study Center</name>
         <description>Stop 5 of 166 in optimized route</description>
         <styleUrl>#routePoint</styleUrl>
         <Point>
@@ -448,7 +448,7 @@
         </Point>
       </Placemark>
       <Placemark>
-        <name>53. Lynn & Lorraine with Tulsa Artist Fellowship</name>
+        <name>53. Lynn &amp; Lorraine with Tulsa Artist Fellowship</name>
         <description>Stop 53 of 166 in optimized route</description>
         <styleUrl>#routePoint</styleUrl>
         <Point>
@@ -600,7 +600,7 @@
         </Point>
       </Placemark>
       <Placemark>
-        <name>72. Woodstock Artists Association & Museum</name>
+        <name>72. Woodstock Artists Association &amp; Museum</name>
         <description>Stop 72 of 166 in optimized route</description>
         <styleUrl>#routePoint</styleUrl>
         <Point>
@@ -608,7 +608,7 @@
         </Point>
       </Placemark>
       <Placemark>
-        <name>73. Arts&Rec / OSMOS Station</name>
+        <name>73. Arts&amp;Rec / OSMOS Station</name>
         <description>Stop 73 of 166 in optimized route</description>
         <styleUrl>#routePoint</styleUrl>
         <Point>
@@ -896,7 +896,7 @@
         </Point>
       </Placemark>
       <Placemark>
-        <name>109. Farm & Field</name>
+        <name>109. Farm &amp; Field</name>
         <description>Stop 109 of 166 in optimized route</description>
         <styleUrl>#routePoint</styleUrl>
         <Point>
@@ -904,7 +904,7 @@
         </Point>
       </Placemark>
       <Placemark>
-        <name>110. Ashley Garrett & Brian Wood Studio</name>
+        <name>110. Ashley Garrett &amp; Brian Wood Studio</name>
         <description>Stop 110 of 166 in optimized route</description>
         <styleUrl>#routePoint</styleUrl>
         <Point>
@@ -1064,7 +1064,7 @@
         </Point>
       </Placemark>
       <Placemark>
-        <name>130. JW1301 & 1301 Guest House</name>
+        <name>130. JW1301 &amp; 1301 Guest House</name>
         <description>Stop 130 of 166 in optimized route</description>
         <styleUrl>#routePoint</styleUrl>
         <Point>
@@ -1216,7 +1216,7 @@
         </Point>
       </Placemark>
       <Placemark>
-        <name>149. Art Sales & Research</name>
+        <name>149. Art Sales &amp; Research</name>
         <description>Stop 149 of 166 in optimized route</description>
         <styleUrl>#routePoint</styleUrl>
         <Point>
@@ -1224,7 +1224,7 @@
         </Point>
       </Placemark>
       <Placemark>
-        <name>150. Charlotte Woolf at Foxtrot Farm & Flowers</name>
+        <name>150. Charlotte Woolf at Foxtrot Farm &amp; Flowers</name>
         <description>Stop 150 of 166 in optimized route</description>
         <styleUrl>#routePoint</styleUrl>
         <Point>
