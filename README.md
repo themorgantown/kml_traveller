@@ -1,7 +1,7 @@
 # Route Optimization Tool
 
-Sample file is upstate art weekend 2025.
-Final map: https://www.google.com/maps/d/u/0/edit?mid=1xfY0kFyNcUoP8r05mY_pL_jyWYx4IKw&usp=sharing
+Sample file is upstate art weekend 2026.
+Final map: https://www.google.com/maps/d/edit?mid=1Itebu15hqRqvCmXIoNYEkuUrp3_EF-k&usp=sharing
 
 A powerful Python tool that extracts locations from KML/KMZ files and finds the optimal traveling salesman route with minimum distance. Features comprehensive cost optimizations and supports both Google Maps and OpenRouteService APIs.
 
@@ -291,10 +291,7 @@ pip install -r requirements.txt
 - Test with small datasets first
 - Verify API keys are working
 - Check output file generation
-
-## License
-
-[Add your chosen license here]
+ 
 
 ## Support
 
@@ -303,15 +300,4 @@ For issues and questions:
 - Review API provider documentation
 - Submit issues with sample data (no API keys)
 
-## Roadmap
-
-Potential future features:
-- Additional mapping service APIs
-- Real-time traffic consideration
-- Multi-vehicle routing
-- Web interface
-- Docker containerization
-
----
-
-**Note**: Remember to keep your API keys secure and never commit them to version control!
+ 
