@@ -59,6 +59,7 @@ pip install -r requirements.txt
 2. Enable these APIs:
    - Geocoding API
    - Distance Matrix API
+   - Directions API
 3. Add your key to `.env` file:
    ```
    GOOGLE_MAPS_API_KEY=your-api-key-here
@@ -86,8 +87,8 @@ cp .env.example .env          # then add your GOOGLE_MAPS_API_KEY
 ### 2. Run the optimizer
 
 `run.py` takes two optional arguments: the input KMZ and the output base path
-(no extension — it writes `<base>.kml` and `<base>.geojson`). Missing output
-folders are created automatically.
+(no extension — it writes `<base>.kml`, `<base>.geojson`, and `<base>.kmz`).
+Missing output folders are created automatically.
 
 ```bash
 # usage: python run.py [input.kmz] [output_base]
@@ -100,19 +101,27 @@ folders are created automatically.
 ```
 
 With no arguments it falls back to `file.kmz` → `optimized_route.*` in the
-current directory. Geocoding and distance results are cached in `cache/`, so
-re-runs are near-free.
+current directory. By default, the route starts at the first listed Kingston
+venue, uses an open itinerary, solves against directed Google driving distances,
+and draws road-following paths with the Directions API. Geocoding, distance, and
+directions results are cached in `cache/`, so re-runs are near-free.
+
+Optional flags:
+
+```bash
+.venv/bin/python run.py inputs/2026/upstate_art_weekend_2026_full.kmz outputs/2026/optimized_route_2026 \
+  --start-city Kingston \
+  --start-mode first-listed \
+  --route-shape open \
+  --quality maximum \
+  --directions-paths
+```
 
 ### 3. Import into Google Maps (My Maps)
 
-The optimizer writes a `.kml` and `.geojson`. To import into
-[Google My Maps](https://www.google.com/maps/d/), use a **KMZ** — it is a
-zipped KML and is ~10x smaller, which keeps it under My Maps' import size
-limit. Convert the route KML to KMZ:
-
-```bash
-.venv/bin/python -c "import zipfile; zipfile.ZipFile('outputs/2026/optimized_route_2026.kmz','w',zipfile.ZIP_DEFLATED).write('outputs/2026/optimized_route_2026.kml','doc.kml')"
-```
+The optimizer writes a `.kmz` automatically. To import into
+[Google My Maps](https://www.google.com/maps/d/), use the KMZ because it is a
+zipped KML and is smaller than the raw KML.
 
 Then in My Maps: **Create a new map → Import → upload the `.kmz`**.
 
@@ -168,23 +177,23 @@ project/
 - Handles direct coordinates without geocoding
 
 #### 3. **Distance Matrix Creation** (run.py only)
-- **Symmetric Optimization**: Only calculates A→B, assumes B→A is equal (50% reduction)
-- **Geographic Filtering**: Skips impossible long-distance calculations
+- **Directed Driving Matrix**: Calculates A→B independently from B→A for better real-world routing
+- **Maximum Quality Mode**: Uses real Google driving distances across the full dataset by default
 - **Batch Processing**: Groups API calls for efficiency
 - **Comprehensive Caching**: Stores all distance calculations
 
 #### 4. **TSP Optimization**
-- **Edge-based Starting Point**: Finds optimal starting location (furthest from centroid)
+- **Fixed Open Start**: Defaults to the first listed Kingston venue and does not force a return loop
 - **Adaptive Algorithms**: Different strategies based on problem size:
   - Small (≤15): Exact algorithms with guided local search
   - Medium (16-50): Simulated annealing for quality/speed balance  
   - Large (>50): Tabu search with clustering for speed
-- **Smart Clustering**: Automatically groups nearby locations for large datasets
+- **Cluster Fallback**: Keeps clustering as a fallback if the full-route solve fails
 
 #### 5. **Output Generation**
 - **GeoJSON**: For web mapping applications
 - **KML**: For Google Earth visualization
-- Both include route order, waypoints, and path visualization
+- Both include route order, waypoints, and road-following path visualization
 
 ## Advanced Features (run.py)
 
@@ -200,10 +209,10 @@ For 168 locations:
 - **With optimization**: ~$67 first run (52% savings)
 - **Subsequent runs**: Near $0 (cached)
 
-### Smart Clustering
-- Automatically activates for datasets > 50 locations
-- Groups nearby locations to reduce complexity
-- Maintains solution quality while improving performance
+### Road-Following Geometry
+- Uses the Directions API after optimization to draw the final route along roads
+- Falls back to straight segments only for individual legs where Directions fails
+- Stores decoded directions paths in `cache/directions_cache.pkl`
 
 ## Output Files
 
@@ -239,8 +248,9 @@ time_limit = 300  # seconds
 ### Google Maps API (run.py)
 - **Geocoding**: $0.005 per request
 - **Distance Matrix**: $0.005 per element
+- **Directions**: used once per final route leg for road-following geometry
 - **Rate Limit**: 50 requests/second
-- **Optimization**: Up to 80% cost reduction
+- **Optimization**: caching keeps repeat runs inexpensive
 
 ### OpenRouteService (run_ors.py)
 - **Free Tier**: 2,000 requests/day

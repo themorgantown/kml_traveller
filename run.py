@@ -2,6 +2,7 @@
 
 import os
 from dotenv import load_dotenv
+import argparse
 
 # Load environment variables from .env file
 load_dotenv()
@@ -17,6 +18,7 @@ import zipfile
 import xml.etree.ElementTree as ET
 from xml.sax.saxutils import escape
 import googlemaps
+from googlemaps.convert import decode_polyline
 from ortools.constraint_solver import routing_enums_pb2
 from ortools.constraint_solver import pywrapcp
 import json
@@ -26,6 +28,11 @@ import hashlib
 import time
 import math
 from datetime import datetime, timedelta
+
+DEFAULT_START_CITY = "Kingston"
+DEFAULT_START_MODE = "first-listed"
+DEFAULT_ROUTE_SHAPE = "open"
+DEFAULT_QUALITY = "maximum"
 
 # === Geographic Utility Functions ===
 def haversine_distance(lat1, lon1, lat2, lon2):
@@ -131,21 +138,23 @@ def cluster_locations(locations, max_cluster_size=15):
 	return clusters
 
 # === Caching and API Optimization ===
-class APICache:
-	def __init__(self, cache_dir="cache", cache_duration_days=30):
-		self.cache_dir = cache_dir
-		self.cache_duration = timedelta(days=cache_duration_days)
-		self.geocode_cache_file = os.path.join(cache_dir, "geocode_cache.pkl")
-		self.distance_cache_file = os.path.join(cache_dir, "distance_cache.pkl")
+	class APICache:
+		def __init__(self, cache_dir="cache", cache_duration_days=30):
+			self.cache_dir = cache_dir
+			self.cache_duration = timedelta(days=cache_duration_days)
+			self.geocode_cache_file = os.path.join(cache_dir, "geocode_cache.pkl")
+			self.distance_cache_file = os.path.join(cache_dir, "distance_cache.pkl")
+			self.directions_cache_file = os.path.join(cache_dir, "directions_cache.pkl")
 
-		# Create cache directory if it doesn't exist
-		os.makedirs(cache_dir, exist_ok=True)
+			# Create cache directory if it doesn't exist
+			os.makedirs(cache_dir, exist_ok=True)
 
-		# Load existing caches
-		self.geocode_cache = self._load_cache(self.geocode_cache_file)
-		self.distance_cache = self._load_cache(self.distance_cache_file)
+			# Load existing caches
+			self.geocode_cache = self._load_cache(self.geocode_cache_file)
+			self.distance_cache = self._load_cache(self.distance_cache_file)
+			self.directions_cache = self._load_cache(self.directions_cache_file)
 
-		print(f"Cache initialized: {len(self.geocode_cache)} geocode entries, {len(self.distance_cache)} distance entries")
+			print(f"Cache initialized: {len(self.geocode_cache)} geocode entries, {len(self.distance_cache)} distance entries, {len(self.directions_cache)} directions entries")
 	
 	def _load_cache(self, cache_file):
 		"""Load cache from file, filtering out expired entries"""
@@ -205,20 +214,35 @@ class APICache:
 			return data
 		return None
 	
-	def set_distance(self, origin, destination, result):
-		"""Save distance result to cache"""
-		key = f"{self._hash_location(origin)}->{self._hash_location(destination)}"
-		self.distance_cache[key] = (result, datetime.now())
-		self._save_cache(self.distance_cache, self.distance_cache_file)
+		def set_distance(self, origin, destination, result):
+			"""Save distance result to cache"""
+			key = f"{self._hash_location(origin)}->{self._hash_location(destination)}"
+			self.distance_cache[key] = (result, datetime.now())
+			self._save_cache(self.distance_cache, self.distance_cache_file)
+
+		def get_directions_path(self, origin, destination):
+			"""Get decoded directions path from cache or return None"""
+			key = f"{self._hash_location(origin)}->{self._hash_location(destination)}"
+			if key in self.directions_cache:
+				data, timestamp = self.directions_cache[key]
+				return data
+			return None
+
+		def set_directions_path(self, origin, destination, result):
+			"""Save decoded directions path to cache"""
+			key = f"{self._hash_location(origin)}->{self._hash_location(destination)}"
+			self.directions_cache[key] = (result, datetime.now())
+			self._save_cache(self.directions_cache, self.directions_cache_file)
 	
 	def get_cache_stats(self):
-		"""Return cache statistics"""
-		return {
-			'geocode_entries': len(self.geocode_cache),
-			'distance_entries': len(self.distance_cache),
-			'cache_directory': self.cache_dir,
-			'cache_duration_days': self.cache_duration.days
-		}
+			"""Return cache statistics"""
+			return {
+				'geocode_entries': len(self.geocode_cache),
+				'distance_entries': len(self.distance_cache),
+				'directions_entries': len(self.directions_cache),
+				'cache_directory': self.cache_dir,
+				'cache_duration_days': self.cache_duration.days
+			}
 
 # === Step 1: Extract Addresses and Names from KMZ ===
 def extract_addresses_from_kmz(kmz_path):
@@ -312,6 +336,7 @@ def extract_addresses_from_kmz(kmz_path):
 def geocode_addresses(addresses, location_names, gmaps, cache):
 	coordinates = []
 	final_names = []
+	final_addresses = []
 	
 	print("Converting addresses to GPS coordinates...")
 	
@@ -324,6 +349,7 @@ def geocode_addresses(addresses, location_names, gmaps, cache):
 			lat, lon = map(float, coord_str.split(','))
 			coordinates.append((lat, lon))
 			final_names.append(name)
+			final_addresses.append(address)
 			print(f"  {len(coordinates)}. {name}: Using direct coordinates ({lat:.6f}, {lon:.6f})")
 			continue
 		
@@ -333,6 +359,7 @@ def geocode_addresses(addresses, location_names, gmaps, cache):
 			lat, lon = cached_result['lat'], cached_result['lng']
 			coordinates.append((lat, lon))
 			final_names.append(name)
+			final_addresses.append(address)
 			print(f"  {len(coordinates)}. {name}: ({lat:.6f}, {lon:.6f})")
 			continue
 		
@@ -345,6 +372,7 @@ def geocode_addresses(addresses, location_names, gmaps, cache):
 				lat, lon = location['lat'], location['lng']
 				coordinates.append((lat, lon))
 				final_names.append(name)
+				final_addresses.append(address)
 				
 				# Cache the result
 				cache.set_geocode(address, location)
@@ -355,14 +383,16 @@ def geocode_addresses(addresses, location_names, gmaps, cache):
 		except Exception as e:
 			print(f"  Error geocoding {name}: {str(e)}")
 			continue
-	
+		
 	print(f"Successfully geocoded {len(coordinates)} locations")
-	return coordinates, final_names
+	return coordinates, final_names, final_addresses
 
 # === Step 3: Create Distance Matrix with Optimizations ===
-def create_distance_matrix(locations, gmaps, cache):
+def create_distance_matrix(locations, gmaps, cache, quality=DEFAULT_QUALITY):
 	n = len(locations)
-	print(f"Creating optimized {n}x{n} distance matrix...")
+	directed = quality == "maximum"
+	use_geographic_filter = quality != "maximum"
+	print(f"Creating {'directed' if directed else 'symmetric'} {n}x{n} distance matrix...")
 	matrix = [[0] * n for _ in range(n)]
 	
 	# Calculate centroid for geographic filtering
@@ -376,31 +406,33 @@ def create_distance_matrix(locations, gmaps, cache):
 		print(f"Geographic filtering: max reasonable distance = {max_reasonable_distance/1000:.1f} km")
 	else:
 		max_reasonable_distance = 200000  # Default 200km
+	if not use_geographic_filter:
+		print("Maximum quality mode: geographic distance skips disabled")
 	
-	# Collect pairs that need to be calculated (upper triangle only for symmetry)
+	# Collect directed pairs that need to be calculated.
 	pairs_to_calculate = []
 	cache_hits = 0
 	geographic_skips = 0
 	
 	for i in range(n):
-		for j in range(i + 1, n):  # Only upper triangle (i < j)
+		for j in range(n):
+			if i == j:
+				continue
 			# Check cache first
 			cached_distance = cache.get_distance(locations[i], locations[j])
 			if cached_distance is not None:
 				matrix[i][j] = cached_distance
-				matrix[j][i] = cached_distance  # Symmetric
 				cache_hits += 1
 			else:
 				# Check if geographic distance is too large
-				if should_skip_distance_calculation(locations[i], locations[j], max_reasonable_distance):
+				if use_geographic_filter and should_skip_distance_calculation(locations[i], locations[j], max_reasonable_distance):
 					penalty_distance = int(max_reasonable_distance * 2)  # Large penalty
 					matrix[i][j] = penalty_distance
-					matrix[j][i] = penalty_distance
 					geographic_skips += 1
 				else:
 					pairs_to_calculate.append((i, j))
 	
-	total_pairs = (n * (n - 1)) // 2  # Only upper triangle
+	total_pairs = n * (n - 1)
 	api_calls_saved = cache_hits + geographic_skips
 	
 	print(f"Optimization results:")
@@ -414,33 +446,27 @@ def create_distance_matrix(locations, gmaps, cache):
 		print("All distances found in cache or filtered out!")
 		return matrix
 	
-	# Process remaining pairs in batches
-	batch_size = 25  # Google Maps allows up to 25 origins x 25 destinations per request
-	total_batches = (len(pairs_to_calculate) + batch_size - 1) // batch_size
-	
-	print(f"Processing {len(pairs_to_calculate)} distance calculations in {total_batches} batches...")
-	
-	for batch_num in range(total_batches):
-		start_idx = batch_num * batch_size
-		end_idx = min(start_idx + batch_size, len(pairs_to_calculate))
-		batch_pairs = pairs_to_calculate[start_idx:end_idx]
-		
-		print(f"Batch {batch_num + 1}/{total_batches}: Processing {len(batch_pairs)} pairs...")
-		
-		# Group pairs by origin to use batch requests efficiently
-		origin_groups = {}
-		for i, j in batch_pairs:
-			if i not in origin_groups:
-				origin_groups[i] = []
-			origin_groups[i].append(j)
-		
-		# Process each origin group
-		for origin_idx, destination_indices in origin_groups.items():
-			origin = locations[origin_idx]
-			destinations = [locations[j] for j in destination_indices]
+	origin_groups = {}
+	for origin_idx, dest_idx in pairs_to_calculate:
+		if origin_idx not in origin_groups:
+			origin_groups[origin_idx] = []
+		origin_groups[origin_idx].append(dest_idx)
+
+	batch_size = 25  # Google Maps allows up to 25 destinations for one origin.
+	total_batches = sum((len(destinations) + batch_size - 1) // batch_size for destinations in origin_groups.values())
+	current_batch = 0
+
+	print(f"Processing {len(pairs_to_calculate)} directed distance calculations in {total_batches} API batches...")
+
+	for origin_idx, destination_indices in origin_groups.items():
+		origin = locations[origin_idx]
+		for start_idx in range(0, len(destination_indices), batch_size):
+			current_batch += 1
+			batch_destination_indices = destination_indices[start_idx:start_idx + batch_size]
+			destinations = [locations[j] for j in batch_destination_indices]
+			print(f"Batch {current_batch}/{total_batches}: origin {origin_idx}, {len(destinations)} destinations...")
 			
 			try:
-				# Make batch request to Google Maps
 				response = gmaps.distance_matrix(
 					origins=[origin],
 					destinations=destinations,
@@ -449,40 +475,31 @@ def create_distance_matrix(locations, gmaps, cache):
 					units="metric"
 				)
 				
-				# Process results
 				if response["rows"]:
 					elements = response["rows"][0]["elements"]
 					for idx, element in enumerate(elements):
-						dest_idx = destination_indices[idx]
+						dest_idx = batch_destination_indices[idx]
 						
 						if element["status"] == "OK":
 							distance = element["distance"]["value"]
 							matrix[origin_idx][dest_idx] = distance
-							matrix[dest_idx][origin_idx] = distance  # Symmetric
-							
-							# Cache the result
 							cache.set_distance(origin, destinations[idx], distance)
 						else:
 							print(f"Warning: Distance calculation failed between points {origin_idx} and {dest_idx}: {element.get('status', 'Unknown error')}")
-							# Use geographic distance as fallback
 							fallback_distance = int(haversine_distance(
 								origin[0], origin[1], destinations[idx][0], destinations[idx][1]
-							) * 1.5)  # 1.5x geographic distance as driving estimate
+							) * 1.5)
 							matrix[origin_idx][dest_idx] = fallback_distance
-							matrix[dest_idx][origin_idx] = fallback_distance
 				
-				# Add small delay to respect API rate limits
 				time.sleep(0.1)
 				
 			except Exception as e:
 				print(f"Error in batch request for origin {origin_idx}: {str(e)}")
-				# Fill with geographic distance estimates for failed requests
-				for dest_idx in destination_indices:
+				for dest_idx in batch_destination_indices:
 					fallback_distance = int(haversine_distance(
 						origin[0], origin[1], locations[dest_idx][0], locations[dest_idx][1]
 					) * 1.5)
 					matrix[origin_idx][dest_idx] = fallback_distance
-					matrix[dest_idx][origin_idx] = fallback_distance
 	
 	print("Distance matrix creation completed!")
 	print(f"Total API calls saved by optimization: {api_calls_saved}")
@@ -501,7 +518,22 @@ def create_distance_matrix(locations, gmaps, cache):
 	
 	return matrix
 
-def nearest_neighbor_tsp(matrix, start_idx=0):
+def find_start_index(addresses, location_names, start_city=DEFAULT_START_CITY, start_mode=DEFAULT_START_MODE):
+	"""Find the configured first stop from geocoded source addresses."""
+	if start_mode != "first-listed":
+		raise ValueError(f"Unsupported start mode: {start_mode}")
+
+	city_needle = f"{start_city}, NY".lower()
+	for idx, address in enumerate(addresses):
+		if city_needle in address.lower():
+			name = location_names[idx] if idx < len(location_names) else f"Location_{idx+1}"
+			print(f"Fixed start selected: {name} ({address})")
+			return idx
+
+	print(f"Warning: no address matched '{start_city}, NY'; falling back to first location")
+	return 0
+
+def nearest_neighbor_tsp(matrix, start_idx=0, route_shape=DEFAULT_ROUTE_SHAPE):
     """
     Simple nearest neighbor TSP heuristic for fallback when OR-Tools times out
     """
@@ -522,7 +554,8 @@ def nearest_neighbor_tsp(matrix, start_idx=0):
         unvisited.remove(nearest)
         current = nearest
     
-    route.append(start_idx)  # Return to start
+    if route_shape == "closed":
+        route.append(start_idx)
     
     # Calculate total distance
     total_distance = sum(matrix[route[i]][route[i+1]] for i in range(len(route)-1))
@@ -531,20 +564,34 @@ def nearest_neighbor_tsp(matrix, start_idx=0):
     return route
 
 # === Step 4: Solve TSP with Optimal Starting Point ===
-def solve_tsp(matrix, locations):
+def solve_tsp(
+	matrix,
+	locations,
+	start_idx=None,
+	route_shape=DEFAULT_ROUTE_SHAPE,
+	fallback_to_nearest=True,
+	time_limit_override=None
+):
     tsp_size = len(matrix)
-    print(f"Solving TSP for {tsp_size} locations...")
+    print(f"Solving {route_shape} TSP for {tsp_size} locations...")
     
     if tsp_size < 2:
         print("Warning: Need at least 2 locations to solve TSP")
         return list(range(tsp_size)) if tsp_size > 0 else []
     
-    # Find optimal starting location (furthest from centroid)
-    optimal_start = find_optimal_start_location(locations)
-    print(f"Optimal starting location: Index {optimal_start} (edge location)")
+    if start_idx is None:
+        start_idx = find_optimal_start_location(locations)
+        print(f"Optimal starting location: Index {start_idx} (edge location)")
+    else:
+        print(f"Fixed starting location: Index {start_idx}")
     
-    # Create RoutingIndexManager with optimal start location
-    manager = pywrapcp.RoutingIndexManager(tsp_size, 1, optimal_start)
+    dummy_end_idx = tsp_size if route_shape == "open" else None
+    manager_size = tsp_size + 1 if route_shape == "open" else tsp_size
+
+    if route_shape == "open":
+        manager = pywrapcp.RoutingIndexManager(manager_size, 1, [start_idx], [dummy_end_idx])
+    else:
+        manager = pywrapcp.RoutingIndexManager(manager_size, 1, start_idx)
 
     # Create RoutingModel
     routing = pywrapcp.RoutingModel(manager)
@@ -553,6 +600,10 @@ def solve_tsp(matrix, locations):
     def distance_callback(from_index, to_index):
         from_node = manager.IndexToNode(from_index)
         to_node = manager.IndexToNode(to_index)
+        if dummy_end_idx is not None and to_node == dummy_end_idx:
+            return 0
+        if dummy_end_idx is not None and from_node == dummy_end_idx:
+            return 0
         return matrix[from_node][to_node]
 
     transit_callback_index = routing.RegisterTransitCallback(distance_callback)
@@ -588,7 +639,9 @@ def solve_tsp(matrix, locations):
             routing_enums_pb2.FirstSolutionStrategy.SAVINGS)
         search_parameters.local_search_metaheuristic = (
             routing_enums_pb2.LocalSearchMetaheuristic.AUTOMATIC)
-        time_limit = 60  # 1 minute max
+        time_limit = 180 if route_shape == "open" else 60
+    if time_limit_override is not None:
+        time_limit = time_limit_override
     
     search_parameters.time_limit.seconds = time_limit
     print(f"TSP solver strategy: {search_parameters.first_solution_strategy}")
@@ -610,19 +663,23 @@ def solve_tsp(matrix, locations):
         total_distance = 0
         
         while not routing.IsEnd(index):
-            route.append(manager.IndexToNode(index))
+            node = manager.IndexToNode(index)
+            if node != dummy_end_idx:
+                route.append(node)
             previous_index = index
             index = assignment.Value(routing.NextVar(index))
             if not routing.IsEnd(index):
                 total_distance += routing.GetArcCostForVehicle(previous_index, index, 0)
         
-        route.append(manager.IndexToNode(index))  # Add the end node
+        end_node = manager.IndexToNode(index)
+        if route_shape == "closed" and end_node != dummy_end_idx:
+            route.append(end_node)
         
         # Calculate route statistics
         print(f"📊 Route Statistics:")
         print(f"  - Total distance: {total_distance/1000:.2f} km")
         print(f"  - Average distance per segment: {total_distance/(len(route)-1)/1000:.2f} km")
-        print(f"  - Starting from optimal edge location (index {optimal_start})")
+        print(f"  - Starting index: {start_idx}")
         
         # Estimate travel time (assuming average speed of 50 km/h)
         estimated_hours = (total_distance / 1000) / 50
@@ -630,20 +687,33 @@ def solve_tsp(matrix, locations):
         
         return route
     else:
-        print(f"❌ No solution found within {time_limit} seconds! Using greedy fallback...")
-        # Use nearest neighbor heuristic as fallback
-        return nearest_neighbor_tsp(matrix, optimal_start)
+        if fallback_to_nearest:
+            print(f"❌ No solution found within {time_limit} seconds! Using greedy fallback...")
+            return nearest_neighbor_tsp(matrix, start_idx, route_shape)
+        print(f"❌ No solution found within {time_limit} seconds.")
+        return None
 
-def solve_tsp_with_clustering(matrix, locations, max_cluster_size=30):
+def solve_tsp_with_clustering(matrix, locations, start_idx=None, route_shape=DEFAULT_ROUTE_SHAPE, quality=DEFAULT_QUALITY, max_cluster_size=30):
 	"""
 	Solve TSP with optional clustering for large datasets
 	For datasets larger than max_cluster_size, use clustering to reduce complexity
 	"""
 	n = len(locations)
 	
+	if quality == "maximum":
+		route = solve_tsp(
+			matrix,
+			locations,
+			start_idx=start_idx,
+			route_shape=route_shape,
+			fallback_to_nearest=False
+		)
+		if route:
+			return route
+		print("Full-route solve failed; falling back to clustered solve.")
+
 	if n <= max_cluster_size:
-		# Small enough to solve directly
-		return solve_tsp(matrix, locations)
+		return solve_tsp(matrix, locations, start_idx=start_idx, route_shape=route_shape)
 	
 	print(f"Large dataset detected ({n} locations). Using clustering optimization...")
 	
@@ -652,7 +722,7 @@ def solve_tsp_with_clustering(matrix, locations, max_cluster_size=30):
 	
 	if len(clusters) == 1:
 		# Clustering didn't help, solve directly
-		return solve_tsp(matrix, locations)
+			return solve_tsp(matrix, locations, start_idx=start_idx, route_shape=route_shape)
 	
 	# Solve TSP for each cluster
 	cluster_routes = []
@@ -666,7 +736,8 @@ def solve_tsp_with_clustering(matrix, locations, max_cluster_size=30):
 		cluster_coords = [locations[idx] for idx in cluster]
 		
 		# Solve TSP for this cluster
-		cluster_route = solve_tsp(cluster_matrix, cluster_coords)
+		cluster_start = cluster.index(start_idx) if start_idx in cluster else None
+		cluster_route = solve_tsp(cluster_matrix, cluster_coords, start_idx=cluster_start, route_shape=route_shape)
 		
 		# Convert back to original indices
 		original_route = [cluster[idx] for idx in cluster_route if idx < len(cluster)]
@@ -680,7 +751,7 @@ def solve_tsp_with_clustering(matrix, locations, max_cluster_size=30):
 	print(f"Solving TSP between {len(clusters)} cluster centers...")
 	center_matrix = [[matrix[cluster_centers[i]][cluster_centers[j]] for j in range(len(cluster_centers))] for i in range(len(cluster_centers))]
 	center_locations = [locations[idx] for idx in cluster_centers]
-	center_route = solve_tsp(center_matrix, center_locations)
+	center_route = solve_tsp(center_matrix, center_locations, route_shape=route_shape)
 	
 	# Combine cluster routes in the order determined by center TSP
 	final_route = []
@@ -692,8 +763,8 @@ def solve_tsp_with_clustering(matrix, locations, max_cluster_size=30):
 				if location_idx not in final_route:
 					final_route.append(location_idx)
 	
-	# Ensure we return to the start
-	if final_route and final_route[-1] != final_route[0]:
+	# Ensure we return to the start for closed routes only.
+	if route_shape == "closed" and final_route and final_route[-1] != final_route[0]:
 		final_route.append(final_route[0])
 	
 	print(f"✓ Clustering optimization completed!")
@@ -702,8 +773,77 @@ def solve_tsp_with_clustering(matrix, locations, max_cluster_size=30):
 	
 	return final_route
 
+def fetch_directions_segments(locations, route, location_names, gmaps, cache, enabled=True):
+	"""Fetch road-following coordinates for each adjacent route leg."""
+	segments = []
+	if not enabled:
+		print("Directions paths disabled; using straight route segments")
+
+	for i in range(len(route) - 1):
+		start_idx = route[i]
+		end_idx = route[i + 1]
+		origin = locations[start_idx]
+		destination = locations[end_idx]
+		start_name = location_names[start_idx] if location_names and start_idx < len(location_names) else f"Location_{start_idx+1}"
+		end_name = location_names[end_idx] if location_names and end_idx < len(location_names) else f"Location_{end_idx+1}"
+		fallback_path = [origin, destination]
+		path = None
+		status = "fallback"
+
+		if enabled:
+			cached_path = cache.get_directions_path(origin, destination)
+			if cached_path:
+				path = cached_path
+				status = "cached"
+			else:
+				try:
+					response = gmaps.directions(
+						origin=origin,
+						destination=destination,
+						mode="driving",
+						avoid="tolls"
+					)
+					if response:
+						points = response[0].get("overview_polyline", {}).get("points")
+						if points:
+							decoded = decode_polyline(points)
+							path = [(point["lat"], point["lng"]) for point in decoded]
+							cache.set_directions_path(origin, destination, path)
+							status = "directions"
+					time.sleep(0.1)
+				except Exception as e:
+					print(f"Warning: Directions failed for segment {i + 1} ({start_name} -> {end_name}): {e}")
+
+		if not path:
+			path = fallback_path
+			print(f"Warning: using straight fallback for segment {i + 1} ({start_name} -> {end_name})")
+
+		segments.append({
+			"from_index": start_idx,
+			"to_index": end_idx,
+			"from_name": start_name,
+			"to_name": end_name,
+			"path": path,
+			"status": status
+		})
+
+	directions_count = sum(1 for segment in segments if segment["status"] == "directions")
+	cached_count = sum(1 for segment in segments if segment["status"] == "cached")
+	fallback_count = sum(1 for segment in segments if segment["status"] == "fallback")
+	print(f"Directions geometry: {directions_count} fetched, {cached_count} cached, {fallback_count} fallback")
+	return segments
+
+def flatten_segment_paths(route_segments):
+	"""Combine leg paths into one route path without duplicate join points."""
+	route_path = []
+	for segment in route_segments:
+		for point in segment["path"]:
+			if not route_path or route_path[-1] != point:
+				route_path.append(point)
+	return route_path
+
 # === Step 5: Save GeoJSON Output ===
-def save_geojson(locations, route, location_names=None, output_file="optimized_route.geojson"):
+def save_geojson(locations, route, location_names=None, output_file="optimized_route.geojson", route_segments=None):
 	features = []
 	
 	# Add points as features
@@ -728,27 +868,38 @@ def save_geojson(locations, route, location_names=None, output_file="optimized_r
 		})
 	
 	# Add route lines as features
-	for i in range(len(route) - 1):
-		start_idx = route[i]
-		end_idx = route[i + 1]
-		start = locations[start_idx]
-		end = locations[end_idx]
-		
-		start_name = location_names[start_idx] if location_names and start_idx < len(location_names) else f"Location_{start_idx+1}"
-		end_name = location_names[end_idx] if location_names and end_idx < len(location_names) else f"Location_{end_idx+1}"
+	if route_segments is None:
+		route_segments = []
+		for i in range(len(route) - 1):
+			start_idx = route[i]
+			end_idx = route[i + 1]
+			start = locations[start_idx]
+			end = locations[end_idx]
+			start_name = location_names[start_idx] if location_names and start_idx < len(location_names) else f"Location_{start_idx+1}"
+			end_name = location_names[end_idx] if location_names and end_idx < len(location_names) else f"Location_{end_idx+1}"
+			route_segments.append({
+				"from_index": start_idx,
+				"to_index": end_idx,
+				"from_name": start_name,
+				"to_name": end_name,
+				"path": [start, end],
+				"status": "fallback"
+			})
+	for i, segment in enumerate(route_segments):
 		
 		features.append({
 			"type": "Feature",
 			"geometry": {
 				"type": "LineString",
-				"coordinates": [[start[1], start[0]], [end[1], end[0]]]
+				"coordinates": [[lon, lat] for lat, lon in segment["path"]]
 			},
 			"properties": {
-				"from": start_name,
-				"to": end_name,
-				"from_index": start_idx,
-				"to_index": end_idx,
+				"from": segment["from_name"],
+				"to": segment["to_name"],
+				"from_index": segment["from_index"],
+				"to_index": segment["to_index"],
 				"segment": i + 1,
+				"geometry_source": segment["status"],
 				"stroke": "#ff0000",
 				"stroke-width": 3,
 				"stroke-opacity": 0.8
@@ -767,7 +918,7 @@ def save_geojson(locations, route, location_names=None, output_file="optimized_r
 	print(f"  - {len([f for f in features if f['geometry']['type'] == 'LineString'])} route segments")
 
 # === Step 5: Save KML Output ===
-def save_kml(locations, route, location_names=None, output_file="optimized_route.kml"):
+def save_kml(locations, route, location_names=None, output_file="optimized_route.kml", route_segments=None):
 	"""
 	Creates a KML file with the optimized route including both points and path
 	"""
@@ -845,10 +996,9 @@ def save_kml(locations, route, location_names=None, output_file="optimized_route
 	
 	# Add coordinates for the complete path
 	path_coords = []
-	for route_idx in route:
-		if route_idx < len(locations):
-			lat, lon = locations[route_idx]
-			path_coords.append(f'          {lon},{lat},0')
+	route_path = flatten_segment_paths(route_segments) if route_segments else [locations[route_idx] for route_idx in route if route_idx < len(locations)]
+	for lat, lon in route_path:
+		path_coords.append(f'          {lon},{lat},0')
 	
 	kml_content.append('\n'.join(path_coords))
 	kml_content.append('        </coordinates>')
@@ -865,13 +1015,28 @@ def save_kml(locations, route, location_names=None, output_file="optimized_route
 	
 	print(f"KML route saved to: {output_file}")
 	print(f"  - {len(route)} waypoints in optimized order")
-	print(f"  - Complete route path with {len(route)} segments")
+	print(f"  - Complete route path with {len(path_coords)} coordinates")
+
+def save_kmz(kml_file, kmz_file):
+	"""Write a KMZ containing the KML as doc.kml."""
+	with zipfile.ZipFile(kmz_file, "w", zipfile.ZIP_DEFLATED) as kmz:
+		kmz.write(kml_file, "doc.kml")
+	print(f"KMZ route saved to: {kmz_file}")
 	
 # === Main Execution ===
 def main():
-	# Usage: python run.py [input.kmz] [output_base]
-	kmz_file = sys.argv[1] if len(sys.argv) > 1 else "file.kmz"  # Rename or change this if needed
-	out_base = sys.argv[2] if len(sys.argv) > 2 else "optimized_route"
+	parser = argparse.ArgumentParser(description="Optimize a KMZ route and export KML, GeoJSON, and KMZ.")
+	parser.add_argument("kmz_file", nargs="?", default="file.kmz", help="Input KMZ file")
+	parser.add_argument("out_base", nargs="?", default="optimized_route", help="Output base path without extension")
+	parser.add_argument("--start-city", default=DEFAULT_START_CITY, help="City to use for the fixed first stop")
+	parser.add_argument("--start-mode", choices=["first-listed"], default=DEFAULT_START_MODE, help="How to choose the start within the city")
+	parser.add_argument("--route-shape", choices=["open", "closed"], default=DEFAULT_ROUTE_SHAPE, help="Open itinerary or closed loop")
+	parser.add_argument("--quality", choices=["maximum", "balanced"], default=DEFAULT_QUALITY, help="Routing quality/cost mode")
+	parser.add_argument("--directions-paths", dest="directions_paths", action="store_true", default=True, help="Use Directions API geometry for route lines")
+	parser.add_argument("--no-directions-paths", dest="directions_paths", action="store_false", help="Use straight route lines")
+	args = parser.parse_args()
+	kmz_file = args.kmz_file
+	out_base = args.out_base
 
 	# Check if KMZ file exists
 	if not os.path.exists(kmz_file):
@@ -902,7 +1067,7 @@ def main():
 	print(f"\nStep 2: Converting {len(addresses)} addresses to GPS coordinates...")
 	try:
 		gmaps = googlemaps.Client(key=GOOGLE_MAPS_API_KEY)
-		coords, final_location_names = geocode_addresses(addresses, location_names, gmaps, cache)
+		coords, final_location_names, final_addresses = geocode_addresses(addresses, location_names, gmaps, cache)
 	except Exception as e:
 		print(f"Error geocoding addresses: {str(e)}")
 		return
@@ -910,16 +1075,24 @@ def main():
 	if len(coords) < 2:
 		print("Need at least 2 valid coordinates for route optimization!")
 		return
-	
+
+	start_idx = find_start_index(final_addresses, final_location_names, args.start_city, args.start_mode)
+		
 	print(f"\nStep 3: Creating distance matrix for {len(coords)} locations...")
 	try:
-		distance_matrix = create_distance_matrix(coords, gmaps, cache)
+		distance_matrix = create_distance_matrix(coords, gmaps, cache, quality=args.quality)
 	except Exception as e:
 		print(f"Error creating distance matrix: {str(e)}")
 		return
 	
 	print(f"\nStep 4: Solving traveling salesman problem with optimizations...")
-	route = solve_tsp_with_clustering(distance_matrix, coords)
+	route = solve_tsp_with_clustering(
+		distance_matrix,
+		coords,
+		start_idx=start_idx,
+		route_shape=args.route_shape,
+		quality=args.quality
+	)
 	if not route:
 		print("Could not find a solution.")
 		return
@@ -927,24 +1100,41 @@ def main():
 	print(f"\nStep 5: Displaying optimized route:")
 	print("-" * 40)
 	for i, idx in enumerate(route):
-		location_name = final_location_names[idx] if idx < len(final_location_names) else f"Location_{idx+1}"
-		print(f"{i + 1:2d}. {location_name}")
-		print(f"     Coordinates: {coords[idx]}")
-	
-	print(f"\nStep 6: Saving results...")
+			location_name = final_location_names[idx] if idx < len(final_location_names) else f"Location_{idx+1}"
+			print(f"{i + 1:2d}. {location_name}")
+			print(f"     Coordinates: {coords[idx]}")
+		
+	print(f"\nStep 6: Fetching road-following route geometry...")
+	route_segments = fetch_directions_segments(
+		coords,
+		route,
+		final_location_names,
+		gmaps,
+		cache,
+		enabled=args.directions_paths
+	)
+
+	print(f"\nStep 7: Saving results...")
 	out_dir = os.path.dirname(out_base)
 	if out_dir:
 		os.makedirs(out_dir, exist_ok=True)
-	save_geojson(coords, route, final_location_names, output_file=f"{out_base}.geojson")
-	save_kml(coords, route, final_location_names, output_file=f"{out_base}.kml")
+	kml_file = f"{out_base}.kml"
+	geojson_file = f"{out_base}.geojson"
+	kmz_file_out = f"{out_base}.kmz"
+	save_geojson(coords, route, final_location_names, output_file=geojson_file, route_segments=route_segments)
+	save_kml(coords, route, final_location_names, output_file=kml_file, route_segments=route_segments)
+	save_kmz(kml_file, kmz_file_out)
 	
 	print("\n" + "=" * 50)
 	print("ROUTE OPTIMIZATION COMPLETED!")
 	print("=" * 50)
 	print(f"✓ Processed {len(coords)} locations")
-	print(f"✓ Optimal starting location: {final_location_names[route[0]]}")
-	print(f"✓ Optimized route saved to '{out_base}.geojson'")
-	print(f"✓ Optimized route saved to '{out_base}.kml'")
+	print(f"✓ Starting location: {final_location_names[route[0]]}")
+	print(f"✓ Final location: {final_location_names[route[-1]]}")
+	print(f"✓ Route shape: {args.route_shape}")
+	print(f"✓ Optimized route saved to '{geojson_file}'")
+	print(f"✓ Optimized route saved to '{kml_file}'")
+	print(f"✓ Optimized route saved to '{kmz_file_out}'")
 	print("✓ You can import these files into mapping software like Google Earth")
 	
 	# Show cache statistics
@@ -952,11 +1142,12 @@ def main():
 	print(f"\n📊 Cache Statistics:")
 	print(f"  - Geocode cache entries: {cache_stats['geocode_entries']}")
 	print(f"  - Distance cache entries: {cache_stats['distance_entries']}")
+	print(f"  - Directions cache entries: {cache_stats['directions_entries']}")
 	print(f"  - Cache valid for: {cache_stats['cache_duration_days']} days")
 	
 	# Calculate total optimization savings
 	total_possible_geocode_calls = len(coords)
-	total_possible_distance_calls = len(coords) * (len(coords) - 1) // 2  # Symmetric matrix
+	total_possible_distance_calls = len(coords) * (len(coords) - 1)
 	cost_per_geocode = 0.005  # $0.005 per geocode
 	cost_per_distance = 0.005  # $0.005 per distance matrix element
 	
@@ -965,30 +1156,29 @@ def main():
 	print(f"\n💰 Complete Optimization Summary:")
 	print(f"  - Total possible API calls: {total_possible_geocode_calls + total_possible_distance_calls}")
 	print(f"  - Geocode calls: {total_possible_geocode_calls}")
-	print(f"  - Distance matrix calls: {total_possible_distance_calls} (symmetric optimization)")
+	print(f"  - Distance matrix elements: {total_possible_distance_calls} (directed maximum quality)")
 	print(f"  - Theoretical cost without optimization: ${total_possible_cost:.2f}")
 	print(f"  - Subsequent runs will use cached data (near $0 cost)")
 	
 	print(f"\n🎯 Optimization Features Applied:")
-	print(f"  ✅ Symmetric distance matrix (50% API call reduction)")
-	print(f"  ✅ Geographic filtering (skips impossible distances)")
+	print(f"  ✅ Directed driving distance matrix")
+	print(f"  ✅ Maximum quality mode with no geographic skip penalties")
 	print(f"  ✅ Comprehensive caching system (30-day persistence)")
 	print(f"  ✅ Batch API processing (25x25 matrix calls)")
-	print(f"  ✅ Edge-based optimal starting point")
-	print(f"  ✅ Smart clustering for large datasets")
+	print(f"  ✅ Fixed start in {args.start_city}")
+	print(f"  ✅ Open itinerary without forced return")
+	print(f"  ✅ Directions API road-following route geometry")
 	print(f"  ✅ Advanced TSP solver with multiple strategies")
 	
 	if len(coords) > 50:
 		print(f"\n🚀 Large Dataset Optimizations:")
-		print(f"  - Clustering applied for {len(coords)} locations")
-		print(f"  - Reduced computational complexity")
-		print(f"  - Maintained solution quality")
+		print(f"  - Full-route solve attempted first for {len(coords)} locations")
+		print(f"  - Clustering retained as fallback only")
 	
 	print(f"\n📈 Performance Improvements:")
-	print(f"  - API calls reduced by up to 80% through optimization")
 	print(f"  - Caching eliminates repeat costs")
-	print(f"  - Edge-based starting ensures optimal route")
-	print(f"  - Multiple solving strategies for different problem sizes")
+	print(f"  - City entrances improve because the full route is solved at once")
+	print(f"  - Map lines follow roads instead of straight point-to-point chords")
 	
 if __name__ == "__main__":
 	main()
