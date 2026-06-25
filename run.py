@@ -12,6 +12,7 @@ GOOGLE_MAPS_API_KEY = os.getenv('GOOGLE_MAPS_API_KEY')
 if not GOOGLE_MAPS_API_KEY:
     raise ValueError("GOOGLE_MAPS_API_KEY not found in environment variables. Please check your .env file.")
 
+import sys
 import zipfile
 import xml.etree.ElementTree as ET
 import googlemaps
@@ -866,8 +867,10 @@ def save_kml(locations, route, location_names=None, output_file="optimized_route
 	
 # === Main Execution ===
 def main():
-	kmz_file = "file.kmz"  # Rename or change this if needed
-	
+	# Usage: python run.py [input.kmz] [output_base]
+	kmz_file = sys.argv[1] if len(sys.argv) > 1 else "file.kmz"  # Rename or change this if needed
+	out_base = sys.argv[2] if len(sys.argv) > 2 else "optimized_route"
+
 	# Check if KMZ file exists
 	if not os.path.exists(kmz_file):
 		print(f"Error: KMZ file '{kmz_file}' not found!")
@@ -927,16 +930,19 @@ def main():
 		print(f"     Coordinates: {coords[idx]}")
 	
 	print(f"\nStep 6: Saving results...")
-	save_geojson(coords, route, final_location_names)
-	save_kml(coords, route, final_location_names)
+	out_dir = os.path.dirname(out_base)
+	if out_dir:
+		os.makedirs(out_dir, exist_ok=True)
+	save_geojson(coords, route, final_location_names, output_file=f"{out_base}.geojson")
+	save_kml(coords, route, final_location_names, output_file=f"{out_base}.kml")
 	
 	print("\n" + "=" * 50)
 	print("ROUTE OPTIMIZATION COMPLETED!")
 	print("=" * 50)
 	print(f"✓ Processed {len(coords)} locations")
 	print(f"✓ Optimal starting location: {final_location_names[route[0]]}")
-	print(f"✓ Optimized route saved to 'optimized_route.geojson'")
-	print(f"✓ Optimized route saved to 'optimized_route.kml'")
+	print(f"✓ Optimized route saved to '{out_base}.geojson'")
+	print(f"✓ Optimized route saved to '{out_base}.kml'")
 	print("✓ You can import these files into mapping software like Google Earth")
 	
 	# Show cache statistics
