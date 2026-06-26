@@ -7,11 +7,10 @@ import argparse
 # Load environment variables from .env file
 load_dotenv()
 
-# Get API key from environment variable
+# Get API key from environment variable.
+# Not required up front: ORS is the default provider, and the Google key is only
+# validated when --api-provider google is actually selected (see create_api_client).
 GOOGLE_MAPS_API_KEY = os.getenv('GOOGLE_MAPS_API_KEY')
-
-if not GOOGLE_MAPS_API_KEY:
-    raise ValueError("GOOGLE_MAPS_API_KEY not found in environment variables. Please check your .env file.")
 
 import sys
 import zipfile
@@ -28,6 +27,101 @@ import hashlib
 import time
 import math
 from datetime import datetime, timedelta
+
+# ORS (OpenRouteService) support
+ORS_API_KEY = os.getenv('ORS_API_KEY')
+_ORS_AVAILABLE = False
+try:
+	import openrouteservice
+	_ORS_AVAILABLE = True
+except ImportError:
+	pass
+
+
+class ORSClientWrapper:
+	"""Wraps openrouteservice.Client to expose a googlemaps-compatible interface."""
+
+	def __init__(self, ors_client):
+		self._ors = ors_client
+
+	def geocode(self, address):
+		response = self._ors.pelias_search(text=address, size=1)
+		if response and response.get('features'):
+			feature = response['features'][0]
+			lon, lat = feature['geometry']['coordinates']
+			return [{'geometry': {'location': {'lat': lat, 'lng': lon}}}]
+		return []
+
+	def distance_matrix(self, origins, destinations, mode="driving", avoid="tolls", units="metric"):
+		if len(origins) != 1:
+			raise ValueError("ORS distance_matrix wrapper supports exactly one origin per call")
+		origin = origins[0]
+		coords = [[origin[1], origin[0]]]
+		dest_indices = []
+		for dest in destinations:
+			coords.append([dest[1], dest[0]])
+			dest_indices.append(len(dest_indices) + 1)
+
+		try:
+			response = self._ors.distance_matrix(
+				locations=coords,
+				profile='driving-car',
+				metrics=['distance'],
+				sources=[0],
+				destinations=dest_indices
+			)
+			distances = response.get('distances', [[]])[0] if response else []
+			elements = []
+			for d in distances:
+				if d is not None:
+					elements.append({'status': 'OK', 'distance': {'value': int(d)}})
+				else:
+					elements.append({'status': 'ZERO_RESULTS'})
+			return {'rows': [{'elements': elements}]}
+		except Exception:
+			elements = [{'status': 'ZERO_RESULTS'}] * len(destinations)
+			return {'rows': [{'elements': elements}]}
+
+	def directions(self, origin, destination, mode="driving", avoid="tolls"):
+		coords = [[origin[1], origin[0]], [destination[1], destination[0]]]
+		options = {}
+		if avoid == "tolls":
+			options['avoid_features'] = ['tollways']
+
+		try:
+			response = self._ors.directions(
+				coordinates=coords,
+				profile='driving-car',
+				format='json',
+				options=options
+			)
+			if response and response.get('routes'):
+				geometry = response['routes'][0].get('geometry', '')
+				return [{'overview_polyline': {'points': geometry}}]
+		except Exception:
+			pass
+
+		return []
+
+
+def create_api_client(provider):
+	"""Create a unified API client. provider is 'google' or 'ors'."""
+	if provider == 'google':
+		if not GOOGLE_MAPS_API_KEY:
+			raise ValueError("GOOGLE_MAPS_API_KEY not set. Check your .env file.")
+		return googlemaps.Client(key=GOOGLE_MAPS_API_KEY)
+
+	if provider == 'ors':
+		if not _ORS_AVAILABLE:
+			raise ImportError("openrouteservice package not installed. Run: pip install openrouteservice")
+		if not ORS_API_KEY or ORS_API_KEY == 'your-openrouteservice-api-key-here':
+			raise ValueError(
+				"ORS_API_KEY not set. Get a free key at https://openrouteservice.org/dev/#/signup "
+				"and set ORS_API_KEY in your .env file."
+			)
+		return ORSClientWrapper(openrouteservice.Client(key=ORS_API_KEY))
+
+	raise ValueError(f"Unknown API provider: {provider}")
 
 DEFAULT_START_CITY = "Kingston"
 DEFAULT_START_MODE = "first-listed"
@@ -138,24 +232,24 @@ def cluster_locations(locations, max_cluster_size=15):
 	return clusters
 
 # === Caching and API Optimization ===
-	class APICache:
-		def __init__(self, cache_dir="cache", cache_duration_days=30):
-			self.cache_dir = cache_dir
-			self.cache_duration = timedelta(days=cache_duration_days)
-			self.geocode_cache_file = os.path.join(cache_dir, "geocode_cache.pkl")
-			self.distance_cache_file = os.path.join(cache_dir, "distance_cache.pkl")
-			self.directions_cache_file = os.path.join(cache_dir, "directions_cache.pkl")
+class APICache:
+	def __init__(self, cache_dir="cache", cache_duration_days=30):
+		self.cache_dir = cache_dir
+		self.cache_duration = timedelta(days=cache_duration_days)
+		self.geocode_cache_file = os.path.join(cache_dir, "geocode_cache.pkl")
+		self.distance_cache_file = os.path.join(cache_dir, "distance_cache.pkl")
+		self.directions_cache_file = os.path.join(cache_dir, "directions_cache.pkl")
 
-			# Create cache directory if it doesn't exist
-			os.makedirs(cache_dir, exist_ok=True)
+		# Create cache directory if it doesn't exist
+		os.makedirs(cache_dir, exist_ok=True)
 
-			# Load existing caches
-			self.geocode_cache = self._load_cache(self.geocode_cache_file)
-			self.distance_cache = self._load_cache(self.distance_cache_file)
-			self.directions_cache = self._load_cache(self.directions_cache_file)
+		# Load existing caches
+		self.geocode_cache = self._load_cache(self.geocode_cache_file)
+		self.distance_cache = self._load_cache(self.distance_cache_file)
+		self.directions_cache = self._load_cache(self.directions_cache_file)
 
-			print(f"Cache initialized: {len(self.geocode_cache)} geocode entries, {len(self.distance_cache)} distance entries, {len(self.directions_cache)} directions entries")
-	
+		print(f"Cache initialized: {len(self.geocode_cache)} geocode entries, {len(self.distance_cache)} distance entries, {len(self.directions_cache)} directions entries")
+
 	def _load_cache(self, cache_file):
 		"""Load cache from file, filtering out expired entries"""
 		if not os.path.exists(cache_file):
@@ -171,12 +265,12 @@ def cluster_locations(locations, max_cluster_size=15):
 			for key, (data, timestamp) in cache.items():
 				if now - timestamp < self.cache_duration:
 					valid_cache[key] = (data, timestamp)
-			
+
 			return valid_cache
 		except Exception as e:
 			print(f"Warning: Could not load cache from {cache_file}: {e}")
 			return {}
-	
+
 	def _save_cache(self, cache, cache_file):
 		"""Save cache to file"""
 		try:
@@ -184,13 +278,13 @@ def cluster_locations(locations, max_cluster_size=15):
 				pickle.dump(cache, f)
 		except Exception as e:
 			print(f"Warning: Could not save cache to {cache_file}: {e}")
-	
+
 	def _hash_location(self, location):
 		"""Create a hash key for a location (lat, lon)"""
 		if isinstance(location, (tuple, list)):
 			return f"{location[0]:.6f},{location[1]:.6f}"
 		return str(location)
-	
+
 	def get_geocode(self, address):
 		"""Get geocoded coordinates from cache or return None"""
 		key = hashlib.md5(address.encode()).hexdigest()
@@ -199,13 +293,13 @@ def cluster_locations(locations, max_cluster_size=15):
 			print(f"  Cache hit for: {address}")
 			return data
 		return None
-	
+
 	def set_geocode(self, address, result):
 		"""Save geocoded result to cache"""
 		key = hashlib.md5(address.encode()).hexdigest()
 		self.geocode_cache[key] = (result, datetime.now())
 		self._save_cache(self.geocode_cache, self.geocode_cache_file)
-	
+
 	def get_distance(self, origin, destination):
 		"""Get distance from cache or return None"""
 		key = f"{self._hash_location(origin)}->{self._hash_location(destination)}"
@@ -213,36 +307,37 @@ def cluster_locations(locations, max_cluster_size=15):
 			data, timestamp = self.distance_cache[key]
 			return data
 		return None
-	
-		def set_distance(self, origin, destination, result):
-			"""Save distance result to cache"""
-			key = f"{self._hash_location(origin)}->{self._hash_location(destination)}"
-			self.distance_cache[key] = (result, datetime.now())
-			self._save_cache(self.distance_cache, self.distance_cache_file)
 
-		def get_directions_path(self, origin, destination):
-			"""Get decoded directions path from cache or return None"""
-			key = f"{self._hash_location(origin)}->{self._hash_location(destination)}"
-			if key in self.directions_cache:
-				data, timestamp = self.directions_cache[key]
-				return data
-			return None
+	def set_distance(self, origin, destination, result):
+		"""Save distance result to cache"""
+		key = f"{self._hash_location(origin)}->{self._hash_location(destination)}"
+		self.distance_cache[key] = (result, datetime.now())
+		self._save_cache(self.distance_cache, self.distance_cache_file)
 
-		def set_directions_path(self, origin, destination, result):
-			"""Save decoded directions path to cache"""
-			key = f"{self._hash_location(origin)}->{self._hash_location(destination)}"
-			self.directions_cache[key] = (result, datetime.now())
-			self._save_cache(self.directions_cache, self.directions_cache_file)
-	
+	def get_directions_path(self, origin, destination):
+		"""Get decoded directions path from cache or return None"""
+		key = f"{self._hash_location(origin)}->{self._hash_location(destination)}"
+		if key in self.directions_cache:
+			data, timestamp = self.directions_cache[key]
+			return data
+		return None
+
+	def set_directions_path(self, origin, destination, result):
+		"""Save decoded directions path to cache"""
+		key = f"{self._hash_location(origin)}->{self._hash_location(destination)}"
+		self.directions_cache[key] = (result, datetime.now())
+		self._save_cache(self.directions_cache, self.directions_cache_file)
+
 	def get_cache_stats(self):
-			"""Return cache statistics"""
-			return {
-				'geocode_entries': len(self.geocode_cache),
-				'distance_entries': len(self.distance_cache),
-				'directions_entries': len(self.directions_cache),
-				'cache_directory': self.cache_dir,
-				'cache_duration_days': self.cache_duration.days
-			}
+		"""Return cache statistics"""
+		return {
+			'geocode_entries': len(self.geocode_cache),
+			'distance_entries': len(self.distance_cache),
+			'directions_entries': len(self.directions_cache),
+			'cache_directory': self.cache_dir,
+			'cache_duration_days': self.cache_duration.days
+		}
+
 
 # === Step 1: Extract Addresses and Names from KMZ ===
 def extract_addresses_from_kmz(kmz_path):
@@ -377,6 +472,9 @@ def geocode_addresses(addresses, location_names, gmaps, cache):
 				# Cache the result
 				cache.set_geocode(address, location)
 				print(f"  {len(coordinates)}. {name}: ({lat:.6f}, {lon:.6f})")
+				# ORS free tier: 100 geocodes/min
+				if isinstance(gmaps, ORSClientWrapper):
+					time.sleep(0.6)
 			else:
 				print(f"  Warning: Could not geocode address for {name}: {address}")
 				
@@ -452,7 +550,9 @@ def create_distance_matrix(locations, gmaps, cache, quality=DEFAULT_QUALITY):
 			origin_groups[origin_idx] = []
 		origin_groups[origin_idx].append(dest_idx)
 
-	batch_size = 25  # Google Maps allows up to 25 destinations for one origin.
+	# ORS can handle all destinations in one call; Google limits to 25 per call.
+	batch_size = 9999 if isinstance(gmaps, ORSClientWrapper) else 25
+	rate_limit_sleep = 2.0 if isinstance(gmaps, ORSClientWrapper) else 0.1  # ORS: 30 req/min for matrix
 	total_batches = sum((len(destinations) + batch_size - 1) // batch_size for destinations in origin_groups.values())
 	current_batch = 0
 
@@ -491,7 +591,8 @@ def create_distance_matrix(locations, gmaps, cache, quality=DEFAULT_QUALITY):
 							) * 1.5)
 							matrix[origin_idx][dest_idx] = fallback_distance
 				
-				time.sleep(0.1)
+				dir_sleep = 1.6 if isinstance(gmaps, ORSClientWrapper) else 0.1
+				time.sleep(dir_sleep)
 				
 			except Exception as e:
 				print(f"Error in batch request for origin {origin_idx}: {str(e)}")
@@ -505,16 +606,18 @@ def create_distance_matrix(locations, gmaps, cache, quality=DEFAULT_QUALITY):
 	print(f"Total API calls saved by optimization: {api_calls_saved}")
 	
 	# Calculate estimated cost savings
-	cost_per_call = 0.005  # $0.005 per distance matrix API call
+	is_ors = isinstance(gmaps, ORSClientWrapper)
+	cost_per_call = 0.0 if is_ors else 0.005
+	provider_name = "ORS (free)" if is_ors else "Google Maps"
 	estimated_savings = api_calls_saved * cost_per_call
 	total_possible_cost = total_pairs * cost_per_call
 	remaining_cost = len(pairs_to_calculate) * cost_per_call
 	
-	print(f"💰 Cost Analysis:")
+	print(f"💰 Cost Analysis ({provider_name}):")
 	print(f"  - Cost without optimization: ${total_possible_cost:.2f}")
 	print(f"  - Actual cost this run: ${remaining_cost:.2f}")
 	print(f"  - Savings this run: ${estimated_savings:.2f}")
-	print(f"  - Savings percentage: {(estimated_savings/total_possible_cost)*100:.1f}%")
+	print(f"  - Savings percentage: {(estimated_savings/total_possible_cost)*100:.1f}%" if total_possible_cost > 0 else "  - Savings percentage: N/A (free provider)")
 	
 	return matrix
 
@@ -796,6 +899,7 @@ def fetch_directions_segments(locations, route, location_names, gmaps, cache, en
 				path = cached_path
 				status = "cached"
 			else:
+				dir_sleep = 1.6 if isinstance(gmaps, ORSClientWrapper) else 0.1
 				try:
 					response = gmaps.directions(
 						origin=origin,
@@ -810,7 +914,7 @@ def fetch_directions_segments(locations, route, location_names, gmaps, cache, en
 							path = [(point["lat"], point["lng"]) for point in decoded]
 							cache.set_directions_path(origin, destination, path)
 							status = "directions"
-					time.sleep(0.1)
+					time.sleep(dir_sleep)
 				except Exception as e:
 					print(f"Warning: Directions failed for segment {i + 1} ({start_name} -> {end_name}): {e}")
 
@@ -1034,6 +1138,7 @@ def main():
 	parser.add_argument("--quality", choices=["maximum", "balanced"], default=DEFAULT_QUALITY, help="Routing quality/cost mode")
 	parser.add_argument("--directions-paths", dest="directions_paths", action="store_true", default=True, help="Use Directions API geometry for route lines")
 	parser.add_argument("--no-directions-paths", dest="directions_paths", action="store_false", help="Use straight route lines")
+	parser.add_argument("--api-provider", choices=["ors", "google"], default="ors", help="API provider for routing (default: ors)")
 	args = parser.parse_args()
 	kmz_file = args.kmz_file
 	out_base = args.out_base
@@ -1066,7 +1171,7 @@ def main():
 	
 	print(f"\nStep 2: Converting {len(addresses)} addresses to GPS coordinates...")
 	try:
-		gmaps = googlemaps.Client(key=GOOGLE_MAPS_API_KEY)
+		gmaps = create_api_client(args.api_provider)
 		coords, final_location_names, final_addresses = geocode_addresses(addresses, location_names, gmaps, cache)
 	except Exception as e:
 		print(f"Error geocoding addresses: {str(e)}")
@@ -1148,12 +1253,14 @@ def main():
 	# Calculate total optimization savings
 	total_possible_geocode_calls = len(coords)
 	total_possible_distance_calls = len(coords) * (len(coords) - 1)
-	cost_per_geocode = 0.005  # $0.005 per geocode
-	cost_per_distance = 0.005  # $0.005 per distance matrix element
+	cost_per_geocode = 0.0 if isinstance(gmaps, ORSClientWrapper) else 0.005
+	cost_per_distance = 0.0 if isinstance(gmaps, ORSClientWrapper) else 0.005
 	
 	total_possible_cost = (total_possible_geocode_calls * cost_per_geocode) + (total_possible_distance_calls * cost_per_distance)
 	
+	provider_name = "ORS (free)" if isinstance(gmaps, ORSClientWrapper) else "Google Maps"
 	print(f"\n💰 Complete Optimization Summary:")
+	print(f"  - API provider: {provider_name}")
 	print(f"  - Total possible API calls: {total_possible_geocode_calls + total_possible_distance_calls}")
 	print(f"  - Geocode calls: {total_possible_geocode_calls}")
 	print(f"  - Distance matrix elements: {total_possible_distance_calls} (directed maximum quality)")
@@ -1161,6 +1268,7 @@ def main():
 	print(f"  - Subsequent runs will use cached data (near $0 cost)")
 	
 	print(f"\n🎯 Optimization Features Applied:")
+	print(f"  ✅ API provider: {provider_name}")
 	print(f"  ✅ Directed driving distance matrix")
 	print(f"  ✅ Maximum quality mode with no geographic skip penalties")
 	print(f"  ✅ Comprehensive caching system (30-day persistence)")

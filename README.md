@@ -3,25 +3,20 @@
 Sample file is upstate art weekend 2026.
 Final map: https://www.google.com/maps/d/edit?mid=1Itebu15hqRqvCmXIoNYEkuUrp3_EF-k&usp=sharing
 
-A powerful Python tool that extracts locations from KML/KMZ files and finds the optimal traveling salesman route with minimum distance. Features comprehensive cost optimizations and supports both Google Maps and OpenRouteService APIs.
+A Python tool that extracts locations from KML/KMZ files and finds the optimal
+traveling-salesman route with minimum driving distance. Routing, geocoding, and
+road-following geometry are powered by [OpenRouteService](https://openrouteservice.org/)
+(ORS), which is free within generous daily limits.
 
 
 ## Features
 
 - **KML/KMZ File Processing**: Extracts addresses and coordinates from Google Earth files
-- **Intelligent Geocoding**: Converts addresses to GPS coordinates with caching
+- **Geocoding with caching**: Converts addresses to GPS coordinates, cached for 30 days
 - **TSP Route Optimization**: Finds the shortest route visiting all locations
-- **Cost Optimization**: Up to 80% API cost reduction through smart optimizations
-- **Multiple Output Formats**: Generates both GeoJSON and KML files
-- **Dual API Support**: Google Maps API and OpenRouteService
-
-
-
- `run.py` - Advanced Optimization Version 
-- **API**: Google Maps (requires API key)
-- **Optimizations**: Comprehensive cost-saving features
-- **Best for**: Large datasets, production use, cost-conscious applications
-
+- **Road-following geometry**: Draws the final route along real roads
+- **Multiple Output Formats**: Generates KML, GeoJSON, and KMZ
+- **Free**: Uses the OpenRouteService free tier — no per-request cost
 
 
 ## Installation
@@ -31,45 +26,25 @@ A powerful Python tool that extracts locations from KML/KMZ files and finds the 
 pip install -r requirements.txt
 ```
 
-### Required Dependencies
-- `googlemaps` - Google Maps API client (for run.py)
-- `ortools` - Google's optimization tools for TSP solving
-- `openrouteservice` - OpenRouteService API client (for run_ors.py)
+### Dependencies
+- `openrouteservice` - OpenRouteService API client (routing, geocoding, directions)
+- `ortools` - OR-Tools constraint solver, used for the TSP optimization
+- `googlemaps` - used only as an encoded-polyline decoder for route geometry
 - `python-dotenv` - Environment variable management
 - `zipfile`, `xml.etree.ElementTree` - Built-in Python libraries
 
 ## Setup
 
-### Environment Variables (Recommended)
-1. Copy the example environment file:
+1. Get a free API key from [OpenRouteService](https://openrouteservice.org/dev/#/signup).
+   The free tier allows ~1,000 geocodes/day, 500 matrix requests/day, and
+   2,000 directions requests/day.
+2. Copy the example environment file and add your key:
    ```bash
    cp .env.example .env
    ```
-2. Edit `.env` and add your API keys:
    ```bash
-   # For Google Maps version (run.py)
-   GOOGLE_MAPS_API_KEY=your-actual-google-maps-api-key
-   
-   # For OpenRouteService version (run_ors.py)
+   # .env
    ORS_API_KEY=your-actual-openrouteservice-api-key
-   ```
-
-### Option 1: Google Maps API (run.py)
-1. Get a Google Maps API key from [Google Cloud Console](https://console.cloud.google.com/)
-2. Enable these APIs:
-   - Geocoding API
-   - Distance Matrix API
-   - Directions API
-3. Add your key to `.env` file:
-   ```
-   GOOGLE_MAPS_API_KEY=your-api-key-here
-   ```
-
-### Option 2: OpenRouteService API (run_ors.py)
-1. Get a free API key from [OpenRouteService](https://openrouteservice.org/)
-2. Add your key to `.env` file:
-   ```
-   ORS_API_KEY=your-api-key-here
    ```
 
 ## Usage
@@ -81,7 +56,7 @@ Inputs and outputs are organized by year under `inputs/<year>/` and `outputs/<ye
 ```bash
 python3 -m venv .venv
 .venv/bin/python -m pip install -r requirements.txt
-cp .env.example .env          # then add your GOOGLE_MAPS_API_KEY
+cp .env.example .env          # then add your ORS_API_KEY
 ```
 
 ### 2. Run the optimizer
@@ -102,9 +77,15 @@ Missing output folders are created automatically.
 
 With no arguments it falls back to `file.kmz` → `optimized_route.*` in the
 current directory. By default, the route starts at the first listed Kingston
-venue, uses an open itinerary, solves against directed Google driving distances,
-and draws road-following paths with the Directions API. Geocoding, distance, and
-directions results are cached in `cache/`, so re-runs are near-free.
+venue, uses an open itinerary, solves against directed ORS driving distances,
+and draws road-following paths with the ORS Directions service. Geocoding,
+distance, and directions results are cached in `cache/`, so re-runs are fast and
+free.
+
+> **First run is slow.** ORS rate-limits the free tier, so the tool sleeps
+> between calls (geocoding, matrix, and directions). A fresh ~165-location run
+> takes roughly 10–15 minutes. Once the caches are warm, subsequent runs finish
+> in seconds.
 
 Optional flags:
 
@@ -117,7 +98,7 @@ Optional flags:
   --directions-paths
 ```
 
-### 3. Import into Google Maps (My Maps)
+### 3. Import into Google My Maps
 
 The optimizer writes a `.kmz` automatically. To import into
 [Google My Maps](https://www.google.com/maps/d/), use the KMZ because it is a
@@ -140,14 +121,13 @@ exported as `upstate_art_weekend_2026_full.kmz`, which is then fed to `run.py`.
 - Use the `.env` file for local development
 - Add `.env` to your `.gitignore` file
 - For production deployment, use your platform's environment variable system
-- Restrict API keys to specific domains/IPs when possible
 
 ### File Structure
 ```
 project/
-├── run.py                    # Route optimizer (Google Maps API)
+├── run.py                    # Route optimizer (OpenRouteService)
 ├── route_utils.py            # Shared helpers
-├── .env                      # Your API keys (DO NOT COMMIT)
+├── .env                      # Your API key (DO NOT COMMIT)
 ├── .env.example              # Template for environment variables
 ├── requirements.txt          # Python dependencies
 ├── inputs/                   # Source data, by year
@@ -158,7 +138,8 @@ project/
 │   └── 2026/optimized_route_2026.{kml,geojson,kmz}
 ├── cache/                    # Auto-created API cache
 │   ├── geocode_cache.pkl     # Cached geocoding results
-│   └── distance_cache.pkl    # Cached distance calculations
+│   ├── distance_cache.pkl    # Cached distance calculations
+│   └── directions_cache.pkl  # Cached road-following geometry
 └── kmz_extracted/            # Scratch dir (gitignored; regenerated each run)
 ```
 
@@ -171,47 +152,35 @@ project/
 - Supports both address-based and coordinate-based locations
 - Handles ExtendedData fields for complex KML structures
 
-#### 2. **Geocoding** 
-- Converts addresses to GPS coordinates
+#### 2. **Geocoding**
+- Converts addresses to GPS coordinates via the ORS Pelias geocoder
 - Caches results for 30 days to avoid repeat API calls
 - Handles direct coordinates without geocoding
 
-#### 3. **Distance Matrix Creation** (run.py only)
+#### 3. **Distance Matrix Creation**
 - **Directed Driving Matrix**: Calculates A→B independently from B→A for better real-world routing
-- **Maximum Quality Mode**: Uses real Google driving distances across the full dataset by default
-- **Batch Processing**: Groups API calls for efficiency
+- **Maximum Quality Mode**: Uses real ORS driving distances across the full dataset by default
+- **Rate-limited batching**: One matrix call per origin, spaced to respect ORS limits
 - **Comprehensive Caching**: Stores all distance calculations
+- On a failed call, falls back to a straight-line (haversine) estimate for that leg
 
 #### 4. **TSP Optimization**
 - **Fixed Open Start**: Defaults to the first listed Kingston venue and does not force a return loop
 - **Adaptive Algorithms**: Different strategies based on problem size:
   - Small (≤15): Exact algorithms with guided local search
-  - Medium (16-50): Simulated annealing for quality/speed balance  
+  - Medium (16-50): Simulated annealing for quality/speed balance
   - Large (>50): Tabu search with clustering for speed
 - **Cluster Fallback**: Keeps clustering as a fallback if the full-route solve fails
 
 #### 5. **Output Generation**
 - **GeoJSON**: For web mapping applications
 - **KML**: For Google Earth visualization
-- Both include route order, waypoints, and road-following path visualization
+- **KMZ**: Zipped KML for Google My Maps import
+- All include route order, waypoints, and road-following path visualization
 
-## Advanced Features (run.py)
-
-### Cost Optimizations
-- **Symmetric Matrix**: 50% API call reduction
-- **Geographic Filtering**: Skip impossible distances
-- **Caching System**: 100% savings on repeat runs
-- **Batch Processing**: Efficient API usage
-
-### Performance Statistics
-For 168 locations:
-- **Without optimization**: ~$140 first run
-- **With optimization**: ~$67 first run (52% savings)
-- **Subsequent runs**: Near $0 (cached)
-
-### Road-Following Geometry
-- Uses the Directions API after optimization to draw the final route along roads
-- Falls back to straight segments only for individual legs where Directions fails
+## Road-Following Geometry
+- Uses the ORS Directions service after optimization to draw the final route along roads
+- Falls back to straight segments only for individual legs where directions fail
 - Stores decoded directions paths in `cache/directions_cache.pkl`
 
 ## Output Files
@@ -221,10 +190,10 @@ For 168 locations:
 - Includes route order and waypoint properties
 - Color-coded markers for start/end points
 
-### KML Format  
-- Compatible with Google Earth
+### KML / KMZ Format
+- Compatible with Google Earth and Google My Maps
 - Styled waypoints with route order
-- Complete path visualization
+- Complete road-following path visualization
 
 ## Configuration Options
 
@@ -243,20 +212,15 @@ max_reasonable_distance = 200000  # meters
 time_limit = 300  # seconds
 ```
 
-## API Rate Limits & Costs
+## OpenRouteService Limits
 
-### Google Maps API (run.py)
-- **Geocoding**: $0.005 per request
-- **Distance Matrix**: $0.005 per element
-- **Directions**: used once per final route leg for road-following geometry
-- **Rate Limit**: 50 requests/second
-- **Optimization**: caching keeps repeat runs inexpensive
+The free tier is generous but rate-limited. Approximate daily quotas:
+- **Geocoding**: ~1,000 requests/day
+- **Distance Matrix**: ~500 requests/day
+- **Directions**: ~2,000 requests/day
 
-### OpenRouteService (run_ors.py)
-- **Free Tier**: 2,000 requests/day
-- **Geocoding**: Free
-- **Routing**: Free with limits
-- **Rate Limit**: 40 requests/minute
+The tool sleeps between calls to stay under the per-minute limits, and caches
+every result, so only the first run on a new dataset consumes meaningful quota.
 
 ## Troubleshooting
 
@@ -266,25 +230,23 @@ time_limit = 300  # seconds
 - Ensure your KMZ file is properly formatted
 - Check that it contains a valid KML file inside
 
-#### "API key invalid"
-- Verify your API key is correct
-- Check that required APIs are enabled (Google Cloud Console)
-- Ensure billing is set up for Google Maps API
+#### "ORS_API_KEY not set"
+- Verify your key is present in `.env`
+- Get a free key at https://openrouteservice.org/dev/#/signup
 
 #### "Rate limit exceeded"
-- The tool includes automatic rate limiting
-- For large datasets, the process may take time
-- Consider using caching between runs
+- The tool includes automatic rate limiting, but a very large fresh dataset can
+  still exceed the daily free-tier quota
+- Re-run later; cached results from the partial run are reused for free
 
 #### Memory issues with large datasets
-- Use clustering optimization (automatic in run.py)
+- Clustering optimization kicks in automatically for large datasets
 - Consider splitting very large datasets
 
 ### Performance Tips
-1. **Use caching**: Run the same dataset multiple times with near-zero cost
+1. **Use caching**: Re-run the same dataset for free in seconds
 2. **Start small**: Test with a subset of locations first
-3. **Monitor costs**: Check API usage in your provider's dashboard
-4. **Use run.py for production**: Better optimizations and caching
+3. **Be patient on the first run**: Rate limiting makes the initial pass slow
 
 ## Contributing
 
@@ -299,15 +261,13 @@ pip install -r requirements.txt
 
 ### Testing
 - Test with small datasets first
-- Verify API keys are working
+- Verify your ORS key is working
 - Check output file generation
- 
+
 
 ## Support
 
 For issues and questions:
-- Check troubleshooting section above
-- Review API provider documentation
+- Check the troubleshooting section above
+- Review the [OpenRouteService documentation](https://openrouteservice.org/dev/#/api-docs)
 - Submit issues with sample data (no API keys)
-
- 
